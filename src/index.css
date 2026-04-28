@@ -1,1 +1,605 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* === COLORS === */
+  --clr-bg:           #2E2E2C;
+  --clr-bg-alt:       #242422;
+  --clr-dark:         #141412;
+  --clr-text:         #EAE8E2;
+  --clr-muted:        #9A9791;
+  
+  /* === ACCENTS === */
+  --clr-highlight:    #5E544A;
+  --clr-copper:       #B87333;
+  --clr-copper-light: #D4956A;
+  
+  /* === BORDERS === */
+  --clr-border:       #454542;
+  --clr-border-light: #5A5A57;
+
+  /* === TYPOGRAPHY & SPACING === */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Outfit', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body { 
+  font-family: var(--font-body); 
+  color: var(--clr-text); 
+  background-color: var(--clr-bg); 
+  line-height: 1.6; 
+  overflow-x: hidden;
+  perspective: 1500px;
+  transition: background-color 0.3s ease;
+}
+
+.bg-pcb-grid { 
+  background-image: radial-gradient(circle, rgba(184, 115, 51, 0.15) 1px, transparent 1px); 
+  background-size: 32px 32px; 
+}
+
+/* ==========================================================================
+   MAIN LAYOUT (KUNCI ANTI-TERGENCET)
+   ========================================================================== */
+.page-layout {
+  display: grid;
+  grid-template-columns: 630px 1fr; 
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+.left-column {
+  width: 630px; /* REVISI: Samakan dengan grid */
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--clr-bg);
+  z-index: 50;
+  border-right: 1px solid var(--clr-border);
+}
+
+.right-column {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  min-width: 0; /* Mencegah kolom kanan meledak keluar grid */
+}
+
+.content-wrapper {
+  padding: 0 var(--space-xl) 10vh var(--space-xl);
+}
+
+/* ==========================================================================
+   HERO / PROFILE IMAGE
+   ========================================================================== */
+.hero-container {
+  position: absolute;
+  inset: 0; 
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--clr-bg) 0%, rgba(46,46,44, 0.7) 35%, transparent 80%);
+  z-index: 2;
+}
+
+.hero-text-content {
+  position: relative;
+  z-index: 3;
+  padding: var(--space-xl);
+  padding-bottom: 12vh;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & SCALES
+   ========================================================================== */
+.main-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.main-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--clr-copper);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+.about-text {
+  color: var(--clr-text);
+  /* REVISI: Teks About Me diperbesar 2x lipat (hampir menyentuh 3rem) */
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+  max-width: 100%;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: var(--space-lg);
+}
+
+.t-mono { 
+  font-family: var(--font-mono); 
+  font-size: 0.75rem; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+}
+
+.t-label { 
+  font-family: var(--font-mono); 
+  font-size: 0.65rem; 
+  color: var(--clr-copper); 
+  letter-spacing: 0.15em; 
+}
+
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   INTERNAL NAVIGATION
+   ========================================================================== */
+.right-nav {
+  position: relative; 
+  background-color: transparent;
+  backdrop-filter: none;
+  /* REVISI: Jarak batas atas (padding-top) dijauhkan 4x lipat (sekitar 120px) */
+  padding: 70px var(--space-xl) var(--space-xl) var(--space-xl);
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; 
+  gap: 60px;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to left, var(--clr-border) 0%, transparent 80%) 1;
+}
+
+/* ==========================================================================
+   SECTIONS & SEPARATORS (MANAJEMEN JARAK)
+   ========================================================================== */
+
+/* 1. ABOUT ME: Dibuat memenuhi layar (Sampul) */
+/* ==========================================================================
+   ABOUT ME: PENGATURAN SAMPUL (COVER)
+   ========================================================================== */
+.about-section {
+  /* REVISI: Gunakan 100vh agar section ini benar-benar setinggi layar penuh */
+  min-height: 95vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* REVISI: Tambahkan padding bawah yang besar khusus untuk section ini 
+     agar Education terdorong jauh ke bawah layar */
+  padding-top: 20vh;
+  padding-bottom: 40vh; 
+  
+  border-top: none;
+  /* Pastikan elemen ini tidak punya margin yang menarik elemen bawah ke atas */
+  margin-bottom: 0; 
+}
+
+/* 2. POIN DATA: EDUCATION sampai CONTACT (Gap diperpendek 3/5) */
+.scroll-section, .contact-section {
+  /* Jarak awal: 1.75 * 0.4 (2/5) = 0.7 */
+  padding: calc(var(--space-xl) * 0.9) 0; 
+  min-height: auto; /* Menghilangkan paksaan tinggi agar lebih rapat */
+  margin-bottom: 0; /* Menghilangkan margin tambahan jika ada */
+}
+
+.section-title {
+  color: var(--clr-muted);
+  /* Memberi jarak sedikit saja antara judul dan kartu data */
+  margin-bottom: var(--space-md); 
+  font-size: 3.8rem; 
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   PREVIEW CARDS & IMAGE CAROUSEL
+   ========================================================================== */
+.preview-card {
+  background: var(--clr-bg-alt);
+  border: 2px solid var(--clr-border); /* REVISI: Border dipertebal dari 1px ke 2px */
+  border-radius: 16px; 
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; 
+  overflow: hidden; 
+  padding: 0; 
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.preview-card:hover {
+  border-color: var(--clr-copper-light);
+  transform: scale(1.02);
+}
+
+.preview-image-container {
+  /* REVISI: Lebar gambar "memakan" ruang lebih banyak dari card (jadi 45%) */
+  width: 45%; 
+  min-width: 280px;
+  max-width: 450px;
+  position: relative;
+  flex-shrink: 0; 
+}
+
+.preview-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease; 
+}
+
+.preview-image-container img.active {
+  opacity: 1;
+}
+
+.preview-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px; 
+  width: 100px;
+  background: linear-gradient(to right, transparent 0%, var(--clr-bg-alt) 100%);
+  z-index: 2;
+}
+
+.preview-content-wrapper {
+  padding: var(--space-xl);
+  display: flex;
+  flex: 1;
+  min-width: 0; 
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xl);
+  z-index: 3;
+}
+
+.preview-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-title {
+  font-family: var(--font-display);
+  /* REVISI: Judul Universitas/Projects diperbesar 2x lipat */
+  font-size: clamp(3.6rem, 5vw, 4.6rem); 
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.preview-subtitle {
+  font-family: var(--font-body);
+  color: var(--clr-muted);
+  /* REVISI: Subtitle (B.Eng / Digital Logic) diperbesar 2x lipat */
+  font-size: 2.2rem; 
+}
+
+.preview-latest-label {
+  margin-bottom: 12px;
+  /* REVISI: LATEST diperbesar 2x lipat */
+  font-size: 1.2rem; 
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn-offset, .btn-learn-more {
+  display: inline-block;
+  font-family: var(--font-mono);
+  /* REVISI: Font tombol diperbesar 1.5x (dari 1.2rem ke 1.8rem) */
+  font-size: 1.8rem; 
+  color: var(--clr-text);
+  background-color: var(--clr-bg-alt);
+  border: 1px solid var(--clr-border-light);
+  border-radius: 14px;
+  padding: 16px 32px; /* Padding ikut disesuaikan agar proporsional */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  /* Kotak Oren (Shadow) */
+  box-shadow: 8px 8px 0px var(--clr-copper); 
+  transition: all 0.1s ease-out; /* Lebih cepat agar snappy */
+  cursor: pointer;
+  flex-shrink: 0; 
+  /* Kunci: Pastikan tombol diam saat normal */
+  transform: translate(0, 0) !important; 
+}
+
+.btn-offset:hover, .btn-learn-more:hover {
+  color: var(--clr-copper-light);
+  background-color: var(--clr-dark);
+  box-shadow: 8px 8px 0px var(--clr-copper-light); 
+  /* Kunci: Tetap diam di tempat saat di-hover */
+  transform: translate(0, 0) !important; 
+}
+
+.btn-offset:active, .btn-learn-more:active {
+  /* Kunci: Kotak Abu-abu (Tombol utama) bergerak ke kanan-bawah saat DIKLIK */
+  transform: translate(6px, 6px) !important; 
+  /* Kotak Oren (Shadow) menyusut seolah ditekan ke dalam */
+  box-shadow: 2px 2px 0px var(--clr-copper-light) !important;
+}
+
+/* ==========================================================================
+   SOCIAL LINKS & ICONS
+   ========================================================================== */
+.social-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.social-icon {
+  width: 60px; 
+  height: 60px;
+  color: var(--clr-muted); 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--clr-copper); 
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+#root {
+  transform-origin: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.modal-open #root {
+  transform: translateZ(-200px) scale(0.9);
+  filter: blur(5px);
+}
+
+.modal-overlay {
+  position: fixed; 
+  inset: 0; 
+  background: rgba(20, 20, 18, 0.85); 
+  backdrop-filter: blur(12px);
+  z-index: 999; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: var(--space-md);
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+.modal-content {
+  background: var(--clr-bg); 
+  width: 100%; 
+  max-width: 900px; 
+  max-height: 85vh; 
+  overflow-y: auto;
+  border: 1px solid var(--clr-border); 
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.5s 0.1s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--clr-border);
+  background-color: var(--clr-bg-alt);
+}
+
+.modal-close {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--clr-muted);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-close:hover {
+  color: var(--clr-copper);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: var(--space-lg);
+}
+
+.service-item {
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--clr-border);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.service-item:first-child { border-top: none; }
+
+.service-item__num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--clr-muted);
+  width: 150px;
+}
+
+.service-item__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  width: 250px;
+}
+
+.service-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 4px 8px;
+  background: var(--clr-bg-alt);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-muted);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-on-load {
+  animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes slideUpFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (STRICT ORDER)
+   ========================================================================== */
+
+/* 1. Layar Sedang (Laptop Kecil / Tablet Landscape) */
+@media (max-width: 1400px) {
+  .page-layout {
+    grid-template-columns: 520px 1fr; 
+  }
+  .left-column { 
+    width: 520px; 
+  }
+}
+
+/* 2. Mode 1 Kolom (Tablet Portrait / Layar Sempit) */
+@media (max-width: 1100px) {
+  .page-layout { 
+    grid-template-columns: 1fr; 
+    height: auto;
+    overflow: auto; 
+  }
+  .left-column { 
+    position: relative; 
+    width: 100%;
+    height: auto;
+    top: 0; 
+    border-right: none;
+    margin-bottom: var(--space-xl); 
+    border-bottom: 1px solid var(--clr-border); 
+  }
+  .right-column {
+    margin-left: 0;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* 3. Mode HP (Smartphone) */
+@media (max-width: 850px) {
+  .preview-card {
+    flex-direction: column; 
+  }
+  .preview-image-container {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+  }
+  .preview-image-container::after {
+    top: auto;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 0%, var(--clr-bg-alt) 100%);
+  }
+  .preview-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-lg);
+  }
+  .btn-learn-more, .btn-offset {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-border); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-copper); 
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--clr-bg-alt); 
+}
