@@ -37,14 +37,6 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State untuk Menu HP
 
   useEffect(() => {
-    if (aboutRef.current && scrollContainerRef.current) {
-      setTimeout(() => {
-        aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 800);
-    }
-  }, []);
-
-  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

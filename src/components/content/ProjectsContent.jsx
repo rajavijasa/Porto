@@ -1,51 +1,30 @@
+import projImg from '../../assets/universitas.jpg'; // Ganti dengan gambar proyek Anda
+
 export default function ProjectsContent() {
   const projects = [
-    {
-      id: "01",
-      title: "16-Channel Parallel Bitonic Sorter",
-      category: "Digital Logic Design",
-      desc: "Designed and implemented a high-performance parallel sorting algorithm using VHDL for low-level hardware architectures[cite: 48, 84].",
-      tech: ["VHDL", "FPGA"]
-    },
-    {
-      id: "02",
-      title: "Smart Clothesline System",
-      category: "IoT / Embedded Systems",
-      desc: "Built a Blynk-based weather-responsive control system using ESP32 microcontrollers and servo motors for automated clothesline movement[cite: 27, 28].",
-      tech: ["ESP32", "Blynk", "Sensors"]
-    },
-    {
-      id: "03",
-      title: "Neon Database & Movie System",
-      category: "Database Management",
-      desc: "Structured high-performance database schemas and entity relationship diagrams for movie information storage using Microsoft SQL Server and Neon[cite: 118, 119].",
-      tech: ["SQL Server", "Neon DB", "ERD"]
-    },
-    {
-      id: "04",
-      title: "AI Job Replacement Trends",
-      category: "Data Analysis",
-      desc: "Processed and analyzed labor datasets (2020-2026) using Python and Pandas to visualize trends in AI automation[cite: 48, 84].",
-      tech: ["Python", "Pandas", "Matplotlib"]
-    }
+    { year: "Dec 2025", inst: "16-Channel Parallel Bitonic Sorter", major: "Digital Logic Design", desc: "Designed and implemented a parallel sorting network on FPGA using VHDL.", skills: ["FPGA", "VHDL", "Digital Logic"], img: projImg },
+    { year: "2025 — 2026", inst: "LabuBoom Game", major: "Game Development", desc: "Managed software repository and backend deployment using Java and Spring Boot.", skills: ["Java", "Spring Boot", "LibGDX"], img: projImg },
+    { year: "April 2026", inst: "Personal Web Portfolio", major: "Frontend Engineering", desc: "Built a responsive and interactive personal portfolio utilizing React and Vite.", skills: ["React", "CSS", "Vite"], img: projImg }
   ];
 
   return (
     <div>
-      <h2 className="t-h2" style={{ marginBottom: 'var(--space-2xl)' }}>
-        Selected<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Lab Work</em>
+      <h2 className="t-h2" style={{ marginBottom: 'var(--space-xl)', fontSize: 'clamp(2rem, 4.8vw, 3.2rem)' }}>
+        Technical<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
       </h2>
-      <div style={{ display: 'grid', gap: 'var(--space-xl)' }}>
-        {projects.map((proj) => (
-          <div key={proj.id} style={{ paddingBottom: 'var(--space-lg)', borderBottom: '1px solid var(--clr-border)' }}>
-            <div className="t-mono" style={{ color: 'var(--clr-copper)', marginBottom: '8px' }}>Module {proj.id}</div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem' }}>{proj.title}</h3>
-              <span className="t-label" style={{ marginTop: '8px' }}>{proj.category}</span>
+      <div>
+        {projects.map((proj, i) => (
+          <div key={i} className="popup-service-item">
+            <div className="popup-img-wrapper"><img src={proj.img} alt={proj.inst} /></div>
+            <div className="popup-text-wrapper">
+              <span className="service-item__num" style={{ marginBottom: '12px', fontSize: '1.25rem' }}>{proj.year}</span>
+              <div className="service-item__name" style={{ fontSize: '2.7rem', lineHeight: '1.1' }}>{proj.inst}
+                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>{proj.major}</div>
+              </div>
             </div>
-            <p style={{ color: 'var(--clr-muted)', marginBlock: '16px', maxWidth: '650px' }}>{proj.desc}</p>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              {proj.tech.map(t => <span key={t} className="pin-tag">{t}</span>)}
+            <div className="popup-desc-wrapper">
+              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{proj.desc}</p>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{proj.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
             </div>
           </div>
         ))}
