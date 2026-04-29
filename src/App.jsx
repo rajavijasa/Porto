@@ -124,7 +124,9 @@ export default function App() {
 
             <section id="contact" className="contact-section reveal">
               <h2 className="section-title t-mono">CONTACT ME</h2>
-              <div className="social-links" style={{ gap: '2.5rem', marginTop: '1rem' }}>
+              
+              {/* Bungkus ikon dengan div social-links yang sudah kita beri margin simetris di CSS */}
+              <div className="social-links">
                 <a href="https://github.com/rajavijasa" target="_blank" rel="noreferrer">
                   <img src={githubIcon} alt="GitHub" className="social-icon" />
                 </a>

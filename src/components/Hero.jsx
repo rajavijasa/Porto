@@ -18,17 +18,8 @@ export default function Hero() {
       </div>
       
       <div className="hero-text-content">
-        <h1 className="main-title" style={{ position: 'relative', zIndex: 10 }}>
-          Raja Avicenna
-        </h1>
-        {/* REVISI: Opasitas dinaikkan menjadi 0.45 agar abu-abunya pas seperti referensi */}
-        <h1 className="main-title" style={{ 
-          color: 'rgba(234, 232, 226, 1)', 
-          position: 'relative', 
-          zIndex: 10,
-          marginTop: '-10px' 
-        }}>
-          Al-Kindi Vijasa
+        <h1 className="main-title" style={{ position: 'relative', zIndex: 10, lineHeight: '1.1' }}>
+          Raja Avicenna<br />Al-Kindi Vijasa
         </h1>
         <h2 className="main-subtitle" style={{ 
           fontSize: '1.2rem', 
