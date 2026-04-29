@@ -8,13 +8,18 @@ const ScrollSection = ({ id, title, latestItem, images, onLearnMore, index = 0 }
     let interval;
     const isMobile = window.innerWidth <= 850;
     
-    // Auto-play selang-seling di HP (berdasarkan index), atau aktif saat Hover di Laptop
+    // Auto-play selang-seling di HP, atau aktif saat Hover di Laptop
     if ((isHovering || isMobile) && images && images.length > 1) {
+      
+      // JEDA AWAL SELANG-SELING: Kotak 0 mulai lgsg, Kotak 1 tunda 1 detik, Kotak 2 tunda 2 detik
       const timeout = setTimeout(() => {
+        
+        // INTERVAL: Gambar berganti setiap 3000ms (3 Detik)
         interval = setInterval(() => {
           setCurrentImg(prev => (prev + 1) % images.length);
-        }, 1000); // Ganti tiap 1 detik
-      }, isMobile ? index * 400 : 0); // Jeda selang-seling 400ms antar data
+        }, 3000); 
+        
+      }, isMobile ? index * 1000 : 0); 
       
       return () => { clearTimeout(timeout); clearInterval(interval); }
     } else {

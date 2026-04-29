@@ -674,54 +674,92 @@ body {
 }
 
 /* ==========================================================================
-   REVISI TERAKHIR: HAMBURGER, POPUP 1 BARIS, & SCROLL LOCK
+   REVISI FINAL: PROPORSI KETAT, MOBILE ALIGNMENT, & HERO EXPANSION
    ========================================================================== */
 
-/* 1. Pengunci Scroll Layar (Scroll Lock) */
-.locked-scroll {
-  overflow: hidden !important;
+/* --- 1. LAPTOP / MONITOR (16:9) --- */
+
+/* Memangkas Ketebalan Kotak Data hingga ~40% (Dari 64px menjadi 25px) */
+.preview-content-wrapper {
+  padding: 25px 32px !important; 
+}
+/* Menjaga agar gambar seperti pita tidak penyok/terdistorsi */
+.preview-image-container img {
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
-/* 2. Judul Pop-up (85% size, Center, 1 Baris, Padding Bawah -50%) */
-.popup-header-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem) !important; /* ~85% dari sebelumnya */
-  text-align: center;
-  white-space: nowrap; /* Memaksa jadi 1 baris */
-  width: 100%;
-  margin-bottom: calc(var(--space-xl) * 0.5) !important; /* Padding bawah -50% */
+/* Memangkas Teks Kotak Data (50% ukuran awal) & LATEST (60%) */
+.preview-title {
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem) !important; 
+  margin-bottom: 4px !important;
+}
+.preview-subtitle {
+  font-size: 1.1rem !important; 
+}
+.preview-latest-label {
+  font-size: 0.75rem !important; 
+  margin-bottom: 8px !important;
 }
 
-/* 3. Hamburger Menu & Animasi Silang */
-.mobile-menu-btn {
-  display: none; position: fixed; top: 24px; left: 24px; z-index: 1001;
-  background: rgba(46,46,44, 0.8); backdrop-filter: blur(5px);
-  border: 1px solid var(--clr-border); border-radius: 8px;
-  width: 48px; height: 48px; cursor: pointer;
-  flex-direction: column; justify-content: center; align-items: center; gap: 6px;
-}
+/* --- 2. FITUR UMUM (SCROLL LOCK, HAMBURGER, POPUP HEADER) --- */
+.locked-scroll { overflow: hidden !important; }
+.popup-header-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem) !important; text-align: center; white-space: nowrap; width: 100%; margin-bottom: calc(var(--space-xl) * 0.5) !important; }
+
+.mobile-menu-btn { display: none; position: fixed; top: 24px; left: 24px; z-index: 1001; background: rgba(46,46,44, 0.8); backdrop-filter: blur(5px); border: 1px solid var(--clr-border); border-radius: 8px; width: 48px; height: 48px; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
 .mobile-menu-btn .bar { width: 24px; height: 2px; background-color: var(--clr-text); transition: all 0.3s ease; }
-/* Animasi menjadi silang (X) */
 .mobile-menu-btn.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .mobile-menu-btn.open .bar:nth-child(2) { opacity: 0; }
 .mobile-menu-btn.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* 4. Revisi Khusus Layar HP (Mobile) */
+/* --- 3. HP / MOBILE OVERRIDES (<850px) --- */
 @media (max-width: 850px) {
+  /* Kunci scroll horizontal HP & Munculkan Hamburger */
+  body, .page-layout { overflow-x: hidden !important; }
   .mobile-menu-btn { display: flex; }
   .right-nav { display: none !important; }
   
-  /* Mencegah layar HP bisa di-scroll horizontal (bocor kiri-kanan) */
-  body, .page-layout { overflow-x: hidden !important; }
-  
-  /* Judul Section (EDUCATION, dll) 1 Baris dan Tidak Bikin New Line */
-  .section-title { white-space: nowrap !important; font-size: clamp(2rem, 8vw, 3rem) !important; }
-  
-  /* Posisi Nama & Jurusan ke Bawah (25%) dan Memaksa 1 Baris */
-  .hero-text-content { padding-bottom: 3vh !important; }
+  /* Hero / Profil: Melebarkan jarak bawah hingga 180% (Sekitar 22vh) */
+  .hero-text-content { 
+    padding-bottom: 22vh !important; 
+  }
   .main-title, .main-subtitle { white-space: nowrap !important; }
   
-  /* Popup Vertikal HP (Gambar di atas, teks di bawah) */
+  /* Judul Section (EDUCATION dll) 80% dari awal & Menengahkan */
+  .section-title { 
+    font-size: clamp(1.6rem, 6.4vw, 2.4rem) !important; 
+    text-align: center !important; 
+    white-space: nowrap !important;
+  }
+  
+  /* Contact Me & Kartu Data: Dibuat Rata Tengah */
+  .social-links { 
+    justify-content: center !important; 
+    width: 100%; 
+  }
+  .preview-content-wrapper { 
+    align-items: center !important; 
+    text-align: center !important; 
+  }
+  
+  /* Teks Kartu Data HP: 60% Judul/Sub, 70% LATEST */
+  .preview-title { font-size: 1.4rem !important; }
+  .preview-subtitle { font-size: 0.9rem !important; }
+  .preview-latest-label { font-size: 0.85rem !important; }
+  
+  /* Tombol Learn More Disinkronkan dengan 75% awal (Sama dengan Navigasi) */
+  .btn-learn-more {
+    font-size: 0.95rem !important;
+    padding: 8px 16px !important;
+    box-shadow: 4px 4px 0px var(--clr-copper) !important;
+  }
+  .btn-learn-more:hover { box-shadow: 4px 4px 0px var(--clr-copper-light) !important; }
+  .btn-learn-more:active {
+    transform: translate(4px, 4px) !important; 
+    box-shadow: 1px 1px 0px var(--clr-copper-light) !important;
+  }
+  
+  /* Popup Vertikal HP */
   .popup-service-item { flex-direction: column; align-items: flex-start; }
   .popup-img-wrapper { width: 100%; }
   .popup-img-wrapper img { height: auto; aspect-ratio: 16/9; }
