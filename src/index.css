@@ -1,23 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  /* === COLORS === */
   --clr-bg:           #2E2E2C;
   --clr-bg-alt:       #242422;
   --clr-dark:         #141412;
   --clr-text:         #EAE8E2;
   --clr-muted:        #9A9791;
-  
-  /* === ACCENTS === */
   --clr-highlight:    #5E544A;
   --clr-copper:       #B87333;
   --clr-copper-light: #D4956A;
-  
-  /* === BORDERS === */
   --clr-border:       #454542;
   --clr-border-light: #5A5A57;
 
-  /* === TYPOGRAPHY & SPACING === */
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-body:    'Outfit', sans-serif;
   --font-mono:    'IBM Plex Mono', monospace;
@@ -26,9 +20,6 @@
   --space-xl: 64px;
 }
 
-/* ==========================================================================
-   BASE & RESET
-   ========================================================================== */
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 
@@ -55,7 +46,7 @@ body {
 }
 
 /* ==========================================================================
-   MAIN LAYOUT (KUNCI ANTI-TERGENCET)
+   MAIN LAYOUT & HERO
    ========================================================================== */
 .page-layout {
   display: grid;
@@ -66,7 +57,7 @@ body {
 }
 
 .left-column {
-  width: 630px; /* REVISI: Samakan dengan grid */
+  width: 630px; 
   height: 100vh;
   position: sticky;
   top: 0;
@@ -85,16 +76,13 @@ body {
   overflow-y: auto;
   scroll-behavior: smooth;
   width: 100%;
-  min-width: 0; /* Mencegah kolom kanan meledak keluar grid */
+  min-width: 0; 
 }
 
 .content-wrapper {
   padding: 0 var(--space-xl) 10vh var(--space-xl);
 }
 
-/* ==========================================================================
-   HERO / PROFILE IMAGE
-   ========================================================================== */
 .hero-container {
   position: absolute;
   inset: 0; 
@@ -118,7 +106,7 @@ body {
 }
 
 /* ==========================================================================
-   TYPOGRAPHY & SCALES
+   TYPOGRAPHY
    ========================================================================== */
 .main-title {
   font-family: var(--font-display);
@@ -138,7 +126,6 @@ body {
 
 .about-text {
   color: var(--clr-text);
-  /* REVISI: Teks About Me diperbesar 2x lipat (hampir menyentuh 3rem) */
   font-size: clamp(1.5rem, 3vw, 2rem); 
   max-width: 100%;
   line-height: 1.6;
@@ -167,13 +154,12 @@ body {
 }
 
 /* ==========================================================================
-   INTERNAL NAVIGATION
+   NAVIGATION
    ========================================================================== */
 .right-nav {
   position: relative; 
   background-color: transparent;
   backdrop-filter: none;
-  /* REVISI: Jarak batas atas (padding-top) dijauhkan 4x lipat (sekitar 120px) */
   padding: 70px var(--space-xl) var(--space-xl) var(--space-xl);
   z-index: 100;
   display: flex;
@@ -185,52 +171,38 @@ body {
 }
 
 /* ==========================================================================
-   SECTIONS & SEPARATORS (MANAJEMEN JARAK)
-   ========================================================================== */
-
-/* 1. ABOUT ME: Dibuat memenuhi layar (Sampul) */
-/* ==========================================================================
-   ABOUT ME: PENGATURAN SAMPUL (COVER)
+   SECTIONS & SEPARATORS
    ========================================================================== */
 .about-section {
-  /* REVISI: Gunakan 100vh agar section ini benar-benar setinggi layar penuh */
   min-height: 95vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  /* REVISI: Tambahkan padding bawah yang besar khusus untuk section ini 
-     agar Education terdorong jauh ke bawah layar */
   padding-top: 20vh;
   padding-bottom: 40vh; 
-  
   border-top: none;
-  /* Pastikan elemen ini tidak punya margin yang menarik elemen bawah ke atas */
   margin-bottom: 0; 
 }
 
-/* 2. POIN DATA: EDUCATION sampai CONTACT (Gap diperpendek 3/5) */
 .scroll-section, .contact-section {
-  /* Jarak awal: 1.75 * 0.4 (2/5) = 0.7 */
   padding: calc(var(--space-xl) * 0.9) 0; 
-  min-height: auto; /* Menghilangkan paksaan tinggi agar lebih rapat */
-  margin-bottom: 0; /* Menghilangkan margin tambahan jika ada */
+  min-height: auto; 
+  margin-bottom: 0; 
 }
 
 .section-title {
   color: var(--clr-muted);
-  /* Memberi jarak sedikit saja antara judul dan kartu data */
   margin-bottom: var(--space-md); 
   font-size: 3.8rem; 
   letter-spacing: 0.1em;
 }
 
 /* ==========================================================================
-   PREVIEW CARDS & IMAGE CAROUSEL
+   PREVIEW CARDS
    ========================================================================== */
 .preview-card {
   background: var(--clr-bg-alt);
-  border: 2px solid var(--clr-border); /* REVISI: Border dipertebal dari 1px ke 2px */
+  border: 2px solid var(--clr-border); 
   border-radius: 16px; 
   display: flex;
   flex-direction: row;
@@ -249,7 +221,6 @@ body {
 }
 
 .preview-image-container {
-  /* REVISI: Lebar gambar "memakan" ruang lebih banyak dari card (jadi 45%) */
   width: 45%; 
   min-width: 280px;
   max-width: 450px;
@@ -300,7 +271,6 @@ body {
 
 .preview-title {
   font-family: var(--font-display);
-  /* REVISI: Judul Universitas/Projects diperbesar 2x lipat */
   font-size: clamp(3.6rem, 5vw, 4.6rem); 
   margin-bottom: 8px;
   line-height: 1.1;
@@ -309,60 +279,49 @@ body {
 .preview-subtitle {
   font-family: var(--font-body);
   color: var(--clr-muted);
-  /* REVISI: Subtitle (B.Eng / Digital Logic) diperbesar 2x lipat */
   font-size: 2.2rem; 
 }
 
 .preview-latest-label {
   margin-bottom: 12px;
-  /* REVISI: LATEST diperbesar 2x lipat */
   font-size: 1.2rem; 
   font-weight: bold;
 }
 
 /* ==========================================================================
-   BUTTONS
+   BUTTONS (UKURAN DIPERKECIL 75%)
    ========================================================================== */
 .btn-offset, .btn-learn-more {
   display: inline-block;
   font-family: var(--font-mono);
-  /* REVISI: Font tombol diperbesar 1.5x (dari 1.2rem ke 1.8rem) */
-  font-size: 1.8rem; 
+  font-size: 1.35rem; 
   color: var(--clr-text);
   background-color: var(--clr-bg-alt);
   border: 1px solid var(--clr-border-light);
-  border-radius: 14px;
-  padding: 16px 32px; /* Padding ikut disesuaikan agar proporsional */
+  border-radius: 12px;
+  padding: 12px 24px; 
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  /* Kotak Oren (Shadow) */
-  box-shadow: 8px 8px 0px var(--clr-copper); 
-  transition: all 0.1s ease-out; /* Lebih cepat agar snappy */
+  box-shadow: 6px 6px 0px var(--clr-copper); 
+  transition: all 0.1s ease-out; 
   cursor: pointer;
   flex-shrink: 0; 
-  /* Kunci: Pastikan tombol diam saat normal */
   transform: translate(0, 0) !important; 
 }
 
 .btn-offset:hover, .btn-learn-more:hover {
   color: var(--clr-copper-light);
   background-color: var(--clr-dark);
-  box-shadow: 8px 8px 0px var(--clr-copper-light); 
-  /* Kunci: Tetap diam di tempat saat di-hover */
+  box-shadow: 6px 6px 0px var(--clr-copper-light); 
   transform: translate(0, 0) !important; 
 }
 
 .btn-offset:active, .btn-learn-more:active {
-  /* Kunci: Kotak Abu-abu (Tombol utama) bergerak ke kanan-bawah saat DIKLIK */
-  transform: translate(6px, 6px) !important; 
-  /* Kotak Oren (Shadow) menyusut seolah ditekan ke dalam */
+  transform: translate(4px, 4px) !important; 
   box-shadow: 2px 2px 0px var(--clr-copper-light) !important;
 }
 
-/* ==========================================================================
-   SOCIAL LINKS & ICONS
-   ========================================================================== */
 .social-links {
   display: flex;
   gap: var(--space-lg);
@@ -380,7 +339,7 @@ body {
 }
 
 /* ==========================================================================
-   MODAL
+   MODAL (UKURAN DIPERBESAR +40% DAN TITLE -80%)
    ========================================================================== */
 #root {
   transform-origin: center;
@@ -408,7 +367,7 @@ body {
 .modal-content {
   background: var(--clr-bg); 
   width: 100%; 
-  max-width: 900px; 
+  max-width: 1260px; /* REVISI: Diperbesar +40% dari 900px */
   max-height: 85vh; 
   overflow-y: auto;
   border: 1px solid var(--clr-border); 
@@ -425,6 +384,7 @@ body {
   padding: var(--space-md);
   border-bottom: 1px solid var(--clr-border);
   background-color: var(--clr-bg-alt);
+  font-size: 0.8rem; /* REVISI: Ukuran Title -80% */
 }
 
 .modal-close {
@@ -479,6 +439,54 @@ body {
 }
 
 /* ==========================================================================
+   MOBILE HAMBURGER MENU & OVERLAY
+   ========================================================================== */
+.mobile-menu-btn {
+  display: none; 
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 1001;
+  background: transparent;
+  border: none;
+  color: var(--clr-text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(46,46,44, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(20,20,18, 0.3); 
+  backdrop-filter: blur(15px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.mobile-nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--clr-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-overlay a:hover {
+  color: var(--clr-copper);
+}
+
+/* ==========================================================================
    ANIMATIONS
    ========================================================================== */
 @keyframes fadeIn {
@@ -517,8 +525,6 @@ body {
 /* ==========================================================================
    RESPONSIVE DESIGN (STRICT ORDER)
    ========================================================================== */
-
-/* 1. Layar Sedang (Laptop Kecil / Tablet Landscape) */
 @media (max-width: 1400px) {
   .page-layout {
     grid-template-columns: 520px 1fr; 
@@ -528,7 +534,6 @@ body {
   }
 }
 
-/* 2. Mode 1 Kolom (Tablet Portrait / Layar Sempit) */
 @media (max-width: 1100px) {
   .page-layout { 
     grid-template-columns: 1fr; 
@@ -549,9 +554,15 @@ body {
     height: auto;
     overflow: visible;
   }
+  /* REVISI: Logic UI HP */
+  .right-nav { 
+    display: none !important; 
+  }
+  .mobile-menu-btn {
+    display: block; 
+  }
 }
 
-/* 3. Mode HP (Smartphone) */
 @media (max-width: 850px) {
   .preview-card {
     flex-direction: column; 
@@ -586,20 +597,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px; 
 }
-
 ::-webkit-scrollbar-track {
   background: var(--clr-bg); 
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--clr-border); 
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--clr-copper); 
 }
-
 .modal-content::-webkit-scrollbar-track {
   background: var(--clr-bg-alt); 
 }

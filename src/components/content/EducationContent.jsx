@@ -3,7 +3,6 @@ import ccitImg from '../../assets/ccit.jpg';
 import schoolImg from '../../assets/school.png';
 
 export default function EducationContent() {
-  // Tambahkan property 'img' ke dalam array data
   const education = [
     {
       year: "2024 — Present",
@@ -33,28 +32,28 @@ export default function EducationContent() {
 
   return (
     <div>
-      <h2 className="t-h2" style={{ marginBottom: 'var(--space-xl)' }}>
-        Academic<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Foundations</em>
+      <h2 className="t-h2" style={{ marginBottom: 'var(--space-xl)', fontSize: 'clamp(2rem, 4.8vw, 3.2rem)' }}>
+        Academic<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>History</em>
       </h2>
 
       <div style={{ borderTop: '1px solid var(--clr-border)' }}>
         {education.map((edu, i) => (
           
-          /* REVISI: Layout diubah agar sejajar (flex row) */
           <div key={i} className="service-item" style={{ 
             alignItems: 'center', 
-            flexWrap: 'nowrap', /* Mencegah elemen turun ke bawah di layar lebar */
-            padding: 'var(--space-lg) 0'
+            flexWrap: 'nowrap', 
+            /* REVISI: Padding dikurangi 40% (menjadi 19px) */
+            padding: '19px 0' 
           }}>
             
-            {/* KOLOM 1: Gambar */}
-            <div style={{ width: '160px', flexShrink: 0 }}>
+            {/* KOLOM 1: Gambar Diperbesar 200% */}
+            <div style={{ width: '320px', flexShrink: 0 }}>
               <img 
                 src={edu.img} 
                 alt={edu.inst} 
                 style={{ 
                   width: '100%', 
-                  height: '120px', 
+                  height: '240px', 
                   objectFit: 'cover', 
                   borderRadius: '12px', 
                   border: '1px solid var(--clr-border)',
@@ -63,26 +62,26 @@ export default function EducationContent() {
               />
             </div>
 
-            {/* KOLOM 2: Tahun & Nama Institusi */}
-            <div style={{ width: '220px', flexShrink: 0, display: 'flex', flexDirection: 'column' }}>
-              <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px' }}>
+            {/* KOLOM 2: Teks Diperbesar ~80% */}
+            <div style={{ width: '350px', flexShrink: 0, display: 'flex', flexDirection: 'column', marginLeft: '24px' }}>
+              <span className="service-item__num" style={{ width: 'auto', marginBottom: '12px', fontSize: '1.25rem' }}>
                 {edu.year}
               </span>
-              <div className="service-item__name" style={{ width: 'auto', fontSize: '1.4rem', lineHeight: '1.2' }}>
+              <div className="service-item__name" style={{ width: 'auto', fontSize: '2.7rem', lineHeight: '1.1' }}>
                 {edu.inst}
-                <div style={{ fontSize: '0.95rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>
+                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>
                   {edu.major}
                 </div>
               </div>
             </div>
 
-            {/* KOLOM 3: Deskripsi & Skills */}
-            <div style={{ flex: 1, minWidth: '250px' }}>
-              <p style={{ fontSize: '1rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6' }}>
+            {/* KOLOM 3: Deskripsi Diperbesar ~80% */}
+            <div style={{ flex: 1, minWidth: '300px', marginLeft: '24px' }}>
+              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
                 {edu.desc}
               </p>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {edu.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
+                {edu.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}
               </div>
             </div>
 

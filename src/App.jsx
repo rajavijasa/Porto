@@ -6,13 +6,11 @@ import ProjectsContent from './components/content/ProjectsContent';
 import ExperienceContent from './components/content/ExperienceContent';
 import ScrollSection from './components/ScrollSection';
 
-// Import file SVG 
 import githubIcon from './assets/github.svg';
 import linkedinIcon from './assets/linkedin.svg';
 import instagramIcon from './assets/instagram.svg';
 import mailIcon from './assets/mail.svg';
 
-// Import file Image
 import schoolImg from './assets/school.png';
 import univImg from './assets/universitas.jpg';
 import ccitImg from './assets/ccit.jpg';
@@ -25,12 +23,19 @@ const educationImages = [univImg, ccitImg, schoolImg];
 const projectImages = []; 
 const experienceImages = [];
 
+// REVISI: Ikon Hamburger
+const HamburgerIcon = () => (
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
 export default function App() {
   const [activeModal, setActiveModal] = useState(null);
   const scrollContainerRef = useRef(null);
   const aboutRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State untuk Menu HP
 
-  // Auto-scroll ke About Me saat web dibuka
   useEffect(() => {
     if (aboutRef.current && scrollContainerRef.current) {
       setTimeout(() => {
@@ -39,7 +44,6 @@ export default function App() {
     }
   }, []);
 
-  // Animasi Scroll (Intersection Observer)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -69,17 +73,29 @@ export default function App() {
 
   return (
     <div className="bg-pcb-grid">
+      
+      {/* REVISI: Tombol & Layar HP */}
+      <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)}>
+        <HamburgerIcon />
+      </button>
+
+      {isMobileMenuOpen && (
+        <div className="mobile-nav-overlay" onClick={() => setIsMobileMenuOpen(false)}>
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <a href="#education" onClick={() => setIsMobileMenuOpen(false)}>Education</a>
+          <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+          <a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+        </div>
+      )}
+
       <div className="page-layout">
-        
-        {/* INI YANG SEBELUMNYA HILANG: Pembungkus Kolom Kiri */}
         <div className="left-column animate-on-load">
           <Hero />
         </div>
         
-        {/* INI YANG SEBELUMNYA HILANG: Pembungkus Kolom Kanan */}
         <div className="right-column" ref={scrollContainerRef}>
           
-          {/* Navigasi Atas */}
           <nav className="right-nav animate-on-load delay-1">
             <a href="#about" className="btn-offset">About</a>
             <a href="#education" className="btn-offset">Education</a>
@@ -88,7 +104,6 @@ export default function App() {
             <a href="#contact" className="btn-offset">Contact</a>
           </nav>
 
-          {/* Wrapper Konten Utama */}
           <div className="content-wrapper">
             
             <section id="about" ref={aboutRef} className="about-section animate-on-load delay-2 reveal" style={{ borderTop: 'none', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -146,7 +161,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* MODAL / POP UP */}
       {activeModal && (
         <Modal 
           title={activeModal.toUpperCase()} 

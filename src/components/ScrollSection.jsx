@@ -10,7 +10,7 @@ const ScrollSection = ({ id, title, latestItem, images, onLearnMore }) => {
     if (isHovering && images && images.length > 1) {
       timerRef.current = setInterval(() => {
         setCurrentImg((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2000); // Berganti setiap 2 detik
+      }, 1200); // REVISI: Diubah menjadi 1000ms (1 detik)
     } else {
       clearInterval(timerRef.current);
       setCurrentImg(0); // Kembali ke gambar pertama saat mouse keluar
