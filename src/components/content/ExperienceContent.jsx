@@ -1,34 +1,31 @@
 import univImg from '../../assets/universitas.jpg';
 import ccitImg from '../../assets/ccit.jpg';
-import schoolImg from '../../assets/school.png';
 
-export default function EducationContent() {
-  const education = [
-    { year: "2024 — Present", inst: "University of Indonesia", major: "B.Eng in Computer Engineering", desc: "Currently pursuing a degree in Computer Engineering.", skills: ["Operating Systems", "Computer Architecture", "PostgreSQL"], img: univImg },
-    { year: "2023 — 2025", inst: "CCIT FTUI Professional Program", major: "Internet-based System Automation (ISA)", desc: "Specialized in IoT orientation and IT.", skills: ["IoT Automation", "Network Infrastructure", "ISA"], img: ccitImg },
-    { year: "2020 — 2023", inst: "SMAN 112 Jakarta", major: "Science Major", desc: "Completed secondary education.", skills: ["Mathematics", "Physics"], img: schoolImg }
+export default function ExperienceContent() {
+  const experiences = [
+    { year: "2025 — Present", inst: "AMV Team UI", major: "Electrical Staff", desc: "Specializing in building smart robots and IoT solutions. Developed autonomous acoustic pinger detection systems for AUVs.", skills: ["Robotics", "IoT", "Embedded Systems"], img: univImg },
+    { year: "2024 — 2025", inst: "Kontes Kapal Indonesia", major: "Participant", desc: "Designed and programmed a robot ship. Gained hands-on experience in marine vehicle automation and hardware integration.", skills: ["Marine Automation", "Hardware", "Team Collaboration"], img: ccitImg }
   ];
 
   return (
     <div>
-      {/* Header 1 Baris, Di Tengah, 85%, Padding Bawah -50% */}
       <h2 className="t-h2 popup-header-title">
-        Academic <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Foundations</em>
+        Professional <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Experience</em>
       </h2>
 
       <div>
-        {education.map((edu, i) => (
+        {experiences.map((exp, i) => (
           <div key={i} className="popup-service-item">
-            <div className="popup-img-wrapper"><img src={edu.img} alt={edu.inst} /></div>
+            <div className="popup-img-wrapper"><img src={exp.img} alt={exp.inst} /></div>
             <div className="popup-text-wrapper">
-              <span className="service-item__num" style={{ marginBottom: '12px', fontSize: '1.25rem' }}>{edu.year}</span>
-              <div className="service-item__name" style={{ fontSize: '2.7rem', lineHeight: '1.1' }}>{edu.inst}
-                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>{edu.major}</div>
+              <span className="service-item__num" style={{ marginBottom: '12px', fontSize: '1.25rem' }}>{exp.year}</span>
+              <div className="service-item__name" style={{ fontSize: '2.7rem', lineHeight: '1.1' }}>{exp.inst}
+                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>{exp.major}</div>
               </div>
             </div>
             <div className="popup-desc-wrapper">
-              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{edu.desc}</p>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{edu.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
+              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{exp.desc}</p>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{exp.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
             </div>
           </div>
         ))}
