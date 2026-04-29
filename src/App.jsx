@@ -20,23 +20,19 @@ const latestProject = { title: '16-Channel Parallel Bitonic Sorter', subtitle: '
 const latestExperience = { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team UI' };
 
 const educationImages = [univImg, ccitImg, schoolImg];
-const projectImages = []; 
-const experienceImages = [];
-
-// REVISI: Ikon Hamburger
-const HamburgerIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
-    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
+// Karena Anda meminta animasi serupa, masukkan gambar ke Projects dan Experience (sementara menggunakan yang sama)
+const projectImages = [schoolImg, univImg, ccitImg]; 
+const experienceImages = [ccitImg, schoolImg, univImg];
 
 export default function App() {
   const [activeModal, setActiveModal] = useState(null);
   const scrollContainerRef = useRef(null);
   const aboutRef = useRef(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State untuk Menu HP
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // REVISI: Perbaikan deteksi scroll HP agar Contact Me dan Section lain muncul sempurna
   useEffect(() => {
+    const isMobile = window.innerWidth <= 1100;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -46,7 +42,8 @@ export default function App() {
     }, { 
       threshold: 0.1, 
       rootMargin: "0px 0px -10% 0px", 
-      root: scrollContainerRef.current 
+      // Jika HP, gunakan Viewport Utama (null), Jika Laptop, gunakan kolom kanan.
+      root: isMobile ? null : scrollContainerRef.current 
     });
 
     const hiddenElements = document.querySelectorAll('.reveal');
@@ -66,9 +63,11 @@ export default function App() {
   return (
     <div className="bg-pcb-grid">
       
-      {/* REVISI: Tombol & Layar HP */}
-      <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)}>
-        <HamburgerIcon />
+      {/* REVISI: Hamburger Animasi CSS */}
+      <button className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </button>
 
       {isMobileMenuOpen && (
@@ -81,13 +80,13 @@ export default function App() {
         </div>
       )}
 
-      <div className="page-layout">
+      {/* REVISI: Menerapkan class locked-scroll untuk mengunci background */}
+      <div className={`page-layout ${isMobileMenuOpen || activeModal ? 'locked-scroll' : ''}`}>
         <div className="left-column animate-on-load">
           <Hero />
         </div>
         
         <div className="right-column" ref={scrollContainerRef}>
-          
           <nav className="right-nav animate-on-load delay-1">
             <a href="#about" className="btn-offset">About</a>
             <a href="#education" className="btn-offset">Education</a>
@@ -97,8 +96,7 @@ export default function App() {
           </nav>
 
           <div className="content-wrapper">
-            
-            <section id="about" ref={aboutRef} className="about-section animate-on-load delay-2 reveal" style={{ borderTop: 'none', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <section id="about" ref={aboutRef} className="about-section animate-on-load delay-2 reveal">
               <h2 className="section-title t-mono">ABOUT ME</h2>
               <p className="about-text">
                 I am a Computer Engineering student at Universitas Indonesia and a Graduate From CCIT-FTUI with experience in hardware
@@ -107,57 +105,26 @@ export default function App() {
               </p>
             </section>
 
-            <ScrollSection 
-              id="education" 
-              title="EDUCATION" 
-              latestItem={latestEducation} 
-              images={educationImages} 
-              onLearnMore={() => setActiveModal('education')} 
-            />
-
-            <ScrollSection 
-              id="projects" 
-              title="PROJECTS" 
-              latestItem={latestProject} 
-              images={projectImages} 
-              onLearnMore={() => setActiveModal('projects')} 
-            />
-
-            <ScrollSection 
-              id="experience" 
-              title="EXPERIENCE" 
-              latestItem={latestExperience} 
-              images={experienceImages} 
-              onLearnMore={() => setActiveModal('experience')} 
-            />
+            {/* Parameter Index ditambahkan agar transisi otomatis HP selang-seling (staggered) */}
+            <ScrollSection index={0} id="education" title="EDUCATION" latestItem={latestEducation} images={educationImages} onLearnMore={() => setActiveModal('education')} />
+            <ScrollSection index={1} id="projects" title="PROJECTS" latestItem={latestProject} images={projectImages} onLearnMore={() => setActiveModal('projects')} />
+            <ScrollSection index={2} id="experience" title="EXPERIENCE" latestItem={latestExperience} images={experienceImages} onLearnMore={() => setActiveModal('experience')} />
 
             <section id="contact" className="contact-section reveal">
               <h2 className="section-title t-mono">CONTACT ME</h2>
               <div className="social-links" style={{ gap: '2.5rem', marginTop: '1rem' }}>
-                <a href="https://github.com/rajavijasa" target="_blank" rel="noreferrer">
-                  <img src={githubIcon} alt="GitHub" className="social-icon" />
-                </a>
-                <a href="https://www.linkedin.com/in/rajavijasa" target="_blank" rel="noreferrer">
-                  <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
-                </a>
-                <a href="https://www.instagram.com/jarodvijasa/" target="_blank" rel="noreferrer">
-                  <img src={instagramIcon} alt="Instagram" className="social-icon" />
-                </a>
-                <a href="mailto:jarotvijasa@gmail.com">
-                  <img src={mailIcon} alt="Email" className="social-icon" />
-                </a>
+                <a href="https://github.com/rajavijasa" target="_blank" rel="noreferrer"><img src={githubIcon} alt="GitHub" className="social-icon" /></a>
+                <a href="https://www.linkedin.com/in/rajavijasa" target="_blank" rel="noreferrer"><img src={linkedinIcon} alt="LinkedIn" className="social-icon" /></a>
+                <a href="https://www.instagram.com/jarodvijasa/" target="_blank" rel="noreferrer"><img src={instagramIcon} alt="Instagram" className="social-icon" /></a>
+                <a href="mailto:jarotvijasa@gmail.com"><img src={mailIcon} alt="Email" className="social-icon" /></a>
               </div>
             </section>
-
           </div>
         </div>
       </div>
 
       {activeModal && (
-        <Modal 
-          title={activeModal.toUpperCase()} 
-          onClose={() => setActiveModal(null)}
-        >
+        <Modal title={activeModal.toUpperCase()} onClose={() => setActiveModal(null)}>
           {renderModalContent()}
         </Modal>
       )}

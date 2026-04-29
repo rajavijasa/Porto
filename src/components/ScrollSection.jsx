@@ -1,61 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ScrollSection = ({ id, title, latestItem, images, onLearnMore }) => {
+const ScrollSection = ({ id, title, latestItem, images, onLearnMore, index }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
-  const timerRef = useRef(null);
 
-  // Efek Carousel 2 Detik saat Hover
   useEffect(() => {
-    if (isHovering && images && images.length > 1) {
-      timerRef.current = setInterval(() => {
-        setCurrentImg((prevIndex) => (prevIndex + 1) % images.length);
-      }, 1200); // REVISI: Diubah menjadi 1000ms (1 detik)
+    let interval;
+    // Logika Auto-Play HP & Hover Laptop
+    const isMobile = window.innerWidth <= 850;
+    
+    if ((isHovering || isMobile) && images && images.length > 1) {
+      // Offset mulainya tiap kotak agar selang-seling (index * 333ms)
+      const timeout = setTimeout(() => {
+        interval = setInterval(() => {
+          setCurrentImg(prev => (prev + 1) % images.length);
+        }, 1000);
+      }, isMobile ? index * 333 : 0);
+      
+      return () => { clearTimeout(timeout); clearInterval(interval); }
     } else {
-      clearInterval(timerRef.current);
-      setCurrentImg(0); // Kembali ke gambar pertama saat mouse keluar
+      setCurrentImg(0);
     }
-
-    return () => clearInterval(timerRef.current);
-  }, [isHovering, images]);
+  }, [isHovering, images, index]);
 
   return (
     <section id={id} className="scroll-section reveal">
       <h2 className="section-title t-mono">{title}</h2>
-      
-      {/* Deteksi mouse masuk dan keluar */}
-      <div 
-        className="preview-card"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
-        
-        {/* Kontainer Gambar Kiri */}
+      <div className="preview-card" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
         {images && images.length > 0 && (
           <div className="preview-image-container">
-            {images.map((img, index) => (
-              <img 
-                key={index} 
-                src={img} 
-                alt={`${title} highlight ${index + 1}`} 
-                className={index === currentImg ? 'active' : ''} 
-              />
+            {images.map((img, idx) => (
+              <img key={idx} src={img} alt={`${title} ${idx + 1}`} className={idx === currentImg ? 'active' : ''} />
             ))}
           </div>
         )}
-
-        {/* Kontainer Teks & Tombol Kanan */}
         <div className="preview-content-wrapper">
           <div className="preview-content">
             <p className="preview-latest-label t-label">LATEST</p>
-            <h3 className="preview-title" style={{ fontSize: '2.4rem' }}>{latestItem.title}</h3>
-            <p className="preview-subtitle" style={{ fontSize: '1.2rem', color: 'var(--clr-muted)' }}>{latestItem.subtitle}</p>
+            <h3 className="preview-title">{latestItem.title}</h3>
+            <p className="preview-subtitle">{latestItem.subtitle}</p>
           </div>
-          <button onClick={onLearnMore} className="btn-learn-more">
-            Learn More
-          </button>
+          <button onClick={onLearnMore} className="btn-learn-more">Learn More</button>
         </div>
-
       </div>
     </section>
   );

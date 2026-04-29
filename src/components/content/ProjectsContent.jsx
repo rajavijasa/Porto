@@ -1,30 +1,34 @@
-import projImg from '../../assets/universitas.jpg'; // Ganti dengan gambar proyek Anda
+import univImg from '../../assets/universitas.jpg';
+import ccitImg from '../../assets/ccit.jpg';
+import schoolImg from '../../assets/school.png';
 
-export default function ProjectsContent() {
-  const projects = [
-    { year: "Dec 2025", inst: "16-Channel Parallel Bitonic Sorter", major: "Digital Logic Design", desc: "Designed and implemented a parallel sorting network on FPGA using VHDL.", skills: ["FPGA", "VHDL", "Digital Logic"], img: projImg },
-    { year: "2025 — 2026", inst: "LabuBoom Game", major: "Game Development", desc: "Managed software repository and backend deployment using Java and Spring Boot.", skills: ["Java", "Spring Boot", "LibGDX"], img: projImg },
-    { year: "April 2026", inst: "Personal Web Portfolio", major: "Frontend Engineering", desc: "Built a responsive and interactive personal portfolio utilizing React and Vite.", skills: ["React", "CSS", "Vite"], img: projImg }
+export default function EducationContent() {
+  const education = [
+    { year: "2024 — Present", inst: "University of Indonesia", major: "B.Eng in Computer Engineering", desc: "Currently pursuing a degree in Computer Engineering.", skills: ["Operating Systems", "Computer Architecture", "PostgreSQL"], img: univImg },
+    { year: "2023 — 2025", inst: "CCIT FTUI Professional Program", major: "Internet-based System Automation (ISA)", desc: "Specialized in IoT orientation and IT.", skills: ["IoT Automation", "Network Infrastructure", "ISA"], img: ccitImg },
+    { year: "2020 — 2023", inst: "SMAN 112 Jakarta", major: "Science Major", desc: "Completed secondary education.", skills: ["Mathematics", "Physics"], img: schoolImg }
   ];
 
   return (
     <div>
-      <h2 className="t-h2" style={{ marginBottom: 'var(--space-xl)', fontSize: 'clamp(2rem, 4.8vw, 3.2rem)' }}>
-        Technical<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+      {/* Header 1 Baris, Di Tengah, 85%, Padding Bawah -50% */}
+      <h2 className="t-h2 popup-header-title">
+        Academic <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Foundations</em>
       </h2>
+
       <div>
-        {projects.map((proj, i) => (
+        {education.map((edu, i) => (
           <div key={i} className="popup-service-item">
-            <div className="popup-img-wrapper"><img src={proj.img} alt={proj.inst} /></div>
+            <div className="popup-img-wrapper"><img src={edu.img} alt={edu.inst} /></div>
             <div className="popup-text-wrapper">
-              <span className="service-item__num" style={{ marginBottom: '12px', fontSize: '1.25rem' }}>{proj.year}</span>
-              <div className="service-item__name" style={{ fontSize: '2.7rem', lineHeight: '1.1' }}>{proj.inst}
-                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>{proj.major}</div>
+              <span className="service-item__num" style={{ marginBottom: '12px', fontSize: '1.25rem' }}>{edu.year}</span>
+              <div className="service-item__name" style={{ fontSize: '2.7rem', lineHeight: '1.1' }}>{edu.inst}
+                <div style={{ fontSize: '1.7rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>{edu.major}</div>
               </div>
             </div>
             <div className="popup-desc-wrapper">
-              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{proj.desc}</p>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{proj.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
+              <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{edu.desc}</p>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{edu.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
             </div>
           </div>
         ))}

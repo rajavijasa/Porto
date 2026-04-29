@@ -4,16 +4,18 @@ import schoolImg from '../../assets/school.png';
 
 export default function EducationContent() {
   const education = [
-    { year: "2024 — Present", inst: "University of Indonesia", major: "B.Eng in Computer Engineering", desc: "Currently pursuing a degree in Computer Engineering, focusing on hardware-software integration and system design.", skills: ["Operating Systems", "Computer Architecture", "PostgreSQL"], img: univImg },
-    { year: "2023 — 2025", inst: "CCIT FTUI Professional Program", major: "Internet-based System Automation (ISA)", desc: "Specialized in IoT orientation and information technology within a professional development framework.", skills: ["IoT Automation", "Network Infrastructure", "ISA"], img: ccitImg },
-    { year: "2020 — 2023", inst: "SMAN 112 Jakarta", major: "Science Major", desc: "Completed secondary education with a focus on mathematics and natural sciences.", skills: ["Mathematics", "Physics"], img: schoolImg }
+    { year: "2024 — Present", inst: "University of Indonesia", major: "B.Eng in Computer Engineering", desc: "Currently pursuing a degree in Computer Engineering.", skills: ["Operating Systems", "Computer Architecture", "PostgreSQL"], img: univImg },
+    { year: "2023 — 2025", inst: "CCIT FTUI Professional Program", major: "Internet-based System Automation (ISA)", desc: "Specialized in IoT orientation and IT.", skills: ["IoT Automation", "Network Infrastructure", "ISA"], img: ccitImg },
+    { year: "2020 — 2023", inst: "SMAN 112 Jakarta", major: "Science Major", desc: "Completed secondary education.", skills: ["Mathematics", "Physics"], img: schoolImg }
   ];
 
   return (
     <div>
-      <h2 className="t-h2" style={{ marginBottom: 'var(--space-xl)', fontSize: 'clamp(2rem, 4.8vw, 3.2rem)' }}>
-        Academic<br /><em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Foundations</em>
+      {/* Header 1 Baris, Di Tengah, 85%, Padding Bawah -50% */}
+      <h2 className="t-h2 popup-header-title">
+        Academic <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Foundations</em>
       </h2>
+
       <div>
         {education.map((edu, i) => (
           <div key={i} className="popup-service-item">
