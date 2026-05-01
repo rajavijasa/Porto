@@ -25,7 +25,7 @@ export default function ExperienceContent() {
             </div>
             <div className="popup-desc-wrapper">
               <p style={{ fontSize: '1.8rem', color: 'var(--clr-muted)', marginBottom: '16px', lineHeight: '1.5' }}>{exp.desc}</p>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{exp.skills.map(s => <span key={s} className="service-tag" style={{ fontSize: '1.1rem', padding: '6px 12px' }}>{s}</span>)}</div>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>{exp.skills.map(s => <span key={s} className="service-tag">{s}</span>)}</div>
             </div>
           </div>
         ))}
