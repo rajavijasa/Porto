@@ -124,7 +124,7 @@ export default function App() {
   return (
     <div className="bg-pcb-grid">
       
-      <button className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+      <button className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''} ${activeModal ? 'hide-btn' : ''}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>

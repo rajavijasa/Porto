@@ -72,14 +72,14 @@ body.locked-scroll {
    ========================================================================== */
 .page-layout {
   display: grid;
-  grid-template-columns: clamp(430px, 34vw, 630px) 1fr;
+  grid-template-columns: clamp(430px, 30vw, 630px) 1fr;
   height: 100vh;
   overflow: hidden;
   width: 100%;
 }
 
 .left-column {
-  width: clamp(430px, 34vw, 550px);
+  width: clamp(430px, 30vw, 550px);
   height: 100vh;
   position: sticky;
   top: 0;
@@ -103,7 +103,8 @@ body.locked-scroll {
 }
 
 .content-wrapper {
-  padding: 0 clamp(20px, 4vw, var(--space-xl)) 10vh clamp(20px, 4vw, var(--space-xl));
+  /* Padding dinamis simetris (kiri-kanan sama) agar kotaknya terpusat sempurna */
+  padding: 0 clamp(32px, 6vw, 120px) 10vh clamp(32px, 6vw, 120px);
 }
 
 .hero-container {
@@ -183,7 +184,8 @@ body.locked-scroll {
   position: relative; 
   background-color: transparent;
   backdrop-filter: none;
-  padding: 45px var(--space-xl) var(--space-xl) var(--space-xl);
+  /* Padding horizontal disamakan dengan content-wrapper */
+  padding: 45px clamp(32px, 6vw, 120px) var(--space-xl) clamp(32px, 6vw, 120px);
   z-index: 100;
   display: flex;
   flex-wrap: nowrap;
@@ -937,7 +939,7 @@ body.locked-scroll {
 
 /* 1. Menggeser posisi blok teks (Judul & Penjurusan) naik ke atas sebesar 15% */
 .preview-content {
-  transform: translateY(-15%) !important;
+  transform: translateY(-5%) !important;
 }
 
 /* 2. Khusus HP: Mengembalikan jarak ujung layar Pop-up agar tidak Full Screen */
@@ -952,5 +954,35 @@ body.locked-scroll {
     max-height: 85dvh !important; /* Menyisakan jarak di bagian atas & bawah */
     border-radius: 16px !important; /* Mengembalikan sudut membulat seperti di laptop */
     margin: auto !important;
+  }
+}
+
+/* ==========================================================================
+   REVISI FINAL: GAMBAR 30%, GAP TOMBOL HP, & ANIMASI HAMBURGER
+   ========================================================================== */
+
+/* 1. LAPTOP: Lebar gambar menjadi 3/10 (30%) dari lebar kotak */
+@media (min-width: 851px) {
+  .preview-image-container {
+    width: 30% !important;
+    min-width: 240px !important; 
+  }
+}
+
+/* 2. ANIMASI HAMBURGER: Transisi Fade In/Out */
+.mobile-menu-btn {
+  transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease !important;
+}
+.mobile-menu-btn.hide-btn {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(0.8) !important;
+  pointer-events: none !important;
+}
+
+/* 3. HP: Jarak ekstra (+50%) untuk tombol Learn More */
+@media (max-width: 850px) {
+  .btn-learn-more {
+    margin-top: 12px !important; /* Jarak didorong menjauh dari teks */
   }
 }
