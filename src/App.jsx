@@ -34,10 +34,11 @@ export default function App() {
   const scrollContainerRef = useRef(null);
   const aboutRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollLockRef = useRef({ locked: false, scrollY: 0, rightColumnScrollTop: 0 });
 
   // Observer untuk efek muncul saat di-scroll (Aktif saat 25% masuk layar)
   useEffect(() => {
-    const isMobile = window.innerWidth <= 850;
+    const isMobile = window.innerWidth <= 1100;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -57,11 +58,55 @@ export default function App() {
 
   // Kunci Scroll Layar Utama saat Pop-up / Menu Terbuka
   useEffect(() => {
-    if (activeModal || isMobileMenuOpen) {
+    const shouldLock = Boolean(activeModal || isMobileMenuOpen);
+
+    if (shouldLock) {
+      if (scrollLockRef.current.locked) return;
+
+      scrollLockRef.current.locked = true;
+      scrollLockRef.current.scrollY = window.scrollY;
+      scrollLockRef.current.rightColumnScrollTop = scrollContainerRef.current?.scrollTop ?? 0;
+
+      document.documentElement.classList.add('locked-scroll');
       document.body.classList.add('locked-scroll');
-    } else {
-      document.body.classList.remove('locked-scroll');
+
+      // Freeze body scroll (best effort across mobile browsers)
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollLockRef.current.scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+
+      // Freeze the desktop scroll container, if used
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.style.overflow = 'hidden';
+      }
+
+      return;
     }
+
+    if (!scrollLockRef.current.locked) return;
+
+    scrollLockRef.current.locked = false;
+
+    document.documentElement.classList.remove('locked-scroll');
+    document.body.classList.remove('locked-scroll');
+
+    const restoreY = scrollLockRef.current.scrollY || 0;
+    const restoreRightColumn = scrollLockRef.current.rightColumnScrollTop || 0;
+
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.overflow = '';
+      scrollContainerRef.current.scrollTop = restoreRightColumn;
+    }
+
+    window.scrollTo(0, restoreY);
   }, [activeModal, isMobileMenuOpen]);
 
   const renderModalContent = () => {

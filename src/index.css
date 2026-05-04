@@ -32,6 +32,10 @@ html {
   overscroll-behavior-x: none;
 }
 
+html.locked-scroll {
+  overflow: hidden;
+}
+
 body { 
   font-family: var(--font-body); 
   color: var(--clr-text); 
@@ -50,6 +54,7 @@ body.locked-scroll {
   overflow: hidden;
 }
 
+
 #root-container {
   width: 100%;
   overflow-x: hidden;
@@ -58,6 +63,8 @@ body.locked-scroll {
 .bg-pcb-grid { 
   background-image: radial-gradient(circle, rgba(184, 115, 51, 0.15) 1px, transparent 1px); 
   background-size: 32px 32px; 
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* ==========================================================================
@@ -655,7 +662,7 @@ body.locked-scroll {
   .page-layout { 
     grid-template-columns: 1fr; 
     height: auto;
-    overflow: auto; 
+    overflow: visible; 
   }
   .left-column { 
     position: relative; 
@@ -805,6 +812,9 @@ body.locked-scroll {
 @media (max-width: 850px) {
   /* Modal HP: Tengah Layar & Backdrop Blur Pekat */
   .modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    height: 100dvh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
