@@ -10,7 +10,7 @@ export default function EducationContent() {
       inst: "University of Indonesia",
       major: "B.Eng in Computer Engineering",
       desc: "Currently pursuing a degree in Computer Engineering, focusing on hardware-software integration and system design.",
-      skills: ["Operating Systems", "Computer Architecture", "PostgreSQL"],
+      skills: ["Hardware & Software", "Computer Architecture", "Programming"],
       img: univImg
     },
     {

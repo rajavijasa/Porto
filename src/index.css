@@ -29,6 +29,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 body { 
@@ -37,10 +38,21 @@ body {
   background-color: var(--clr-bg); 
   line-height: 1.6; 
   overflow-x: hidden; /* Mengunci scroll horizontal */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
   width: 100%;
   position: relative;
   perspective: 1500px;
   transition: background-color 0.3s ease;
+}
+
+body.locked-scroll {
+  overflow: hidden;
+}
+
+#root-container {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .bg-pcb-grid { 
@@ -227,7 +239,7 @@ body {
 
 .preview-image-container {
   width: clamp(32%, 42%, 45%);
-  min-width: clamp(210px, 18vw, 280px);
+  min-width: clamp(200px, 15vw, 280px);
   max-width: 450px;
   position: relative;
   flex-shrink: 0; 
@@ -770,12 +782,12 @@ body {
 
 /* Ketebalan Kotak Data: Pertebal 30% dari revisi pita sebelumnya */
 .preview-content-wrapper {
-  padding: 33px 40px !important; /* Padding vertikal naik dari 25px ke ~33px */
+  padding: clamp(20px, 2.2vw, 33px) clamp(24px, 2.8vw, 40px) !important;
 }
 
 /* Teks dalam Kotak: Latest (+40%), Univ (+15%), B.Eng (+20%) */
 .preview-latest-label { font-size: clamp(0.85rem, 1.1vw, 1.05rem) !important; margin-bottom: 10px !important; }
-.preview-title { font-size: clamp(2rem, 2.8vw, 2.6rem) !important; }
+.preview-title { font-size: clamp(1.8rem, 2.6vw, 2.6rem) !important; }
 .preview-subtitle { font-size: clamp(1rem, 1.5vw, 1.3rem) !important; }
 
 /* Simetri Contact Me: Gap Atas (Title-Icon) = Gap Bawah (Icon-Bottom) */
@@ -796,11 +808,15 @@ body {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 20px !important;
+    padding: 0 !important;
     backdrop-filter: blur(25px) !important; /* Saran blur pekat diterapkan */
   }
   .modal-content {
-    max-height: 80dvh !important; /* Menggunakan Dynamic Viewport Height */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
     margin: 0 !important;
     transform: none !important;
   }
@@ -817,17 +833,18 @@ body {
     background: linear-gradient(to top, rgba(20,20,18,0.8) 0%, transparent 100%); /* Saran gradasi bayangan */
   }
   .main-title { 
-    white-space: nowrap !important; 
+    white-space: normal !important;
+    max-width: 100%;
     font-size: clamp(3rem, 15vw, 5.25rem) !important;
     line-height: 1.1 !important;
   }
-  .main-subtitle { white-space: nowrap !important; font-size: 1.35rem !important; }
+  .main-subtitle { white-space: normal !important; max-width: 100%; font-size: 1.35rem !important; }
 
   /* Judul Seksi HP: +50%, Rata Kiri */
   .section-title {
     font-size: clamp(2.1rem, 8.5vw, 3rem) !important;
     text-align: left !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     margin-bottom: 24px !important;
   }
 
