@@ -692,7 +692,7 @@ body.locked-scroll {
   .preview-card {
     flex-direction: column; 
   }
-.preview-image-container { 
+  .preview-image-container { 
     width: 100% !important; 
     min-width: 100% !important; 
     height: 200px !important;
@@ -860,7 +860,7 @@ body.locked-scroll {
   }
 
   /* Gap Antar Poin Data: Seragam */
-  .scroll-section { margin-bottom: 40px !important; padding: 0 !important; }
+  .scroll-section { margin-bottom: 60px !important; padding: 0 !important; }
 
   /* Teks dalam Kotak HP: Latest (+10%), Univ (+50%), B.Eng (+50%) */
   .preview-latest-label { font-size: clamp(0.85rem, 3.2vw, 1rem) !important; }
@@ -916,14 +916,15 @@ body.locked-scroll {
 @media (max-width: 850px) {
   /* Mengunci tinggi kartu di HP (200px gambar + 220px area teks) */
   .preview-card {
-    height: 420px !important;
+    height: 450px !important; /* Tambah 30px di tinggi total */
   }
   .preview-image-container {
     height: 200px !important;
   }
   .preview-content-wrapper {
-    height: 220px !important;
-    justify-content: center !important;
+    height: 250px !important; /* Tambah 30px ruang di area teks/tombol */
+    justify-content: flex-start !important; /* Susun dari atas ke bawah */
+    padding-bottom: 30px !important; /* Dorong isi agar menyisakan ruang ekstra 250% di bawah tombol */
   }
   
   /* Memastikan judul "CONTACT ME" rata kiri di HP */
