@@ -3,32 +3,11 @@ import ccitImg from '../../assets/ccit.jpg';
 import schoolImg from '../../assets/school.png';
 
 export default function EducationContent() {
-  // Tambahkan property 'img' ke dalam array data
-  const education = [
-    {
-      year: "2024 — Present",
-      inst: "University of Indonesia",
-      major: "B.Eng in Computer Engineering",
-      desc: "Currently pursuing a degree in Computer Engineering, focusing on hardware-software integration and system design.",
-      skills: ["Hardware & Software", "Computer Architecture", "Programming"],
-      img: univImg
-    },
-    {
-      year: "2023 — 2025",
-      inst: "CCIT FTUI Professional Program",
-      major: "Internet-based System Automation (ISA)",
-      desc: "Specialized in IoT orientation and information technology within a professional development framework.",
-      skills: ["IoT Automation", "Network Infrastructure", "ISA"],
-      img: ccitImg
-    },
-    {
-      year: "2020 — 2023",
-      inst: "SMAN 112 Jakarta",
-      major: "Science Major",
-      desc: "Completed secondary education with a focus on mathematics and natural sciences.",
-      skills: ["Mathematics", "Physics"],
-      img: schoolImg
-    }
+  // Data eksklusif untuk modal Education
+  const educationData = [
+    { year: "2024 — Present", inst: "University of Indonesia", major: "B.Eng in Computer Engineering", desc: "Currently pursuing a bachelor's degree with a focus on embedded systems, computer architecture, and low-level programming. Actively involved in hardware development and robotics projects.", skills: ["Computer Architecture", "Embedded Systems", "C/C++", "AVR Assembly"], img: univImg, isLatest: true },
+    { year: "2024 — 2026", inst: "CCIT FTUI Professional Program", major: "Internet-based System Automation (ISA)", desc: "Completed a 2-year professional program focusing on IoT, backend development, and system automation. Graduated with expertise in network infrastructure and microcontrollers.", skills: ["IoT", "Networking", "PostgreSQL", "Node.js"], img: ccitImg, isLatest: false },
+    { year: "2021 — 2024", inst: "SMAN 112 Jakarta", major: "Science Major", desc: "Completed secondary education with a strong foundation in mathematics and physics, paving the way for advanced studies in engineering.", skills: ["Mathematics", "Physics", "Analytical Thinking"], img: schoolImg, isLatest: false }
   ];
 
   return (
@@ -38,12 +17,10 @@ export default function EducationContent() {
       </h2>
 
       <div style={{ borderTop: '1px solid var(--clr-border)' }}>
-        {education.map((edu, i) => (
-          
-          /* REVISI: Layout diubah agar sejajar (flex row) */
+        {educationData.map((edu, i) => (
           <div key={i} className="service-item" style={{ 
             alignItems: 'center', 
-            flexWrap: 'nowrap', /* Mencegah elemen turun ke bawah di layar lebar */
+            flexWrap: 'nowrap',
             padding: 'var(--space-lg) 0'
           }}>
             
@@ -82,6 +59,8 @@ export default function EducationContent() {
                 {edu.desc}
               </p>
               <div className="service-tags">
+                {/* LATEST Badge Dinamis */}
+                {edu.isLatest && <span className="service-tag" style={{ color: 'var(--clr-copper)', borderColor: 'var(--clr-copper)' }}>LATEST</span>}
                 {edu.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
               </div>
             </div>

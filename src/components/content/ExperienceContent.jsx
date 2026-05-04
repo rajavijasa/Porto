@@ -3,8 +3,8 @@ import ccitImg from '../../assets/ccit.jpg';
 
 export default function ExperienceContent() {
   const experiences = [
-    { year: "2025 — Present", inst: "AMV Team UI", major: "Electrical Staff", desc: "Specializing in building smart robots and IoT solutions. Developed autonomous acoustic pinger detection systems for AUVs.", skills: ["Robotics", "IoT", "Embedded Systems"], img: univImg },
-    { year: "2024 — 2025", inst: "Kontes Kapal Indonesia", major: "Participant", desc: "Designed and programmed a robot ship. Gained hands-on experience in marine vehicle automation and hardware integration.", skills: ["Marine Automation", "Hardware", "Team Collaboration"], img: ccitImg }
+    { year: "2025 — Present", inst: "AMV Team UI", major: "Electrical Staff", desc: "Specializing in building smart robots and IoT solutions. Developed autonomous acoustic pinger detection systems for AUVs.", skills: ["Robotics", "IoT", "Embedded Systems"], img: univImg, isLatest: true },
+    { year: "2024 — 2025", inst: "Kontes Kapal Indonesia", major: "Participant", desc: "Designed and programmed a robot ship. Gained hands-on experience in marine vehicle automation and hardware integration.", skills: ["Marine Automation", "Hardware", "Team Collaboration"], img: ccitImg, isLatest: false }
   ];
 
   return (
@@ -56,6 +56,8 @@ export default function ExperienceContent() {
                 {exp.desc}
               </p>
               <div className="service-tags">
+                 {/* LATEST Badge Dinamis */}
+                 {exp.isLatest && <span className="service-tag" style={{ color: 'var(--clr-copper)', borderColor: 'var(--clr-copper)' }}>LATEST</span>}
                 {exp.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
               </div>
             </div>

@@ -4,9 +4,9 @@ import schoolImg from '../../assets/school.png';
 
 export default function ProjectsContent() {
   const projects = [
-    { year: "Dec 2025", inst: "16-Channel Parallel Bitonic Sorter", major: "Digital Logic Design", desc: "Designed and implemented a parallel sorting network on FPGA using VHDL.", skills: ["FPGA", "VHDL", "Digital Logic"], img: univImg },
-    { year: "2025 — 2026", inst: "LabuBoom Game", major: "Game Development", desc: "Managed software repository and backend deployment using Java and Spring Boot.", skills: ["Java", "Spring Boot", "LibGDX"], img: ccitImg },
-    { year: "April 2026", inst: "Personal Web Portfolio", major: "Frontend Engineering", desc: "Built a responsive and interactive personal portfolio utilizing React and Vite.", skills: ["React", "CSS", "Vite"], img: schoolImg }
+    { year: "Dec 2025", inst: "16-Channel Parallel Bitonic Sorter", major: "Digital Logic Design", desc: "Designed and implemented a parallel sorting network on FPGA using VHDL.", skills: ["FPGA", "VHDL", "Digital Logic"], img: univImg, isLatest: true },
+    { year: "2025 — 2026", inst: "LabuBoom Game", major: "Game Development", desc: "Managed software repository and backend deployment using Java and Spring Boot.", skills: ["Java", "Spring Boot", "LibGDX"], img: ccitImg, isLatest: true }, // Di-set true sesuai kemauan Anda
+    { year: "April 2026", inst: "Personal Web Portfolio", major: "Frontend Engineering", desc: "Built a responsive and interactive personal portfolio utilizing React and Vite.", skills: ["React", "CSS", "Vite"], img: schoolImg, isLatest: false }
   ];
 
   return (
@@ -58,7 +58,11 @@ export default function ProjectsContent() {
                 {proj.desc}
               </p>
               <div className="service-tags">
-                {proj.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
+                {/* LATEST Badge Dinamis (Diperbaiki referensinya menjadi proj) */}
+                {proj.isLatest && <span className="service-tag" style={{ color: 'var(--clr-copper)', borderColor: 'var(--clr-copper)' }}>LATEST</span>}
+                {proj.skills.map(tag => (
+                  <span className="service-tag" key={tag}>{tag}</span>
+                ))}
               </div>
             </div>
           </div>

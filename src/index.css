@@ -940,7 +940,7 @@ body.locked-scroll {
 
 /* 1. Menggeser posisi blok teks (Judul & Penjurusan) naik ke atas sebesar 15% */
 .preview-content {
-  transform: translateY(-5%) !important;
+  transform: translateY() !important;
 }
 
 /* 2. Khusus HP: Mengembalikan jarak ujung layar Pop-up agar tidak Full Screen */

@@ -44,8 +44,8 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
               />
             ))}
             
-            {/* REVISI: LATEST dipindah ke atas gambar dengan kelas dinamis */}
-            <div className={`overlay-latest-badge ${currentIndex === 0 ? 'show' : ''}`}>
+            {/* REVISI: LATEST Badge sekarang bergantung pada data isLatest, bukan index 0 */}
+            <div className={`overlay-latest-badge ${currentData?.isLatest ? 'show' : ''}`}>
               LATEST
             </div>
           </div>
@@ -53,7 +53,6 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
 
         <div className="preview-content-wrapper">
           <div className="preview-content">
-            {/* Teks LATEST yang lama dihapus agar judul lebih dominan */}
             <h3 className="preview-title">{currentData?.title}</h3>
             <p className="preview-subtitle">{currentData?.subtitle}</p>
           </div>
