@@ -987,3 +987,45 @@ body.locked-scroll {
     margin-top: 12px !important; /* Jarak didorong menjauh dari teks */
   }
 }
+
+/* ==========================================================================
+   REVISI: LATEST BADGE OVERLAY (MELAYANG DI ATAS GAMBAR)
+   ========================================================================== */
+.overlay-latest-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(20, 20, 18, 0.85); /* Background gelap */
+  backdrop-filter: blur(6px); /* Efek kaca kekinian */
+  border: 1px solid var(--clr-border);
+  color: var(--clr-copper); /* Teks warna tembaga ciri khas Anda */
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  z-index: 10;
+  
+  /* Animasi Fade In & Out */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.overlay-latest-badge.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Khusus HP: Sedikit penyesuaian ukuran proporsional */
+@media (max-width: 850px) {
+  .overlay-latest-badge {
+    top: 12px;
+    left: 12px;
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+}
