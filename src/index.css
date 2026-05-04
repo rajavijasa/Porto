@@ -891,3 +891,42 @@ body.locked-scroll {
   width: 100%;
   margin-bottom: 30px !important; /* Padding bawah dikurangi 50% */
 }
+
+/* ==========================================================================
+   REVISI FINAL: MENGUNCI UKURAN KOTAK & ALIGNMENT CONTACT ME
+   ========================================================================== */
+
+/* Mengunci tinggi kartu di Monitor/Laptop agar tidak berubah-ubah */
+.preview-card {
+  height: 250px !important; /* Paksa tinggi statis */
+}
+.preview-image-container {
+  height: 100% !important; /* Pastikan gambar mengikuti tinggi kotak */
+}
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 130px;
+}
+
+/* Khusus untuk HP */
+@media (max-width: 850px) {
+  /* Mengunci tinggi kartu di HP (200px gambar + 220px area teks) */
+  .preview-card {
+    height: 420px !important;
+  }
+  .preview-image-container {
+    height: 200px !important;
+  }
+  .preview-content-wrapper {
+    height: 220px !important;
+    justify-content: center !important;
+  }
+  
+  /* Memastikan judul "CONTACT ME" rata kiri di HP */
+  .contact-section .section-title {
+    text-align: left !important;
+    width: 100% !important;
+  }
+}

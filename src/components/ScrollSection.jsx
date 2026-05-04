@@ -48,8 +48,13 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
 
         <div className="preview-content-wrapper">
           <div className="preview-content">
-            <p className="preview-latest-label t-label">LATEST</p>
-            {/* Teks kini berubah otomatis sinkron dengan gambar */}
+            {/* REVISI: Menggunakan visibility agar LATEST hilang namun ruangnya tetap terjaga (Kotak tidak melompat) */}
+            <p 
+              className="preview-latest-label t-label"
+              style={{ visibility: currentIndex === 0 ? 'visible' : 'hidden' }}
+            >
+              LATEST
+            </p>
             <h3 className="preview-title">{currentData?.title}</h3>
             <p className="preview-subtitle">{currentData?.subtitle}</p>
           </div>
