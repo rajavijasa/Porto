@@ -81,7 +81,7 @@ export default function EducationContent() {
               <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6' }}>
                 {edu.desc}
               </p>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <div className="service-tags">
                 {edu.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
               </div>
             </div>

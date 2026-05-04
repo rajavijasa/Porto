@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body { 
@@ -76,6 +77,7 @@ body {
 .right-column {
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   width: 100%;
   min-width: 0; 
@@ -387,6 +389,7 @@ body {
   max-width: 1260px; /* REVISI: Diperbesar +40% dari 900px */
   max-height: 85vh; 
   overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid var(--clr-border); 
   box-shadow: 0 30px 60px rgba(0,0,0,0.5);
   transform: scale(0.95) translateY(20px);
@@ -455,6 +458,12 @@ body {
   text-transform: uppercase;
 }
 
+.service-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 /* ==========================================================================
    MOBILE HAMBURGER MENU & OVERLAY
    ========================================================================== */
@@ -472,7 +481,26 @@ body {
   border-radius: 8px;
   background-color: rgba(46,46,44, 0.8);
   backdrop-filter: blur(5px);
+  width: 48px;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
+
+.mobile-menu-btn .bar {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-btn.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mobile-menu-btn.open .bar:nth-child(2) { opacity: 0; }
+.mobile-menu-btn.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .mobile-menu-btn svg {
   width: 28px;
@@ -582,7 +610,7 @@ body {
   position: fixed;
   inset: 0;
   height: 100dvh; /* Kunci agar selalu di tengah layar HP */
-  width: 100vw;
+  width: 100%;
   z-index: 1000;
   background: rgba(20,20,18, 0.5); 
   backdrop-filter: blur(15px); 
@@ -636,7 +664,7 @@ body {
     display: none !important; 
   }
   .mobile-menu-btn {
-    display: block; 
+    display: inline-flex; 
   }
 }
 
@@ -680,6 +708,28 @@ body {
   .section-title { font-size: 2.8rem; word-break: break-word; }
   .service-item__name { font-size: 2rem !important; }
   .popup-desc-wrapper p { font-size: 1.2rem !important; }
+
+  /* Popup items (Education/Projects/Experience): tampil vertikal di HP */
+  .modal-body .service-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: var(--space-lg);
+  }
+  .modal-body .service-item > div:first-child {
+    width: 100% !important;
+  }
+  .modal-body .service-item > div:first-child img {
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+  .modal-body .service-item > div:nth-child(2),
+  .modal-body .service-item > div:nth-child(3) {
+    width: 100% !important;
+  }
+  .modal-body .service-tags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .mobile-br {
     display: block;
