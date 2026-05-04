@@ -15,13 +15,24 @@ import schoolImg from './assets/school.png';
 import univImg from './assets/universitas.jpg';
 import ccitImg from './assets/ccit.jpg';
 
-const latestEducation = { title: 'University of Indonesia', subtitle: 'B.Eng in Computer Engineering' };
-const latestProject = { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital Logic Design' };
-const latestExperience = { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team UI' };
+// REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
+const educationData = [
+  { title: 'University of Indonesia', subtitle: 'B.Eng in Computer Engineering', image: univImg },
+  { title: 'CCIT FTUI Professional Program', subtitle: 'Internet-based System Automation (ISA)', image: ccitImg },
+  { title: 'SMAN 112 Jakarta', subtitle: 'Science Major', image: schoolImg }
+];
 
-const educationImages = [univImg, ccitImg, schoolImg];
-const projectImages = [schoolImg, univImg, ccitImg]; 
-const experienceImages = [ccitImg, schoolImg, univImg];
+const projectData = [
+  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital Logic Design', image: schoolImg },
+  { title: 'LabuBoom Game', subtitle: 'Game Development', image: univImg },
+  { title: 'Personal Web Portfolio', subtitle: 'Frontend Engineering', image: ccitImg }
+];
+
+const experienceData = [
+  { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team UI', image: ccitImg },
+  { title: 'Participant', subtitle: 'Kontes Kapal Indonesia', image: schoolImg },
+  { title: 'Robotics Team', subtitle: 'Gawe Component', image: univImg }
+];
 
 const HamburgerIcon = () => (
   <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
@@ -36,7 +47,6 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrollLockRef = useRef({ locked: false, scrollY: 0, rightColumnScrollTop: 0 });
 
-  // Observer untuk efek muncul saat di-scroll (Aktif saat 25% masuk layar)
   useEffect(() => {
     const isMobile = window.innerWidth <= 1100;
     const observer = new IntersectionObserver((entries) => {
@@ -56,37 +66,30 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Kunci Scroll Layar Utama saat Pop-up / Menu Terbuka
   useEffect(() => {
     const shouldLock = Boolean(activeModal || isMobileMenuOpen);
 
     if (shouldLock) {
       if (scrollLockRef.current.locked) return;
-
       scrollLockRef.current.locked = true;
       scrollLockRef.current.scrollY = window.scrollY;
       scrollLockRef.current.rightColumnScrollTop = scrollContainerRef.current?.scrollTop ?? 0;
 
       document.documentElement.classList.add('locked-scroll');
       document.body.classList.add('locked-scroll');
-
-      // Freeze body scroll (best effort across mobile browsers)
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollLockRef.current.scrollY}px`;
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.width = '100%';
 
-      // Freeze the desktop scroll container, if used
       if (scrollContainerRef.current) {
         scrollContainerRef.current.style.overflow = 'hidden';
       }
-
       return;
     }
 
     if (!scrollLockRef.current.locked) return;
-
     scrollLockRef.current.locked = false;
 
     document.documentElement.classList.remove('locked-scroll');
@@ -163,14 +166,13 @@ export default function App() {
               </p>
             </section>
 
-            <ScrollSection index={0} id="education" title="EDUCATION" latestItem={latestEducation} images={educationImages} onLearnMore={() => setActiveModal('education')} />
-            <ScrollSection index={1} id="projects" title="PROJECTS" latestItem={latestProject} images={projectImages} onLearnMore={() => setActiveModal('projects')} />
-            <ScrollSection index={2} id="experience" title="EXPERIENCE" latestItem={latestExperience} images={experienceImages} onLearnMore={() => setActiveModal('experience')} />
+            {/* REVISI: Mengirim items berisi judul, sub, dan gambar sekaligus */}
+            <ScrollSection index={0} id="education" title="EDUCATION" items={educationData} onLearnMore={() => setActiveModal('education')} />
+            <ScrollSection index={1} id="projects" title="PROJECTS" items={projectData} onLearnMore={() => setActiveModal('projects')} />
+            <ScrollSection index={2} id="experience" title="EXPERIENCE" items={experienceData} onLearnMore={() => setActiveModal('experience')} />
 
             <section id="contact" className="contact-section reveal">
               <h2 className="section-title t-mono">CONTACT ME</h2>
-              
-              {/* Bungkus ikon dengan div social-links yang sudah kita beri margin simetris di CSS */}
               <div className="social-links">
                 <a href="https://github.com/rajavijasa" target="_blank" rel="noreferrer">
                   <img src={githubIcon} alt="GitHub" className="social-icon" />
