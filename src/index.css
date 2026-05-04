@@ -930,3 +930,27 @@ body.locked-scroll {
     width: 100% !important;
   }
 }
+
+/* ==========================================================================
+   REVISI TAMBAHAN: POPUP HP BERJARAK & TEKS KARTU NAIK
+   ========================================================================== */
+
+/* 1. Menggeser posisi blok teks (Judul & Penjurusan) naik ke atas sebesar 15% */
+.preview-content {
+  transform: translateY(-15%) !important;
+}
+
+/* 2. Khusus HP: Mengembalikan jarak ujung layar Pop-up agar tidak Full Screen */
+@media (max-width: 850px) {
+  .modal-overlay {
+    padding: 24px !important; /* Memberikan jarak dari ujung layar HP */
+  }
+  .modal-content {
+    width: 100% !important;
+    max-width: 500px !important; /* Membatasi lebar agar proporsional */
+    height: auto !important; /* Tinggi menyesuaikan jumlah isi (tidak kaku 100%) */
+    max-height: 85dvh !important; /* Menyisakan jarak di bagian atas & bawah */
+    border-radius: 16px !important; /* Mengembalikan sudut membulat seperti di laptop */
+    margin: auto !important;
+  }
+}
