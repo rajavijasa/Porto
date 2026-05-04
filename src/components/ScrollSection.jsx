@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const ScrollSection = ({ id, title, latestItem, images, onLearnMore, index = 0 }) => {
+const ScrollSection = ({ id, title, latestItem, items, images, onLearnMore, index = 0 }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+
+  const currentItem = (items && items.length > 0 ? items[currentImg] : null) || latestItem;
 
   useEffect(() => {
     let interval;
@@ -50,8 +52,8 @@ const ScrollSection = ({ id, title, latestItem, images, onLearnMore, index = 0 }
         <div className="preview-content-wrapper">
           <div className="preview-content">
             <p className="preview-latest-label t-label">LATEST</p>
-            <h3 className="preview-title">{latestItem.title}</h3>
-            <p className="preview-subtitle">{latestItem.subtitle}</p>
+            <h3 className="preview-title">{currentItem?.title}</h3>
+            <p className="preview-subtitle">{currentItem?.subtitle}</p>
           </div>
           <button onClick={onLearnMore} className="btn-learn-more">
             Learn More
