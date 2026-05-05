@@ -204,8 +204,8 @@ body.locked-scroll {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 20vh;
-  padding-bottom: 40vh; 
+  padding-top: 12vh;
+  padding-bottom: 36vh; 
   border-top: none;
   margin-bottom: 0; 
 }
@@ -476,6 +476,9 @@ body.locked-scroll {
   border: 1px solid var(--clr-border);
   color: var(--clr-muted);
   text-transform: uppercase;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .service-tags {

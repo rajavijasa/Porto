@@ -22,6 +22,15 @@ import yabapiImg from './assets/yabapi.jpeg';
 import exerImg from './assets/exercise.jpg';
 import dsdImg from './assets/dsd.png';
 import progdasImg from './assets/progdas.png';
+import statisImg from './assets/statis.jpg';
+import pdtImg from './assets/scheduled.png';
+import molitavImg from './assets/molitav.png';
+import jarkomImg from './assets/jarkom.png';
+import labuboomImg from './assets/labuboom.png';
+import psdImg from './assets/psd.jpeg';
+import exerprojectImg from './assets/exerproject.png';
+import qvitImg from './assets/aset.jpg';
+import kki2025Img from './assets/kki2025.jpeg';
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
@@ -32,9 +41,17 @@ const educationData = [
 ];
 
 const projectData = [
-  { title: 'Scheduled', subtitle: 'Engineering Design', image: progdasImg, isLatest: false },
+  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: true },
+  { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: true },
+  { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: true },
+  { title: 'Life Style Analytic', subtitle: 'Statistics', image: statisImg, isLatest: true },
+  { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: false },
+  { title: 'Quantum Vision Transformer (QViT) Research', subtitle: 'Quantum Computing', image: qvitImg, isLatest: false },
+  { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
   { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
-  { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false }
+  { title: 'Scheduled', subtitle: 'Engineering Design', image: pdtImg, isLatest: false },
+  { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
+  { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false }
 ];
 
 const experienceData = [

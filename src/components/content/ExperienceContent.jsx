@@ -81,13 +81,13 @@ const experiences = [
               padding: 'var(--space-lg) 0'
             }}
           >
-            <div style={{ width: '160px', flexShrink: 0 }}>
+            <div style={{ width: '240px', flexShrink: 0 }}>
               <img
                 src={exp.img}
                 alt={exp.inst}
                 style={{
                   width: '100%',
-                  height: '120px',
+                  height: '180px',
                   objectFit: 'cover',
                   borderRadius: '12px',
                   border: '1px solid var(--clr-border)',
@@ -96,20 +96,20 @@ const experiences = [
               />
             </div>
 
-            <div style={{ flex: 1, flexShrink: 0, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
               <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
                 {exp.year}
               </span>
-              <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1' }}>
+              <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
                 {exp.inst}
-                <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px' }}>
+                <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
                   {exp.major}
                 </div>
               </div>
             </div>
 
-            <div style={{ flex: 1, minWidth: '250px' }}>
-              <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
                 {exp.desc}
               </p>
               <div className="service-tags">
