@@ -965,8 +965,8 @@ body.locked-scroll {
 /* 1. LAPTOP: Lebar gambar menjadi 3/10 (30%) dari lebar kotak */
 @media (min-width: 851px) {
   .preview-image-container {
-    width: 30% !important;
-    min-width: 240px !important; 
+    width: 25% !important;
+    min-width: 200px !important; 
   }
 }
 

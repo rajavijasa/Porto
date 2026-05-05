@@ -14,25 +14,34 @@ import mailIcon from './assets/mail.svg';
 import schoolImg from './assets/school.png';
 import univImg from './assets/universitas.jpg';
 import ccitImg from './assets/ccit.jpg';
+import amvImg from './assets/amv.jpeg';
+import alinImg from './assets/alin.png';
+import imeImg from './assets/ime.jpeg';
+import netlabImg from './assets/netlab.png';
+import yabapiImg from './assets/yabapi.jpeg';
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
 const educationData = [
   { title: 'University of Indonesia', subtitle: 'B.Eng in Computer Engineering', image: univImg, isLatest: true },
-  { title: 'CCIT FTUI Professional Program', subtitle: 'Internet-based System Automation (ISA)', image: ccitImg, isLatest: false },
+  { title: 'CCIT-Professional Program', subtitle: 'Internet-based System Automation (ISA)', image: ccitImg, isLatest: false },
   { title: 'SMAN 112 Jakarta', subtitle: 'Science Major', image: schoolImg, isLatest: false }
 ];
 
 const projectData = [
-  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital Logic Design', image: schoolImg, isLatest: true },
+  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: schoolImg, isLatest: false },
   { title: 'LabuBoom Game', subtitle: 'Game Development', image: univImg, isLatest: true },
-  { title: 'Personal Web Portfolio', subtitle: 'Frontend Engineering', image: ccitImg, isLatest: false }
+  { title: 'Personal Web Portfolio', subtitle: 'Frontend Engineering', image: ccitImg, isLatest: false },
+  { title: 'Slam Dunk (Arcade Basket)', subtitle: 'Digital Design', image: ccitImg, isLatest: false }
 ];
 
 const experienceData = [
-  { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team UI', image: ccitImg, isLatest: true },
-  { title: 'Participant', subtitle: 'Kontes Kapal Indonesia', image: schoolImg, isLatest: false },
-  { title: 'Robotics Team', subtitle: 'Gawe Component', image: univImg, isLatest: false }
+  { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team Robotics UI', image: amvImg, isLatest: true },
+  { title: 'Assistant Lecturer of Linear Algebra', subtitle: 'Faculty of Engineering UI', image: alinImg, isLatest: true },
+  { title: 'Staff of Community Service', subtitle: 'Ikatan Mahasiswa Elektro (IME-FTUI)', image: imeImg, isLatest: false },
+  { title: 'Quantum Computing Researcher', subtitle: 'Bootcampt Research Assist ant Network Lab', image: netlabImg, isLatest: false },
+  { title: 'IoT Engineer Intern', subtitle: 'Yayasan Bayi Prematur', image: yabapiImg, isLatest: false },
+  { title: 'Hardware Division Internship', subtitle: 'EXERCISE FTUI', image: schoolImg, isLatest: false }
 ];
 
 const HamburgerIcon = () => (

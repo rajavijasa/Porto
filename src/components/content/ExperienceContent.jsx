@@ -1,10 +1,66 @@
-import univImg from '../../assets/universitas.jpg';
-import ccitImg from '../../assets/ccit.jpg';
+import amvImg from '../../assets/amv.jpeg';
+import alinImg from '../../assets/alin.png';
+import imeImg from '../../assets/ime.jpeg';
+import netlabImg from '../../assets/netlab.png';
+import yabapiImg from '../../assets/yabapi.jpeg';
+import schoolImg from '../../assets/school.png';
 
 export default function ExperienceContent() {
-  const experiences = [
-    { year: "2025 — Present", inst: "AMV Team UI", major: "Electrical Staff", desc: "Specializing in building smart robots and IoT solutions. Developed autonomous acoustic pinger detection systems for AUVs.", skills: ["Robotics", "IoT", "Embedded Systems"], img: univImg, isLatest: true },
-    { year: "2024 — 2025", inst: "Kontes Kapal Indonesia", major: "Participant", desc: "Designed and programmed a robot ship. Gained hands-on experience in marine vehicle automation and hardware integration.", skills: ["Marine Automation", "Hardware", "Team Collaboration"], img: ccitImg, isLatest: false }
+const experiences = [
+    {
+      year: "Dec 2024 - Present",
+      inst: "Electrical Staff",
+      major: "Autonomous Marine Vehicle Team Robotics UI",
+      desc: "Engineered and integrated reliable low-voltage circuits to support advanced navigation and automation systems for autonomous marine vehicles.",
+      skills: ["Electrical Design", "Marine Engineering", "Low Voltage Circuit Integration"],
+      img: amvImg,
+      isLatest: true
+    },
+    {
+      year: "Feb 2026 - Present",
+      inst: "Assistant Lecturer of Linear Algebra",
+      major: "Faculty of Engineering UI",
+      desc: "Instructed engineering students in Linear Algebra by delivering comprehensive tutorials and solve mathematical concepts.",
+      skills: ["Mathematics", "Teaching"],
+      img: alinImg,
+      isLatest: true
+    },
+    {
+      year: "Feb 2025 - Dec 2025",
+      inst: "Staff of Community Service",
+      major: "Ikatan Mahasiswa Elektro (IME-FTUI)",
+      desc: "Coordinated impactful community service programs by leveraging donation and developing multimedia content to drive social participation.",
+      skills: ["Public Speaking", "Video Editing", "Social Services"],
+      img: imeImg,
+      isLatest: false
+    },
+    {
+      year: "Oct 2025 - Nov 2025",
+      inst: "Quantum Computing Researcher",
+      major: "Bootcamp Research Assistant Network Lab",
+      desc: "Conducted foundational research in quantum computing theory, focusing on technical analysis and presenting scientific findings.",
+      skills: ["Quantom Computing", "Quantum Theory", "Research Skills"],
+      img: netlabImg,
+      isLatest: false
+    },
+    {
+      year: "Jun 2025 - Nov 2025",
+      inst: "IoT Engineer Intern",
+      major: "Yayasan Bayi Prematur",
+      desc: "Developed healthcare IoT applications with integrated sensors to accurately monitor and support care metrics for people in need.",
+      skills: ["IoT", "Application Development", "Sensor Integration"],
+      img: yabapiImg,
+      isLatest: false
+    },
+    {
+      year: "Oct 2024 - Dec 2024",
+      inst: "Hardware Division Internship",
+      major: "EXERCISE FTUI",
+      desc: "Build circuit and integrated electrical components to develop functional hardware and IoT solutions for engineering projects.",
+      skills: ["Hardware Design", "IoT", "Electrical Component"],
+      img: schoolImg,
+      isLatest: false
+    }
   ];
 
   return (
@@ -57,7 +113,6 @@ export default function ExperienceContent() {
               </p>
               <div className="service-tags">
                  {/* LATEST Badge Dinamis */}
-                 {exp.isLatest && <span className="service-tag" style={{ color: 'var(--clr-copper)', borderColor: 'var(--clr-copper)' }}>LATEST</span>}
                 {exp.skills.map(s => <span key={s} className="service-tag">{s}</span>)}
               </div>
             </div>
