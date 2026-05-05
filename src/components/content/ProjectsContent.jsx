@@ -1,46 +1,25 @@
-import univImg from '../../assets/universitas.jpg';
-import ccitImg from '../../assets/ccit.jpg';
-import schoolImg from '../../assets/school.png';
+import dsdImg from '../../assets/dsd.png';
+import progdasImg from '../../assets/progdas.png';
 
 export default function ProjectsContent() {
   const projects = [
     {
-      year: "Dec 2025",
-      inst: "16-Channel Parallel Bitonic Sorter",
-      major: "Digital Logic Design",
-      desc: "Designed and implemented a parallel sorting network on FPGA using VHDL.",
-      skills: ["FPGA", "VHDL", "Digital Logic"],
-      img: univImg,
-      link: null,
-      isLatest: true
-    },
-    {
-      year: "2025 — 2026",
-      inst: "LabuBoom Game",
-      major: "Game Development",
-      desc: "Managed software repository and backend deployment using Java and Spring Boot.",
-      skills: ["Java", "Spring Boot", "LibGDX"],
-      img: ccitImg,
-      link: null,
-      isLatest: true
-    },
-    {
-      year: "April 2026",
-      inst: "Personal Web Portfolio",
-      major: "Frontend Engineering",
-      desc: "Built a responsive and interactive personal portfolio utilizing React and Vite.",
-      skills: ["React", "CSS", "Vite"],
-      img: schoolImg,
-      link: null,
+      year: "June 2025",
+      inst: "Housing Energy Monitor",
+      major: "Programming Fundamental",
+      desc: "Developed a Program 'Housing Energy Monitor' to Calculate and Predict Monthly Electricity Consumption to Provide Usage Recommendation for Saving the Energy.",
+      skills: ["C", "Programming"],
+      img: progdasImg,
+      link: "https://drive.google.com/drive/folders/18BlD3wDQuD29BnB2GQzHw4HXO5jtVGmv?usp=sharing",
       isLatest: false
     },
     {
-      year: "—",
+      year: "December 2024",
       inst: "Slam Dunk (Arcade Basket)",
       major: "Digital Design",
-      desc: "(Dummy) Replace this description with the real project details.",
-      skills: ["(Dummy) Skill 1", "(Dummy) Skill 2", "(Dummy) Skill 3"],
-      img: ccitImg,
+      desc: "Designed and Implemented a Digital System Cloning an Arcade Basketball Mechanism featuring a Timer, Sensor Scoring, and HighScore memory using sequential circuits.",
+      skills: ["DIgital Logic Design", "Proteus", "Electrical Components"],
+      img: dsdImg,
       link: "https://drive.google.com/drive/folders/12tWzmCju5krIt5BH_M8NlfaHGMvBNemf?usp=sharing",
       isLatest: false
     }
@@ -109,7 +88,7 @@ export default function ProjectsContent() {
                   rel="noreferrer"
                   style={{ marginTop: '14px' }}
                 >
-                  Open Link
+                  See More
                 </a>
               )}
             </div>

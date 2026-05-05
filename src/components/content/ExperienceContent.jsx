@@ -4,6 +4,7 @@ import imeImg from '../../assets/ime.jpeg';
 import netlabImg from '../../assets/netlab.png';
 import yabapiImg from '../../assets/yabapi.jpeg';
 import schoolImg from '../../assets/school.png';
+import exerImg from '../../assets/exercise.jpg';
 
 export default function ExperienceContent() {
 const experiences = [
@@ -58,7 +59,7 @@ const experiences = [
       major: "EXERCISE FTUI",
       desc: "Build circuit and integrated electrical components to develop functional hardware and IoT solutions for engineering projects.",
       skills: ["Hardware Design", "IoT", "Electrical Component"],
-      img: schoolImg,
+      img: exerImg,
       isLatest: false
     }
   ];

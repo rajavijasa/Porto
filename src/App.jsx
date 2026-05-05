@@ -19,6 +19,9 @@ import alinImg from './assets/alin.png';
 import imeImg from './assets/ime.jpeg';
 import netlabImg from './assets/netlab.png';
 import yabapiImg from './assets/yabapi.jpeg';
+import exerImg from './assets/exercise.jpg';
+import dsdImg from './assets/dsd.png';
+import progdasImg from './assets/progdas.png';
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
@@ -29,10 +32,9 @@ const educationData = [
 ];
 
 const projectData = [
-  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: schoolImg, isLatest: false },
-  { title: 'LabuBoom Game', subtitle: 'Game Development', image: univImg, isLatest: true },
-  { title: 'Personal Web Portfolio', subtitle: 'Frontend Engineering', image: ccitImg, isLatest: false },
-  { title: 'Slam Dunk (Arcade Basket)', subtitle: 'Digital Design', image: ccitImg, isLatest: false }
+  { title: 'Scheduled', subtitle: 'Engineering Design', image: progdasImg, isLatest: false },
+  { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
+  { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false }
 ];
 
 const experienceData = [
@@ -41,7 +43,7 @@ const experienceData = [
   { title: 'Staff of Community Service', subtitle: 'Ikatan Mahasiswa Elektro (IME-FTUI)', image: imeImg, isLatest: false },
   { title: 'Quantum Computing Researcher', subtitle: 'Bootcampt Research Assist ant Network Lab', image: netlabImg, isLatest: false },
   { title: 'IoT Engineer Intern', subtitle: 'Yayasan Bayi Prematur', image: yabapiImg, isLatest: false },
-  { title: 'Hardware Division Internship', subtitle: 'EXERCISE FTUI', image: schoolImg, isLatest: false }
+  { title: 'Hardware Division Internship', subtitle: 'EXERCISE FTUI', image: exerImg, isLatest: false }
 ];
 
 const HamburgerIcon = () => (
