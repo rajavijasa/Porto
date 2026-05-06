@@ -12,6 +12,11 @@ import kki2025Img from '../../assets/kki2025.jpeg';
 import reserveImg from '../../assets/reservation.jpg';
 import moviedbImg from '../../assets/moviedb.jpg';
 import dataanalysisImg from '../../assets/analyst.jpg';
+import melodifyImg from '../../assets/melodify.jpeg';
+import isasImg from '../../assets/isas.png';
+import parkingImg from '../../assets/parking.jpeg';
+import crudapp from '../../assets/crudapp.png';
+
 
 export default function ProjectsContent() {
   const projects = [
@@ -38,7 +43,7 @@ export default function ProjectsContent() {
     {
       year: "Jun 2024 & Dec 2025",
       inst: "Computer Network Project",
-      major: "Computer Network",
+      major: "Computer Network (3 Project)",
       desc: "Designed A Complex Multi-Area Network Featuring RPVST And EtherChannel, Alongside Independent Projects For Multi-Story Building VLANs And Cisco IoT Integration.",
       skills: ["Cisco", "Network Integration", "IoT"],
       img: jarkomImg,
@@ -98,11 +103,51 @@ export default function ProjectsContent() {
     {
       year: "May 2025 - Jun 2025",
       inst: "Scheduled",
-      major: "Programming Fundamental",
+      major: "Engineering Design",
       desc: "Build and Developing a Frontend Website Designed to Solve Student's Time Management with Integrating ToDo List, Interactive Calendar, etc.",
       skills: ["Vite", "JavaScript"],
       img: pdtImg,
       link: "https://drive.google.com/drive/folders/1v3ZVlJ_7KgInGX1Jpj0hOCg6y6UpLr9-?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "May 2025",
+      inst: "Melodify",
+      major: "Web Development",
+      desc: "Engineered A Music Streaming Hub Using Native PHP And MVC Architecture, Implementing Role-Based Authentication And Seamless Multimedia File Handling.",
+      skills: ["PHP", "MVC Architecture", "MySQL"],
+      img: melodifyImg,
+      link: "https://melodify.great-site.net",
+      isLatest: false
+    },
+    {
+      year: "Apr 2025",
+      inst: "Firebase CRUD Application",
+      major: "Android Development",
+      desc: "Developed A Mobile Application with Kotlin And Android Studio, Featuring Secure Authentication And CRUD Operations With Integrated Backend.",
+      skills: ["Kotlin", "Android Studio", "Firebase"],
+      img: crudapp,
+      link: "https://drive.google.com/drive/folders/1ZisGGcOh4ZgHR_vH96VnBuJwQaiRRxR6?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "Mar 2025",
+      inst: "Parking Management System",
+      major: "Database Management",
+      desc: "Developed A Database for Parking Management System with Java And JDBC, Implementing Role Based Access Control (RBAC) And SQL Query Optimization For Efficient Operations.",
+      skills: ["Java", "JDBC", "Database Management"],
+      img: parkingImg,
+      link: "https://drive.google.com/drive/folders/19WytMJms_fXjpBfwNP8rpjxtnSLcgaU2?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "Sep 2023 - Feb 2025",
+      inst: "ISAS Academic Research",
+      major: "Information Search & Analysis",
+      desc: "Executed Comprehensive Information Search And Analytical Methodologies To Evaluate Technological Challenges And Synthesize Findings Into Professional Academic Research Reports.",
+      skills: ["Academic Research", "Problem Analysis", "Technical Writing"],
+      img: isasImg,
+      link: "https://drive.google.com/drive/folders/1phN8e2Mq4pRGKTyOnFRoBMGky3kM8YyL?usp=sharing",
       isLatest: false
     },
     {

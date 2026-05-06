@@ -34,7 +34,10 @@ import kki2025Img from './assets/kki2025.jpeg';
 import reserveImg from './assets/reservation.jpg';
 import moviedbImg from './assets/moviedb.jpg';
 import dataanalysisImg from './assets/analyst.jpg';
-
+import melodifyImg from './assets/melodify.jpeg';
+import isasImg from './assets/isas.png';
+import parkingImg from './assets/parking.jpeg';
+import crudapp from './assets/crudapp.png';
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
@@ -54,6 +57,10 @@ const projectData = [
   { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
   { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
   { title: 'Scheduled', subtitle: 'Engineering Design', image: pdtImg, isLatest: false },
+  { title: 'Melodify', subtitle: 'Web Development', image: melodifyImg, isLatest: false },
+  { title: 'Firebase CRUD Application', subtitle: 'Android Development', image: crudapp, isLatest: false },
+  { title: 'Parking Management', subtitle: 'Database Management', image: parkingImg, isLatest: false },
+  { title: 'ISAS Academic Research', subtitle: 'Information Search & Analysis', image: isasImg, isLatest: false },
   { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
   { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false },
   { title: 'Technician Service Labor Analysis', subtitle: 'Data Analysis', image: dataanalysisImg, isLatest: false },
