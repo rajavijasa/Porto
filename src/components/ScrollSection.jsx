@@ -6,19 +6,27 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
 
   useEffect(() => {
     let interval;
+    let timeout;
     const isMobile = window.innerWidth <= 850;
+
+    const mobileCycleMs = 3000;
+    const desktopCycleMs = 1250;
+    const desktopHoverCycleMs = Math.round(desktopCycleMs * 1.5);
     
     if ((isHovering || isMobile) && items && items.length > 1) {
-      const timeout = setTimeout(() => {
+      timeout = setTimeout(() => {
         interval = setInterval(() => {
           setCurrentIndex(prev => (prev + 1) % items.length);
-        }, isMobile ? 3000 : 1250); 
+        }, isMobile ? mobileCycleMs : desktopHoverCycleMs);
       }, isMobile ? index * 1000 : 0); 
-      
-      return () => { clearTimeout(timeout); clearInterval(interval); }
     } else {
       setCurrentIndex(0);
     }
+    
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
   }, [isHovering, items, index]);
 
   const currentData = items && items.length > 0 ? items[currentIndex] : null;

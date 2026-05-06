@@ -9,6 +9,9 @@ import psdImg from '../../assets/psd.jpeg';
 import qvitImg from '../../assets/aset.jpg';
 import exerprojectImg from '../../assets/exerproject.png';
 import kki2025Img from '../../assets/kki2025.jpeg';
+import reserveImg from '../../assets/reservation.jpg';
+import moviedbImg from '../../assets/moviedb.jpg';
+import dataanalysisImg from '../../assets/analyst.jpg';
 
 export default function ProjectsContent() {
   const projects = [
@@ -33,11 +36,11 @@ export default function ProjectsContent() {
       isLatest: true
     },
     {
-      year: "Dec 2025",
+      year: "Jun 2024 & Dec 2025",
       inst: "Computer Network Project",
       major: "Computer Network",
-      desc: "Designed & Configured A Complex Multi-Area Network Architecture with Spanning-Tree Protocol (RPVST), VTP, EtherChannel, And Static Routing To Ensure High Availability And Efficient Traffic Management.",
-      skills: ["Cisco", "Network Integration"],
+      desc: "Designed A Complex Multi-Area Network Featuring RPVST And EtherChannel, Alongside Independent Projects For Multi-Story Building VLANs And Cisco IoT Integration.",
+      skills: ["Cisco", "Network Integration", "IoT"],
       img: jarkomImg,
       link: "https://drive.google.com/drive/folders/1geIVr534sXtRFSDia04wgQNchVsA_3Er?usp=sharing",
       isLatest: true
@@ -56,7 +59,7 @@ export default function ProjectsContent() {
       year: "Jun 2025 - Dec 2025",
       inst: "Makara Nirmala",
       major: "Autonomous Marine Vehicle",
-      desc: "Develop an Autonomous Marine Vehicle for Competing in Prestigious Kontes Kapal Indonesia 2025, Responsible for The Integrating Electrical Components, Cable Managements, and Interconnectivity",
+      desc: "Develop an Autonomous Marine Vehicle for Competing in Prestigious Kontes Kapal Indonesia 2025, Responsible for The Integrating Electrical Components, Cable Managements, and Component's Interconnectivity",
       skills: ["KiCad", "Marine Electronics", "Robotics Integration"],
       img: kki2025Img,
       link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
@@ -121,7 +124,37 @@ export default function ProjectsContent() {
       img: exerprojectImg,
       link: "https://drive.google.com/drive/folders/1XQbho1QM0IuEf4n1DyJ_bDTc_LQ_AKDv?usp=sharing",
       isLatest: false
-    }
+    },
+    {
+      year: "Jan 2024",
+      inst: "Technician Service Labor Analysis",
+      major: "Data Analysis",
+      desc: "Performed data analysis on technician service labor history using Excel and built interactive dashboards for operational monitoring.",
+      skills: ["Microsoft Excel", "Data Analysis", "Data Visualization"],
+      img: dataanalysisImg,
+      link: "https://drive.google.com/drive/folders/1k-W5P10JjxZVX6IAVwKmXWGO_N6j_WHa?usp=sharing",
+      isLatest: true
+    },
+    {
+      year: "Dec 2023",
+      inst: "Movie Database System",
+      major: "Database Administration",
+      desc: "Designed And Implemented A Relational Database For A Movie System with Microsoft SQL Server, Ilustrate Entity-Relationship Diagrams, Stored Procedures, And Triggers.",
+      skills: ["Microsoft SQL Server", "Database Design", "SQL"],
+      img: moviedbImg,
+      link: "https://drive.google.com/drive/folders/1OvCQfg9iBG5dbpC4RvumJCcs2qEz55WC?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "Nov 2023",
+      inst: "Craftsmen Service Reservation System",
+      major: "System Analysis & Design",
+      desc: "Designed And Documented The Algorithms, Flowcharts, And Pseudocode For A Comprehensive Craftsmen Service Reservation System To Streamline Booking And Payment Processes.",
+      skills: ["System Analysis", "Algorithm Design", "Pseudocode"],
+      img: reserveImg,
+      link: "https://drive.google.com/drive/folders/1LwiLu8ffDBf5QW2Pl-yLdVBCMT5bdAoT?usp=sharing",
+      isLatest: false
+    },
   ];
 
   return (

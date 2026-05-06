@@ -47,7 +47,7 @@ const experiences = [
     {
       year: "Jun 2025 - Nov 2025",
       inst: "IoT Engineer Intern",
-      major: "Yayasan Bayi Prematur",
+      major: "Yayasan Bayi Prematur (YABAPI) Indonesia ",
       desc: "Developed healthcare IoT applications with integrated sensors to accurately monitor and support care metrics for people in need.",
       skills: ["IoT", "Application Development", "Sensor Integration"],
       img: yabapiImg,

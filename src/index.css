@@ -74,6 +74,7 @@ body.locked-scroll {
   display: grid;
   grid-template-columns: clamp(430px, 30vw, 630px) 1fr;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   width: 100%;
 }
@@ -81,6 +82,7 @@ body.locked-scroll {
 .left-column {
   width: clamp(430px, 30vw, 550px);
   height: 100vh;
+  height: 100svh;
   position: sticky;
   top: 0;
   left: 0;
@@ -95,6 +97,7 @@ body.locked-scroll {
 
 .right-column {
   height: 100vh;
+  height: 100svh;
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -127,6 +130,7 @@ body.locked-scroll {
   z-index: 3;
   padding: var(--space-xl);
   padding-bottom: 9vh;
+  padding-bottom: 9svh;
 }
 
 /* ==========================================================================
@@ -358,7 +362,7 @@ body.locked-scroll {
 .btn-offset:hover { color: var(--clr-copper-light); background-color: var(--clr-dark); box-shadow: 4px 4px 0px var(--clr-copper-light); transform: translate(0, 0) !important; }
 .btn-offset:active { transform: translate(4px, 4px) !important; box-shadow: 1px 1px 0px var(--clr-copper-light) !important; }
 
-.btn-learn-more:hover { color: var(--clr-copper-light); background-color: var(--clr-dark); box-shadow: 6px 6px 0px var(--clr-copper-light); transform: translate(0, 0) !important; }
+.btn-learn-more:hover { color: var(--clr-copper-light); background-color: var(--clr-dark); box-shadow: 6px 6px 0px var(--clr-copper-light); }
 .btn-learn-more:active { transform: translate(4px, 4px) !important; box-shadow: 2px 2px 0px var(--clr-copper-light) !important; }
 
 .social-links {
@@ -837,7 +841,8 @@ body.locked-scroll {
 
   /* Hero Section: 100% Layar (Hanya Profil, Nama, Jurusan) */
   .left-column {
-    height: 100dvh !important;
+    height: 100vh !important;
+    height: 100svh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
@@ -1030,5 +1035,23 @@ body.locked-scroll {
     font-size: 0.65rem;
     padding: 4px 10px;
     border-radius: 6px;
+  }
+}
+
+/* ==========================================================================
+   TALL / NARROW LAPTOP (≈9:16): HOVER JANGAN MEMBESAR
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) and (max-aspect-ratio: 10/16) {
+  /* Saat hover, kartu tidak membesar (menghindari flick/jump di layar sempit-tinggi) */
+  .preview-card:hover {
+    transform: none;
+    border-color: var(--clr-border);
+  }
+
+  /* Hover tombol Learn More: hanya ganti warna teks */
+  .btn-learn-more:hover {
+    color: var(--clr-copper-light);
+    background-color: var(--clr-bg-alt);
+    box-shadow: 6px 6px 0px var(--clr-copper);
   }
 }

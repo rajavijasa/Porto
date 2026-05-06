@@ -31,6 +31,10 @@ import psdImg from './assets/psd.jpeg';
 import exerprojectImg from './assets/exerproject.png';
 import qvitImg from './assets/aset.jpg';
 import kki2025Img from './assets/kki2025.jpeg';
+import reserveImg from './assets/reservation.jpg';
+import moviedbImg from './assets/moviedb.jpg';
+import dataanalysisImg from './assets/analyst.jpg';
+
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
@@ -51,7 +55,10 @@ const projectData = [
   { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
   { title: 'Scheduled', subtitle: 'Engineering Design', image: pdtImg, isLatest: false },
   { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
-  { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false }
+  { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false },
+  { title: 'Technician Service Labor Analysis', subtitle: 'Data Analysis', image: dataanalysisImg, isLatest: false },
+  { title: 'Movie Database System', subtitle: 'Database Administration', image: moviedbImg, isLatest: false },
+  { title: 'Craftsmen Service Reservation System', subtitle: 'System Analysis & Desig', image: reserveImg, isLatest: false }
 ];
 
 const experienceData = [
