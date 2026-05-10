@@ -16,7 +16,7 @@ import melodifyImg from '../../assets/melodify.jpeg';
 import isasImg from '../../assets/isas.png';
 import parkingImg from '../../assets/parking.jpeg';
 import crudapp from '../../assets/crudapp.png';
-import crudapp from '../../assets/cloth.png';
+import clothImg from '../../assets/cloth.png';
 
 export default function ProjectsContent() {
   const projects = [
