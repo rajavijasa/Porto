@@ -16,7 +16,7 @@ import melodifyImg from '../../assets/melodify.jpeg';
 import isasImg from '../../assets/isas.png';
 import parkingImg from '../../assets/parking.jpeg';
 import crudapp from '../../assets/crudapp.png';
-
+import crudapp from '../../assets/cloth.png';
 
 export default function ProjectsContent() {
   const projects = [
@@ -148,6 +148,16 @@ export default function ProjectsContent() {
       skills: ["Academic Research", "Problem Analysis", "Technical Writing"],
       img: isasImg,
       link: "https://drive.google.com/drive/folders/1phN8e2Mq4pRGKTyOnFRoBMGky3kM8YyL?usp=sharing",
+      isLatest: false
+    },
+{
+      year: "Dec 2024",
+      inst: "Smart Clothesline IoT System",
+      major: "Internet of Things",
+      desc: "Developed An Automated Smart Clothesline System Using An ESP32 Microcontroller, Integrating Environmental Sensors And The Blynk App For Real Time Remote Monitoring And Motor Control.",
+      skills: ["ESP32 / C++", "IoT Integration", "Electrical Sensors"],
+      img: clothImg,
+      link: "https://drive.google.com/drive/folders/1s52zRodD85MEaN3eVIfQASATynXxaWGR?usp=sharing",
       isLatest: false
     },
     {

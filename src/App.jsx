@@ -38,6 +38,7 @@ import melodifyImg from './assets/melodify.jpeg';
 import isasImg from './assets/isas.png';
 import parkingImg from './assets/parking.jpeg';
 import crudapp from './assets/crudapp.png';
+import clothImg from './assets/cloth.png';
 
 // REVISI: Menggabungkan Teks dan Gambar agar sinkron saat berganti (Carousel)
 // REVISI: Menambahkan properti isLatest: true/false agar badge muncul
@@ -61,6 +62,7 @@ const projectData = [
   { title: 'Firebase CRUD Application', subtitle: 'Android Development', image: crudapp, isLatest: false },
   { title: 'Parking Management', subtitle: 'Database Management', image: parkingImg, isLatest: false },
   { title: 'ISAS Academic Research', subtitle: 'Information Search & Analysis', image: isasImg, isLatest: false },
+  { title: 'Smart Clothesline IoT System', subtitle: 'Internet of Things', image: clothImg, isLatest: false },
   { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
   { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false },
   { title: 'Technician Service Labor Analysis', subtitle: 'Data Analysis', image: dataanalysisImg, isLatest: false },
