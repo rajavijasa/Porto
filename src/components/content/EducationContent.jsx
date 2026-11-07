@@ -9,7 +9,7 @@ export default function EducationContent() {
       year: "Aug 2024 — Present",
       inst: "University of Indonesia",
       major: "B.Eng in Computer Engineering",
-      score: "GPA: 3.86",
+      score: "GPA: 3.84",
       desc: "Currently pursuing bachelor degree with a focus on embedded systems, computer architecture, and programming.",
       skills: ["Computer Architecture", "Embedded Systems", "Programming", "Digital Design"],
       img: univImg,

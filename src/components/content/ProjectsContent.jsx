@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -19,7 +20,16 @@ import crudapp from '../../assets/crudapp.png';
 import clothImg from '../../assets/cloth.png';
 
 export default function ProjectsContent() {
-  const projects = [
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  useEffect(() => {
+    const modalContent = document.querySelector('.modal-content');
+    if (modalContent) {
+      modalContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedCategory]);
+
+  const universityProjects = [
     {
       year: "Dec 2025",
       inst: "16-Channel Parallel Bitonic Sorter",
@@ -61,36 +71,6 @@ export default function ProjectsContent() {
       isLatest: true
     },
     {
-      year: "Jun 2025 - Dec 2025",
-      inst: "Makara Nirmala",
-      major: "Autonomous Marine Vehicle",
-      desc: "Develop an Autonomous Marine Vehicle for Competing in Prestigious Kontes Kapal Indonesia 2025, Responsible for The Integrating Electrical Components, Cable Managements, and Component's Interconnectivity",
-      skills: ["KiCad", "Marine Electronics", "Robotics Integration"],
-      img: kki2025Img,
-      link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
-      isLatest: true
-    },
-    {
-      year: "Nov 2025",
-      inst: "Quantum Vision Transformer (QViT) Research",
-      major: "Quantum Computing",
-      desc: "Researched And Summarized The Quantum Vision Transformer (QViT) Architecture, Evaluating Its Hybrid Quantum Classical Approach For Classifying High Energy Particle Data.",
-      skills: ["Quantum Computing", "Machine Learning", "Research"],
-      img: qvitImg,
-      link: "https://drive.google.com/drive/folders/19AZvHEqbkCSCy8Plbk4OKdFqgDzKyjnN?usp=sharing",
-      isLatest: false
-    },
-    {
-      year: "Jun 2025 - Nov 2025",
-      inst: "MoLiTav",
-      major: "IoT Engineer",
-      desc: "Developed a Flutter-Based Mobile Application Integrated with IoT sensors via Bluetooth to Monitor Six Vital Signs for People in Needs.",
-      skills: ["FLutter", "Kotlin", "Sensor Integration"],
-      img: molitavImg,
-      link: "https://drive.google.com/drive/folders/1WkxPNl7BUpMvrR8uiklH0oFRppFAwmPr?usp=sharing",
-      isLatest: false
-    },
-    {
       year: "Jun 2025",
       inst: "Housing Energy Monitor",
       major: "Programming Fundamental",
@@ -110,6 +90,29 @@ export default function ProjectsContent() {
       link: "https://drive.google.com/drive/folders/1v3ZVlJ_7KgInGX1Jpj0hOCg6y6UpLr9-?usp=sharing",
       isLatest: false
     },
+    {
+      year: "Dec 2024",
+      inst: "Slam Dunk (Arcade Basket)",
+      major: "Digital Design",
+      desc: "Designed and Implemented a Digital System Cloning an Arcade Basketball Mechanism featuring a Timer, Sensor Scoring, and HighScore memory using sequential circuits.",
+      skills: ["Digital Logic Design", "Proteus", "Electrical Components"],
+      img: dsdImg,
+      link: "https://drive.google.com/drive/folders/12tWzmCju5krIt5BH_M8NlfaHGMvBNemf?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "Nov 2024",
+      inst: "Automatic Window with ESP32",
+      major: "IoT Design",
+      desc: "Implementing an Automatic Window if Raining for Draining Clothes, Integrated with Servo Motor, Buzzer & Rain Drop sensor, and BLYNK for more Flexible Monitoring",
+      skills: ["Wokwi Design", "IoT", "ESP32"],
+      img: exerprojectImg,
+      link: "https://drive.google.com/drive/folders/1XQbho1QM0IuEf4n1DyJ_bDTc_LQ_AKDv?usp=sharing",
+      isLatest: false
+    }
+  ];
+
+  const ccitProjects = [
     {
       year: "May 2025",
       inst: "Melodify",
@@ -141,16 +144,6 @@ export default function ProjectsContent() {
       isLatest: false
     },
     {
-      year: "Sep 2023 - Feb 2025",
-      inst: "ISAS Academic Research",
-      major: "Information Search & Analysis",
-      desc: "Executed Comprehensive Information Search And Analytical Methodologies To Evaluate Technological Challenges And Synthesize Findings Into Professional Academic Research Reports.",
-      skills: ["Academic Research", "Problem Analysis", "Technical Writing"],
-      img: isasImg,
-      link: "https://drive.google.com/drive/folders/1phN8e2Mq4pRGKTyOnFRoBMGky3kM8YyL?usp=sharing",
-      isLatest: false
-    },
-{
       year: "Dec 2024",
       inst: "Smart Clothesline IoT System",
       major: "Internet of Things",
@@ -158,26 +151,6 @@ export default function ProjectsContent() {
       skills: ["ESP32 / C++", "IoT Integration", "Electrical Sensors"],
       img: clothImg,
       link: "https://drive.google.com/drive/folders/1s52zRodD85MEaN3eVIfQASATynXxaWGR?usp=sharing",
-      isLatest: false
-    },
-    {
-      year: "Dec 2024",
-      inst: "Slam Dunk (Arcade Basket)",
-      major: "Digital Design",
-      desc: "Designed and Implemented a Digital System Cloning an Arcade Basketball Mechanism featuring a Timer, Sensor Scoring, and HighScore memory using sequential circuits.",
-      skills: ["DIgital Logic Design", "Proteus", "Electrical Components"],
-      img: dsdImg,
-      link: "https://drive.google.com/drive/folders/12tWzmCju5krIt5BH_M8NlfaHGMvBNemf?usp=sharing",
-      isLatest: false
-    },
-    {
-      year: "Nov 2024",
-      inst: "Automatic Window with ESP32",
-      major: "IoT Design",
-      desc: "Implementing an Automatic Window if Raining for Draining Clothes, Integrated with Servo Motor, Buzzer & Rain Drop sensor, and BLYNK for more Fleksible Monitoring",
-      skills: ["Wokwi Design", "IoT", "ESP32"],
-      img: exerprojectImg,
-      link: "https://drive.google.com/drive/folders/1XQbho1QM0IuEf4n1DyJ_bDTc_LQ_AKDv?usp=sharing",
       isLatest: false
     },
     {
@@ -194,7 +167,7 @@ export default function ProjectsContent() {
       year: "Dec 2023",
       inst: "Movie Database System",
       major: "Database Administration",
-      desc: "Designed And Implemented A Relational Database For A Movie System with Microsoft SQL Server, Ilustrate Entity-Relationship Diagrams, Stored Procedures, And Triggers.",
+      desc: "Designed And Implemented A Relational Database For A Movie System with Microsoft SQL Server, Illustrate Entity-Relationship Diagrams, Stored Procedures, And Triggers.",
       skills: ["Microsoft SQL Server", "Database Design", "SQL"],
       img: moviedbImg,
       link: "https://drive.google.com/drive/folders/1OvCQfg9iBG5dbpC4RvumJCcs2qEz55WC?usp=sharing",
@@ -209,79 +182,222 @@ export default function ProjectsContent() {
       img: reserveImg,
       link: "https://drive.google.com/drive/folders/1LwiLu8ffDBf5QW2Pl-yLdVBCMT5bdAoT?usp=sharing",
       isLatest: false
-    },
+    }
   ];
+
+  const isasProjects = [
+    {
+      year: "Sep 2023 - Feb 2025",
+      inst: "ISAS Academic Research",
+      major: "Information Search & Analysis",
+      desc: "Executed Comprehensive Information Search And Analytical Methodologies To Evaluate Technological Challenges And Synthesize Findings Into Professional Academic Research Reports.",
+      skills: ["Academic Research", "Problem Analysis", "Technical Writing"],
+      img: isasImg,
+      link: "https://drive.google.com/drive/folders/1phN8e2Mq4pRGKTyOnFRoBMGky3kM8YyL?usp=sharing",
+      isLatest: false
+    }
+  ];
+
+  const independentProjects = [
+    {
+      year: "Jun 2025 - Dec 2025",
+      inst: "Makara Nirmala",
+      major: "Autonomous Marine Vehicle",
+      desc: "Develop an Autonomous Marine Vehicle for Competing in Prestigious Kontes Kapal Indonesia 2025, Responsible for The Integrating Electrical Components, Cable Managements, and Component's Interconnectivity",
+      skills: ["KiCad", "Marine Electronics", "Robotics Integration"],
+      img: kki2025Img,
+      link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
+      isLatest: true
+    },
+    {
+      year: "Nov 2025",
+      inst: "Quantum Vision Transformer (QViT) Research",
+      major: "Quantum Computing",
+      desc: "Researched And Summarized The Quantum Vision Transformer (QViT) Architecture, Evaluating Its Hybrid Quantum Classical Approach For Classifying High Energy Particle Data.",
+      skills: ["Quantum Computing", "Machine Learning", "Research"],
+      img: qvitImg,
+      link: "https://drive.google.com/drive/folders/19AZvHEqbkCSCy8Plbk4OKdFqgDzKyjnN?usp=sharing",
+      isLatest: false
+    },
+    {
+      year: "Jun 2025 - Nov 2025",
+      inst: "MoLiTav",
+      major: "IoT Engineer",
+      desc: "Developed a Flutter-Based Mobile Application Integrated with IoT sensors via Bluetooth to Monitor Six Vital Signs for People in Needs.",
+      skills: ["Flutter", "Kotlin", "Sensor Integration"],
+      img: molitavImg,
+      link: "https://drive.google.com/drive/folders/1WkxPNl7BUpMvrR8uiklH0oFRppFAwmPr?usp=sharing",
+      isLatest: false
+    }
+  ];
+
+  const categories = [
+    {
+      id: 'univ',
+      title: "University's Projects",
+      subtitle: "Universitas Indonesia",
+      count: universityProjects.length,
+      description: "Digital systems, computer networking, OOP algorithms, and embedded IoT engineered during Computer Engineering studies.",
+      image: psdImg,
+      projects: universityProjects
+    },
+    {
+      id: 'ccit',
+      title: "CCIT's Projects",
+      subtitle: "CCIT FTUI Professional Program",
+      count: ccitProjects.length,
+      description: "Database administration, Android & web development, and IoT automation systems built at CCIT FTUI.",
+      image: melodifyImg,
+      projects: ccitProjects
+    },
+    {
+      id: 'isas',
+      title: "ISAS Academic Research",
+      subtitle: "Information Search & Analysis",
+      count: isasProjects.length,
+      description: "Comprehensive information search, technological challenge evaluation, and academic research synthesis.",
+      image: isasImg,
+      projects: isasProjects
+    },
+    {
+      id: 'independent',
+      title: "Independent & Research Projects",
+      subtitle: "Robotics, Quantum & IoT Innovation",
+      count: independentProjects.length,
+      description: "Autonomous marine robotics (AMV UI), Quantum Computing (QViT) research, and healthcare IoT applications.",
+      image: kki2025Img,
+      projects: independentProjects
+    }
+  ];
+
+  const currentCategory = categories.find(c => c.id === selectedCategory);
 
   return (
     <div>
-      <h2 className="t-h2 popup-header-title">
-        Technical <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
-      </h2>
+      {!selectedCategory ? (
+        <div>
+          <h2 className="t-h2 popup-header-title">
+            Technical <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+          </h2>
+          <p className="popup-category-subtitle">
+            Pilih kategori proyek di bawah ini untuk melihat detail proyek teknik dan riset yang telah dikerjakan.
+          </p>
 
-      <div style={{ borderTop: '1px solid var(--clr-border)' }}>
-        {projects.map((proj, i) => (
-          <div
-            key={i}
-            className="service-item"
-            style={{
-              alignItems: 'center',
-              flexWrap: 'nowrap',
-              padding: 'var(--space-lg) 0'
-            }}
-          >
-            <div style={{ width: '240px', flexShrink: 0 }}>
-              <img
-                src={proj.img}
-                alt={proj.inst}
-                style={{
-                  width: '100%',
-                  height: '180px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  border: '1px solid var(--clr-border)',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
+          <div className="category-cards-grid">
+            {categories.map((cat) => (
+              <div
+                key={cat.id}
+                className="category-card"
+                onClick={() => setSelectedCategory(cat.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setSelectedCategory(cat.id);
+                  }
                 }}
-              />
-            </div>
-
-            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-              <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
-                {proj.year}
-              </span>
-              <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
-                {proj.inst}
-                <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
-                  {proj.major}
+              >
+                <div className="category-card-img-wrapper">
+                  <img src={cat.image} alt={cat.title} />
+                  <div className="category-card-overlay"></div>
+                  <span className="category-card-count">{cat.count} {cat.count === 1 ? 'Project' : 'Projects'}</span>
                 </div>
-
-                {proj.link && (
-                  <a
-                    className="btn-offset"
-                    href={proj.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ marginTop: '14px', alignSelf: 'flex-start' }}
-                  >
-                    See More
-                  </a>
-                )}
+                <div className="category-card-content">
+                  <span className="category-card-tag">{cat.subtitle}</span>
+                  <h3 className="category-card-title">{cat.title}</h3>
+                  <p className="category-card-desc">{cat.description}</p>
+                  <div className="category-card-action">
+                    <span className="btn-offset btn-card-explore">
+                      Lihat Proyek &rarr;
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
-                {proj.desc}
-              </p>
-              <div className="service-tags">
-                {/* LATEST Badge Dinamis (Diperbaiki referensinya menjadi proj) */}
-                {proj.skills.map(tag => (
-                  <span className="service-tag" key={tag}>{tag}</span>
-                ))}
-              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="category-detail-header">
+            <button
+              className="btn-offset btn-back"
+              onClick={() => setSelectedCategory(null)}
+            >
+              &larr; Kembali ke Kategori
+            </button>
+            <div className="category-detail-meta">
+              <span className="category-detail-tag">{currentCategory.subtitle}</span>
+              <h2 className="t-h2 category-detail-title">
+                {currentCategory.title}
+              </h2>
             </div>
           </div>
-        ))}
-      </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)', marginTop: 'var(--space-md)' }}>
+            {currentCategory.projects.map((proj, i) => (
+              <div
+                key={i}
+                className="service-item"
+                style={{
+                  alignItems: 'center',
+                  flexWrap: 'nowrap',
+                  padding: 'var(--space-lg) 0'
+                }}
+              >
+                <div style={{ width: '240px', flexShrink: 0 }}>
+                  <img
+                    src={proj.img}
+                    alt={proj.inst}
+                    style={{
+                      width: '100%',
+                      height: '180px',
+                      objectFit: 'cover',
+                      borderRadius: '12px',
+                      border: '1px solid var(--clr-border)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
+                    }}
+                  />
+                </div>
+
+                <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+                  <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
+                    {proj.year}
+                  </span>
+                  <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
+                    {proj.inst}
+                    <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
+                      {proj.major}
+                    </div>
+
+                    {proj.link && (
+                      <a
+                        className="btn-offset"
+                        href={proj.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ marginTop: '14px', alignSelf: 'flex-start' }}
+                      >
+                        See More
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
+                    {proj.desc}
+                  </p>
+                  <div className="service-tags">
+                    {proj.skills.map(tag => (
+                      <span className="service-tag" key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
