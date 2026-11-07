@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -20,7 +20,14 @@ import crudapp from '../../assets/crudapp.png';
 import clothImg from '../../assets/cloth.png';
 
 export default function ProjectsContent() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [subView, setSubView] = useState(null); // null | 'univ' | 'ccit'
+
+  useEffect(() => {
+    const modalContent = document.querySelector('.modal-content');
+    if (modalContent) {
+      modalContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [subView]);
 
   const independentProjects = [
     {
@@ -224,160 +231,281 @@ export default function ProjectsContent() {
     }
   ];
 
-  const projectGroups = [
-    {
-      id: 'independent',
-      titleFirst: 'Independent &',
-      titleItalic: 'Research Projects',
-      count: independentProjects.length,
-      items: independentProjects
-    },
-    {
-      id: 'univ',
-      titleFirst: "University's",
-      titleItalic: 'Projects',
-      count: universityProjects.length,
-      items: universityProjects
-    },
-    {
-      id: 'ccit',
-      titleFirst: "CCIT's",
-      titleItalic: 'Projects',
-      count: ccitProjects.length,
-      items: ccitProjects
-    },
-    {
-      id: 'isas',
-      titleFirst: 'ISAS',
-      titleItalic: 'Academic Research',
-      count: isasProjects.length,
-      items: isasProjects
-    }
-  ];
+  const renderProjectItem = (proj, i) => (
+    <div
+      key={i}
+      className="service-item"
+      style={{
+        alignItems: 'center',
+        flexWrap: 'nowrap',
+        padding: 'var(--space-lg) 0'
+      }}
+    >
+      <div style={{ width: '240px', flexShrink: 0 }}>
+        <img
+          src={proj.img}
+          alt={proj.inst}
+          style={{
+            width: '100%',
+            height: '180px',
+            objectFit: 'cover',
+            borderRadius: '12px',
+            border: '1px solid var(--clr-border)',
+            boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
+          }}
+        />
+      </div>
 
-  const visibleGroups = activeFilter === 'all'
-    ? projectGroups
-    : projectGroups.filter(g => g.id === activeFilter);
+      <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+        <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
+          {proj.year}
+        </span>
+        <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
+          {proj.inst}
+          <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
+            {proj.major}
+          </div>
+
+          {proj.link && (
+            <a
+              className="btn-offset"
+              href={proj.link}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginTop: '14px', alignSelf: 'flex-start' }}
+            >
+              See More
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
+          {proj.desc}
+        </p>
+        <div className="service-tags">
+          {proj.skills.map(tag => (
+            <span className="service-tag" key={tag}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div>
-      <h2 className="t-h2 popup-header-title">
-        Technical <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
-      </h2>
+      {subView === null && (
+        <div>
+          <h2 className="t-h2 popup-header-title">
+            Technical <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+          </h2>
 
-      {/* Quick Filter Tabs */}
-      <div className="project-filter-tabs">
-        <button
-          className={`project-filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('all')}
-        >
-          All (19)
-        </button>
-        <button
-          className={`project-filter-btn ${activeFilter === 'independent' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('independent')}
-        >
-          Independent &amp; Research ({independentProjects.length})
-        </button>
-        <button
-          className={`project-filter-btn ${activeFilter === 'univ' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('univ')}
-        >
-          University&apos;s ({universityProjects.length})
-        </button>
-        <button
-          className={`project-filter-btn ${activeFilter === 'ccit' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('ccit')}
-        >
-          CCIT&apos;s ({ccitProjects.length})
-        </button>
-        <button
-          className={`project-filter-btn ${activeFilter === 'isas' ? 'active' : ''}`}
-          onClick={() => setActiveFilter('isas')}
-        >
-          ISAS ({isasProjects.length})
-        </button>
-      </div>
+          {/* 1. INDEPENDENT & RESEARCH PROJECTS (STANDALONE & FIRST) */}
+          <div className="project-group-header">
+            <h3 className="project-group-title">
+              Independent &amp; <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Research Projects</em>
+            </h3>
+            <span className="project-group-badge">{independentProjects.length} Projects</span>
+          </div>
 
-      {/* Project Groups List */}
-      <div>
-        {visibleGroups.map((group) => (
-          <div key={group.id} className="project-group-container">
-            <div className="project-group-header">
-              <h3 className="project-group-title">
-                {group.titleFirst} <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>{group.titleItalic}</em>
-              </h3>
-              <span className="project-group-badge">
-                {group.count} {group.count === 1 ? 'Project' : 'Projects'}
-              </span>
-            </div>
+          <div style={{ borderTop: '1px solid var(--clr-border)' }}>
+            {independentProjects.map((proj, i) => renderProjectItem(proj, i))}
+          </div>
 
-            <div className="project-group-list">
-              {group.items.map((proj, i) => (
-                <div
-                  key={i}
-                  className="service-item"
+          {/* 2. UNIVERSITY'S PROJECTS (POPUP ACCESS) */}
+          <div className="project-group-header">
+            <h3 className="project-group-title">
+              University&apos;s <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+            </h3>
+            <span className="project-group-badge">{universityProjects.length} Projects</span>
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)' }}>
+            <div
+              className="service-item project-bundle-item"
+              onClick={() => setSubView('univ')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSubView('univ'); }}
+            >
+              <div style={{ width: '240px', flexShrink: 0, position: 'relative' }}>
+                <img
+                  src={psdImg}
+                  alt="University's Projects"
                   style={{
-                    alignItems: 'center',
-                    flexWrap: 'nowrap',
-                    padding: 'var(--space-lg) 0'
+                    width: '100%',
+                    height: '180px',
+                    objectFit: 'cover',
+                    borderRadius: '12px',
+                    border: '1px solid var(--clr-border)',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
                   }}
-                >
-                  <div style={{ width: '240px', flexShrink: 0 }}>
-                    <img
-                      src={proj.img}
-                      alt={proj.inst}
-                      style={{
-                        width: '100%',
-                        height: '180px',
-                        objectFit: 'cover',
-                        borderRadius: '12px',
-                        border: '1px solid var(--clr-border)',
-                        boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
-                      }}
-                    />
-                  </div>
-
-                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-                    <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
-                      {proj.year}
-                    </span>
-                    <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
-                      {proj.inst}
-                      <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
-                        {proj.major}
-                      </div>
-
-                      {proj.link && (
-                        <a
-                          className="btn-offset"
-                          href={proj.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          style={{ marginTop: '14px', alignSelf: 'flex-start' }}
-                        >
-                          See More
-                        </a>
-                      )}
-                    </div>
-                  </div>
-
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
-                      {proj.desc}
-                    </p>
-                    <div className="service-tags">
-                      {proj.skills.map(tag => (
-                        <span className="service-tag" key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+                />
+                <div className="bundle-overlay-badge">
+                  {universityProjects.length} Projects Inside
                 </div>
-              ))}
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+                <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
+                  Aug 2024 — Present
+                </span>
+                <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
+                  University&apos;s Projects
+                  <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
+                    Faculty of Engineering, Universitas Indonesia
+                  </div>
+
+                  <button
+                    className="btn-offset"
+                    onClick={(e) => { e.stopPropagation(); setSubView('univ'); }}
+                    style={{ marginTop: '14px', alignSelf: 'flex-start' }}
+                  >
+                    Open University Projects ({universityProjects.length}) &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
+                  Curated engineering coursework and laboratory projects built during Computer Engineering studies, spanning FPGA VHDL parallel bitonic sorter, LibGDX game design, Cisco multi-area networking, statistical regression analysis, and embedded IoT systems.
+                </p>
+                <div className="service-tags">
+                  <span className="service-tag">VHDL / FPGA</span>
+                  <span className="service-tag">Java &amp; LibGDX</span>
+                  <span className="service-tag">Cisco Networking</span>
+                  <span className="service-tag">C Programming</span>
+                  <span className="service-tag">ESP32 IoT</span>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
+
+          {/* 3. CCIT'S PROJECTS (POPUP ACCESS) */}
+          <div className="project-group-header">
+            <h3 className="project-group-title">
+              CCIT&apos;s <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+            </h3>
+            <span className="project-group-badge">{ccitProjects.length} Projects</span>
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)' }}>
+            <div
+              className="service-item project-bundle-item"
+              onClick={() => setSubView('ccit')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSubView('ccit'); }}
+            >
+              <div style={{ width: '240px', flexShrink: 0, position: 'relative' }}>
+                <img
+                  src={melodifyImg}
+                  alt="CCIT's Projects"
+                  style={{
+                    width: '100%',
+                    height: '180px',
+                    objectFit: 'cover',
+                    borderRadius: '12px',
+                    border: '1px solid var(--clr-border)',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
+                  }}
+                />
+                <div className="bundle-overlay-badge">
+                  {ccitProjects.length} Projects Inside
+                </div>
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+                <span className="service-item__num" style={{ width: 'auto', marginBottom: '8px', fontSize: '1.05rem' }}>
+                  Sep 2023 — Oct 2025
+                </span>
+                <div className="service-item__name" style={{ width: 'auto', fontSize: '2.1rem', lineHeight: '1.1', overflowWrap: 'anywhere' }}>
+                  CCIT&apos;s Projects
+                  <div style={{ fontSize: '1.425rem', fontFamily: 'var(--font-body)', color: 'var(--clr-muted)', marginTop: '8px', overflowWrap: 'anywhere' }}>
+                    CCIT FTUI Professional Program (ISA)
+                  </div>
+
+                  <button
+                    className="btn-offset"
+                    onClick={(e) => { e.stopPropagation(); setSubView('ccit'); }}
+                    style={{ marginTop: '14px', alignSelf: 'flex-start' }}
+                  >
+                    Open CCIT Projects ({ccitProjects.length}) &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
+                  Applied software engineering and system automation projects completed at CCIT-FTUI, featuring full-stack music streaming platform, Android Kotlin mobile applications, SQL Server database administration, Excel data analytics dashboards, and smart IoT automation.
+                </p>
+                <div className="service-tags">
+                  <span className="service-tag">PHP / MySQL</span>
+                  <span className="service-tag">Kotlin / Android</span>
+                  <span className="service-tag">SQL Server</span>
+                  <span className="service-tag">IoT Automation</span>
+                  <span className="service-tag">Data Analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. ISAS ACADEMIC RESEARCH (STANDALONE) */}
+          <div className="project-group-header">
+            <h3 className="project-group-title">
+              ISAS <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Academic Research</em>
+            </h3>
+            <span className="project-group-badge">{isasProjects.length} Project</span>
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)' }}>
+            {isasProjects.map((proj, i) => renderProjectItem(proj, i))}
+          </div>
+        </div>
+      )}
+
+      {/* POPUP SUBVIEW: UNIVERSITY'S PROJECTS */}
+      {subView === 'univ' && (
+        <div>
+          <div className="category-detail-header">
+            <button className="btn-offset btn-back" onClick={() => setSubView(null)}>
+              &larr; Back to Technical Projects
+            </button>
+            <div className="category-detail-meta" style={{ marginTop: '8px' }}>
+              <span className="category-detail-tag">Faculty of Engineering, Universitas Indonesia &bull; 8 Projects</span>
+              <h2 className="t-h2 category-detail-title">
+                University&apos;s <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+              </h2>
+            </div>
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)', marginTop: 'var(--space-md)' }}>
+            {universityProjects.map((proj, i) => renderProjectItem(proj, i))}
+          </div>
+        </div>
+      )}
+
+      {/* POPUP SUBVIEW: CCIT'S PROJECTS */}
+      {subView === 'ccit' && (
+        <div>
+          <div className="category-detail-header">
+            <button className="btn-offset btn-back" onClick={() => setSubView(null)}>
+              &larr; Back to Technical Projects
+            </button>
+            <div className="category-detail-meta" style={{ marginTop: '8px' }}>
+              <span className="category-detail-tag">CCIT FTUI Professional Program (ISA) &bull; 7 Projects</span>
+              <h2 className="t-h2 category-detail-title">
+                CCIT&apos;s <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
+              </h2>
+            </div>
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--clr-border)', marginTop: 'var(--space-md)' }}>
+            {ccitProjects.map((proj, i) => renderProjectItem(proj, i))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
