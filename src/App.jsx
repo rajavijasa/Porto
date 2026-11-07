@@ -49,25 +49,32 @@ const educationData = [
 ];
 
 const projectData = [
+  // 1. Independent & Research Projects
+  { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: true },
+  { title: 'Quantum Vision Transformer (QViT) Research', subtitle: 'Quantum Computing', image: qvitImg, isLatest: false },
+  { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
+
+  // 2. University's Projects
   { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: true },
   { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: true },
   { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: true },
   { title: 'Life Style Analytic', subtitle: 'Statistics', image: statisImg, isLatest: true },
-  { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: false },
-  { title: 'Quantum Vision Transformer (QViT) Research', subtitle: 'Quantum Computing', image: qvitImg, isLatest: false },
-  { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
   { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
   { title: 'Scheduled', subtitle: 'Engineering Design', image: pdtImg, isLatest: false },
+  { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
+  { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false },
+
+  // 3. CCIT's Projects
   { title: 'Melodify', subtitle: 'Web Development', image: melodifyImg, isLatest: false },
   { title: 'Firebase CRUD Application', subtitle: 'Android Development', image: crudapp, isLatest: false },
   { title: 'Parking Management', subtitle: 'Database Management', image: parkingImg, isLatest: false },
-  { title: 'ISAS Academic Research', subtitle: 'Information Search & Analysis', image: isasImg, isLatest: false },
   { title: 'Smart Clothesline IoT System', subtitle: 'Internet of Things', image: clothImg, isLatest: false },
-  { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },
-  { title: 'Automatic Window with ESP32', subtitle: 'IoT Design', image: exerprojectImg, isLatest: false },
   { title: 'Technician Service Labor Analysis', subtitle: 'Data Analysis', image: dataanalysisImg, isLatest: false },
   { title: 'Movie Database System', subtitle: 'Database Administration', image: moviedbImg, isLatest: false },
-  { title: 'Craftsmen Service Reservation System', subtitle: 'System Analysis & Desig', image: reserveImg, isLatest: false }
+  { title: 'Craftsmen Service Reservation System', subtitle: 'System Analysis & Design', image: reserveImg, isLatest: false },
+
+  // 4. ISAS Academic Research
+  { title: 'ISAS Academic Research', subtitle: 'Information Search & Analysis', image: isasImg, isLatest: false }
 ];
 
 const experienceData = [
