@@ -12,7 +12,7 @@ const experiences = [
       year: "Jul 2026 - Present",
       inst: "Laboratory Assistant",
       major: "Digital Laboratory & Dept. of Electrical Engineering, University of Indonesia",
-      desc: "Designed and updated practical lab modules across 4 core engineering courses: Digital Systems, Embedded Systems, Real-Time IoT, and Algorithms & Programming. Evaluated weekly lab reports, conducted viva examinations, and instructed 100+ undergraduate engineering students.",
+      desc: "Instructed and developed laboratory modules for Digital Systems, Embedded Systems, Real-Time IoT, and Algorithms & Programming for 100+ engineering students.",
       skills: ["Digital Systems", "Embedded Systems", "Real-Time IoT", "VHDL / FPGA", "C / C++"],
       img: digilabImg,
       isLatest: true
@@ -21,7 +21,7 @@ const experiences = [
       year: "Dec 2024 - Present",
       inst: "Head of ROV Contingent (KKI 2026) & Electrical Staff",
       major: "Autonomous Marine Vehicle Team Robotics UI",
-      desc: "Led the ROV Sub-Division as Head of Contingent at Kontes Kapal Indonesia (KKI) 2026, leading the team to secure 2nd Place National Champion (ROV Category) and advancing the ASV team as a National Finalist. Engineered power distribution, thruster actuation circuitry, waterproof enclosure wiring, circuit protection, and sensor calibration for ROV Makara Nemo and ASV Makara Perseus.",
+      desc: "Led the ROV Sub-Division at KKI 2026 securing 2nd Place National Champion, and engineered electrical systems for ROV Makara Nemo.",
       skills: ["Underwater Robotics", "Marine Electronics", "Power Distribution", "Circuit Protection", "Leadership"],
       img: amvImg,
       isLatest: true

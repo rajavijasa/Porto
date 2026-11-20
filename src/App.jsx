@@ -54,7 +54,7 @@ const educationData = [
 const projectData = [
   // 1. Independent & Research Projects
   { title: 'ROV Makara Nemo', subtitle: 'Remotely Operated Vehicle (2nd Place KKI 2026)', image: nemoImg, isLatest: true },
-  { title: 'ASV Makara Perseus', subtitle: 'Autonomous Surface Vessel (Finalist KKI 2026)', image: perseusImg, isLatest: true },
+  { title: 'ASV Makara Perseus', subtitle: 'Autonomous Surface Vessel', image: perseusImg, isLatest: true },
   { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: false },
   { title: 'Quantum Vision Transformer (QViT) Research', subtitle: 'Quantum Computing', image: qvitImg, isLatest: false },
   { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
@@ -212,7 +212,9 @@ export default function App() {
             <section id="about" ref={aboutRef} className="about-section animate-on-load delay-2 reveal">
               <h2 className="section-title t-mono">ABOUT ME</h2>
               <p className="about-text">
-                I am a 3rd-year Computer Engineering undergraduate at Universitas Indonesia and a graduate of the Internet-Based System Automation (ISA) program at CCIT-FTUI with 2+ years of hands-on experience in robotics hardware, digital circuit design, and IoT systems. Serving as Head of ROV Contingent at AMV UI (2nd Place National Champion KKI 2026) and Digital Laboratory Assistant at FTUI, I specialize in building efficient, reliable hardware and embedded solutions.
+                I am a Computer Engineering student at Universitas Indonesia and a Graduate From CCIT-FTUI with experience in hardware
+                development, IoT, and embedded systems. As an Electrical Staff at the AMV Team UI, I specialize in building efficient & smart
+                robots and IoT solutions.
               </p>
             </section>
 

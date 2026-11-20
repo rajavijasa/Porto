@@ -35,9 +35,9 @@ export default function ProjectsContent() {
     {
       year: "Jan 2026 - Oct 2026",
       inst: "ROV Makara Nemo",
-      major: "Remotely Operated Vehicle (2nd Place National Champion KKI 2026)",
-      desc: "Engineered power distribution units (PDU), thruster actuation circuitry, waterproof enclosure wiring, circuit protection, and tethered communication systems for ROV Makara Nemo, securing 2nd Place National Champion (ROV Category) at Kontes Kapal Indonesia (KKI) 2026.",
-      skills: ["Underwater Robotics", "Power Distribution", "Thruster Actuation", "Circuit Protection", "KiCad"],
+      major: "Remotely Operated Vehicle (2nd Place KKI 2026)",
+      desc: "Engineered waterproof electronics enclosures, underwater sensor integration, and thruster power distribution for ROV Makara Nemo, winning 2nd Place at KKI 2026.",
+      skills: ["Underwater Sensors", "Waterproof Enclosure", "Power Distribution", "Thruster Control", "KiCad"],
       img: nemoImg,
       link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
       isLatest: true
@@ -45,9 +45,9 @@ export default function ProjectsContent() {
     {
       year: "Jan 2026 - Oct 2026",
       inst: "ASV Makara Perseus",
-      major: "Autonomous Surface Vessel (National Finalist KKI 2026)",
-      desc: "Engineered surface electronics integration, thruster maneuvering control, GPS and sensor calibration arrays, and waterproof electrical housings for the Autonomous Surface Vessel (ASV) Makara Perseus, qualifying as a National Finalist at Kontes Kapal Indonesia (KKI) 2026.",
-      skills: ["Autonomous Navigation", "Sensor Calibration", "Thruster Control", "Marine Electronics", "GPS Integration"],
+      major: "Autonomous Surface Vessel",
+      desc: "Engineered electronic component integration, wireless telemetry communication, and GPS navigation control for the Autonomous Surface Vessel Makara Perseus.",
+      skills: ["Wireless Telemetry", "Electronic Integration", "GPS Navigation", "Thruster Control", "Embedded Systems"],
       img: perseusImg,
       link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
       isLatest: true

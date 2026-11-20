@@ -2,7 +2,6 @@ import univImg from '../../assets/universitas.jpg';
 import ccitImg from '../../assets/ccit.jpg';
 import schoolImg from '../../assets/school.png';
 import kkiAwardImg from '../../assets/kki2026_rov_award.jpeg';
-import podiumImg from '../../assets/kki2026_podium.jpeg';
 
 export default function EducationContent() {
   // Data eksklusif untuk modal Education
@@ -44,17 +43,9 @@ export default function EducationContent() {
       year: "Sep 2026",
       inst: "2nd Place National Champion (Juara II)",
       major: "Remotely Operated Vehicle (ROV) Category — KKI 2026",
-      desc: "Awarded by Balai Pengembangan Talenta Indonesia (BPTI), Kemendikbudristek at Kontes Kapal Indonesia (KKI) 2026 at Politeknik Negeri Bengkalis.",
+      desc: "Awarded 2nd Place National Champion in the ROV category at Kontes Kapal Indonesia 2026 by BPTI Kemendikbudristek.",
       skills: ["Underwater Robotics", "National Champion", "Marine Engineering", "Team Leadership"],
       img: kkiAwardImg
-    },
-    {
-      year: "Sep 2026",
-      inst: "National Finalist",
-      major: "Autonomous Surface Vessel (ASV) Category — KKI 2026",
-      desc: "Advanced as a National Finalist with Autonomous Surface Vessel (ASV) Makara Perseus at Kontes Kapal Indonesia (KKI) 2026.",
-      skills: ["Autonomous Vessel", "Sensor Calibration", "National Finalist"],
-      img: podiumImg
     }
   ];
 
