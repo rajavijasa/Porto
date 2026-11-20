@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import nemoImg from '../../assets/makara_nemo.jpg';
+import perseusImg from '../../assets/makara_perseus.jpeg';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -31,6 +33,26 @@ export default function ProjectsContent() {
 
   const independentProjects = [
     {
+      year: "Jan 2026 - Oct 2026",
+      inst: "ROV Makara Nemo",
+      major: "Remotely Operated Vehicle (2nd Place National Champion KKI 2026)",
+      desc: "Engineered power distribution units (PDU), thruster actuation circuitry, waterproof enclosure wiring, circuit protection, and tethered communication systems for ROV Makara Nemo, securing 2nd Place National Champion (ROV Category) at Kontes Kapal Indonesia (KKI) 2026.",
+      skills: ["Underwater Robotics", "Power Distribution", "Thruster Actuation", "Circuit Protection", "KiCad"],
+      img: nemoImg,
+      link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
+      isLatest: true
+    },
+    {
+      year: "Jan 2026 - Oct 2026",
+      inst: "ASV Makara Perseus",
+      major: "Autonomous Surface Vessel (National Finalist KKI 2026)",
+      desc: "Engineered surface electronics integration, thruster maneuvering control, GPS and sensor calibration arrays, and waterproof electrical housings for the Autonomous Surface Vessel (ASV) Makara Perseus, qualifying as a National Finalist at Kontes Kapal Indonesia (KKI) 2026.",
+      skills: ["Autonomous Navigation", "Sensor Calibration", "Thruster Control", "Marine Electronics", "GPS Integration"],
+      img: perseusImg,
+      link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
+      isLatest: true
+    },
+    {
       year: "Jun 2025 - Dec 2025",
       inst: "Makara Nirmala",
       major: "Autonomous Marine Vehicle",
@@ -38,7 +60,7 @@ export default function ProjectsContent() {
       skills: ["KiCad", "Marine Electronics", "Robotics Integration"],
       img: kki2025Img,
       link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Nov 2025",

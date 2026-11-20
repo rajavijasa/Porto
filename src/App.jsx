@@ -32,6 +32,9 @@ import exerprojectImg from './assets/exerproject.png';
 import qvitImg from './assets/aset.jpg';
 import kki2025Img from './assets/kki2025.jpeg';
 import reserveImg from './assets/reservation.jpg';
+import nemoImg from './assets/makara_nemo.jpg';
+import perseusImg from './assets/makara_perseus.jpeg';
+import digilabImg from './assets/digilab.jpg';
 import moviedbImg from './assets/moviedb.jpg';
 import dataanalysisImg from './assets/analyst.jpg';
 import melodifyImg from './assets/melodify.jpeg';
@@ -50,7 +53,9 @@ const educationData = [
 
 const projectData = [
   // 1. Independent & Research Projects
-  { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: true },
+  { title: 'ROV Makara Nemo', subtitle: 'Remotely Operated Vehicle (2nd Place KKI 2026)', image: nemoImg, isLatest: true },
+  { title: 'ASV Makara Perseus', subtitle: 'Autonomous Surface Vessel (Finalist KKI 2026)', image: perseusImg, isLatest: true },
+  { title: 'Makara Nirmala', subtitle: 'Autonomous Marine Vehicle', image: kki2025Img, isLatest: false },
   { title: 'Quantum Vision Transformer (QViT) Research', subtitle: 'Quantum Computing', image: qvitImg, isLatest: false },
   { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
 
@@ -78,19 +83,14 @@ const projectData = [
 ];
 
 const experienceData = [
-  { title: 'Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team Robotics UI', image: amvImg, isLatest: true },
-  { title: 'Assistant Lecturer of Linear Algebra', subtitle: 'Faculty of Engineering UI', image: alinImg, isLatest: true },
+  { title: 'Laboratory Assistant', subtitle: 'Digital Laboratory & Dept. of Electrical Engineering UI', image: digilabImg, isLatest: true },
+  { title: 'Head of ROV Contingent & Electrical Staff', subtitle: 'Autonomous Marine Vehicle Team Robotics UI', image: amvImg, isLatest: true },
+  { title: 'Assistant Lecturer of Linear Algebra', subtitle: 'Faculty of Engineering UI', image: alinImg, isLatest: false },
   { title: 'Staff of Community Service', subtitle: 'Ikatan Mahasiswa Elektro (IME-FTUI)', image: imeImg, isLatest: false },
-  { title: 'Quantum Computing Researcher', subtitle: 'Bootcampt Research Assist ant Network Lab', image: netlabImg, isLatest: false },
+  { title: 'Quantum Computing Researcher', subtitle: 'Network Laboratory FTUI', image: netlabImg, isLatest: false },
   { title: 'IoT Engineer Intern', subtitle: 'Yayasan Bayi Prematur', image: yabapiImg, isLatest: false },
   { title: 'Hardware Division Internship', subtitle: 'EXERCISE FTUI', image: exerImg, isLatest: false }
 ];
-
-const HamburgerIcon = () => (
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
-    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
 
 export default function App() {
   const [activeModal, setActiveModal] = useState(null);
@@ -212,9 +212,7 @@ export default function App() {
             <section id="about" ref={aboutRef} className="about-section animate-on-load delay-2 reveal">
               <h2 className="section-title t-mono">ABOUT ME</h2>
               <p className="about-text">
-                I am a Computer Engineering student at Universitas Indonesia and a Graduate From CCIT-FTUI with experience in hardware
-                development, IoT, and embedded systems. As an Electrical Staff at the AMV Team UI, I specialize in building efficient & smart
-                robots and IoT solutions.
+                I am a 3rd-year Computer Engineering undergraduate at Universitas Indonesia and a graduate of the Internet-Based System Automation (ISA) program at CCIT-FTUI with 2+ years of hands-on experience in robotics hardware, digital circuit design, and IoT systems. Serving as Head of ROV Contingent at AMV UI (2nd Place National Champion KKI 2026) and Digital Laboratory Assistant at FTUI, I specialize in building efficient, reliable hardware and embedded solutions.
               </p>
             </section>
 
@@ -235,7 +233,7 @@ export default function App() {
                 <a href="https://www.instagram.com/jarodvijasa/" target="_blank" rel="noreferrer">
                   <img src={instagramIcon} alt="Instagram" className="social-icon" />
                 </a>
-                <a href="mailto:jarotvijasa@gmail.com">
+                <a href="mailto:rajasossial@gmail.com">
                   <img src={mailIcon} alt="Email" className="social-icon" />
                 </a>
               </div>

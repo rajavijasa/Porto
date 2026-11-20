@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,8 +19,6 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
           setCurrentIndex(prev => (prev + 1) % items.length);
         }, isMobile ? mobileCycleMs : desktopHoverCycleMs);
       }, isMobile ? index * 1000 : 0); 
-    } else {
-      setCurrentIndex(0);
     }
     
     return () => {
@@ -38,7 +36,10 @@ const ScrollSection = ({ id, title, items, onLearnMore, index = 0 }) => {
       <div 
         className="preview-card"
         onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseLeave={() => {
+          setIsHovering(false);
+          setCurrentIndex(0);
+        }}
       >
         
         {items && items.length > 0 && (

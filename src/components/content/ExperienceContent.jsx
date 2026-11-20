@@ -1,30 +1,39 @@
+import digilabImg from '../../assets/digilab.jpg';
 import amvImg from '../../assets/amv.jpeg';
 import alinImg from '../../assets/alin.png';
 import imeImg from '../../assets/ime.jpeg';
 import netlabImg from '../../assets/netlab.png';
 import yabapiImg from '../../assets/yabapi.jpeg';
-import schoolImg from '../../assets/school.png';
 import exerImg from '../../assets/exercise.jpg';
 
 export default function ExperienceContent() {
 const experiences = [
     {
+      year: "Jul 2026 - Present",
+      inst: "Laboratory Assistant",
+      major: "Digital Laboratory & Dept. of Electrical Engineering, University of Indonesia",
+      desc: "Designed and updated practical lab modules across 4 core engineering courses: Digital Systems, Embedded Systems, Real-Time IoT, and Algorithms & Programming. Evaluated weekly lab reports, conducted viva examinations, and instructed 100+ undergraduate engineering students.",
+      skills: ["Digital Systems", "Embedded Systems", "Real-Time IoT", "VHDL / FPGA", "C / C++"],
+      img: digilabImg,
+      isLatest: true
+    },
+    {
       year: "Dec 2024 - Present",
-      inst: "Electrical Staff",
+      inst: "Head of ROV Contingent (KKI 2026) & Electrical Staff",
       major: "Autonomous Marine Vehicle Team Robotics UI",
-      desc: "Engineered and integrated reliable low-voltage circuits to support advanced navigation and automation systems for autonomous marine vehicles.",
-      skills: ["Electrical Design", "Marine Engineering", "Low Voltage Circuit Integration"],
+      desc: "Led the ROV Sub-Division as Head of Contingent at Kontes Kapal Indonesia (KKI) 2026, leading the team to secure 2nd Place National Champion (ROV Category) and advancing the ASV team as a National Finalist. Engineered power distribution, thruster actuation circuitry, waterproof enclosure wiring, circuit protection, and sensor calibration for ROV Makara Nemo and ASV Makara Perseus.",
+      skills: ["Underwater Robotics", "Marine Electronics", "Power Distribution", "Circuit Protection", "Leadership"],
       img: amvImg,
       isLatest: true
     },
     {
-      year: "Feb 2026 - Present",
+      year: "Feb 2026 - Jun 2026",
       inst: "Assistant Lecturer of Linear Algebra",
       major: "Faculty of Engineering UI",
-      desc: "Instructed engineering students in Linear Algebra by delivering comprehensive tutorials and solve mathematical concepts.",
-      skills: ["Mathematics", "Teaching"],
+      desc: "Instructed engineering students in Linear Algebra by delivering comprehensive tutorials and solving mathematical concepts.",
+      skills: ["Mathematics", "Teaching", "Matrix Computations"],
       img: alinImg,
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Feb 2025 - Dec 2025",
