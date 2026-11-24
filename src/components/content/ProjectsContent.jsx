@@ -39,7 +39,7 @@ export default function ProjectsContent() {
       desc: "Engineered waterproof electronics enclosures, underwater sensor integration, and thruster power distribution for ROV Makara Nemo, winning 2nd Place at KKI 2026.",
       skills: ["Underwater Sensors", "Waterproof Enclosure", "Power Distribution", "Thruster Control", "KiCad"],
       img: nemoImg,
-      link: "https://drive.google.com/drive/folders/1Zs2I_YWlR4bK_S3vGFh0dpP6XQAopCo9?usp=sharing",
+      link: "https://drive.google.com/drive/folders/10vb6vZ4rFqIxp4LaT55cHaTjUV3eT3Tc?usp=sharing",
       isLatest: true
     },
     {
