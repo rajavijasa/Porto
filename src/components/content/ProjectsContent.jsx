@@ -139,11 +139,11 @@ export default function ProjectsContent() {
       isLatest: false
     },
     {
-      year: "Jun 2024 & Dec 2025",
+      year: "Jun 2024, Dec 2025, & May 2026",
       inst: "Computer Network Project",
-      major: "Computer Network (3 Project)",
-      desc: "Designed A Complex Multi-Area Network Featuring RPVST And EtherChannel, Alongside Independent Projects For Multi-Story Building VLANs And Cisco IoT Integration.",
-      skills: ["Cisco", "Network Integration", "IoT"],
+      major: "Computer Network (4 Project)",
+      desc: "Designed Enterprise Networks Featuring RPVST, EtherChannel, Multi-Story VLANs, Cisco IoT, Frame Relay WAN, IPsec VPN, ACL, QoS, And SDN Management.",
+      skills: ["Cisco", "Network Integration", "IoT", "Networking"],
       img: jarkomImg,
       link: "https://drive.google.com/drive/folders/1geIVr534sXtRFSDia04wgQNchVsA_3Er?usp=sharing",
       isLatest: false
