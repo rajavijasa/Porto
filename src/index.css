@@ -618,10 +618,11 @@ body.locked-scroll {
 .popup-header-title {
   width: 100%;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 /* Memperkecil teks isi popup hingga 80% */
@@ -745,7 +746,8 @@ body.locked-scroll {
   .modal-body .service-item > div:first-child {
     width: 100% !important;
   }
-  .modal-body .service-item > div:first-child img {
+  .modal-body .service-item > div:first-child img,
+  .modal-body .service-item > div:first-child .zoomable-thumb-img {
     height: auto !important;
     aspect-ratio: 16/9;
   }
@@ -754,7 +756,8 @@ body.locked-scroll {
     width: 100% !important;
   }
   .modal-body .service-tags {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
   }
 
@@ -848,16 +851,18 @@ body.locked-scroll {
     justify-content: flex-end !important;
   }
   .hero-text-content {
+    padding: clamp(24px, 6vw, 48px) !important;
     padding-bottom: 40px !important; /* Padding bawah profesional */
     background: linear-gradient(to top, rgba(20,20,18,0.8) 0%, transparent 100%); /* Saran gradasi bayangan */
   }
   .main-title { 
     white-space: normal !important;
     max-width: 100%;
-    font-size: clamp(3rem, 15vw, 5.25rem) !important;
+    font-size: clamp(2.35rem, 11.5vw, 4.75rem) !important;
     line-height: 1.1 !important;
+    overflow-wrap: anywhere;
   }
-  .main-subtitle { white-space: normal !important; max-width: 100%; font-size: 1.35rem !important; }
+  .main-subtitle { white-space: normal !important; max-width: 100%; font-size: clamp(1rem, 4vw, 1.35rem) !important; }
 
   /* Judul Seksi HP: +50%, Rata Kiri */
   .section-title {
@@ -872,8 +877,8 @@ body.locked-scroll {
 
   /* Teks dalam Kotak HP: Latest (+10%), Univ (+50%), B.Eng (+50%) */
   .preview-latest-label { font-size: clamp(0.85rem, 3.2vw, 1rem) !important; }
-  .preview-title { font-size: clamp(1.65rem, 6.4vw, 2.1rem) !important; line-height: 1.2 !important; }
-  .preview-subtitle { font-size: clamp(1rem, 4.4vw, 1.35rem) !important; }
+  .preview-title { font-size: clamp(1.5rem, 6vw, 2.1rem) !important; line-height: 1.2 !important; overflow-wrap: anywhere; }
+  .preview-subtitle { font-size: clamp(1rem, 4.2vw, 1.35rem) !important; }
 
   /* Tombol Learn More HP: 70% */
   .btn-learn-more {
@@ -897,44 +902,53 @@ body.locked-scroll {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 3.2vw, 2.8rem) !important;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
   width: 100%;
   margin-bottom: 30px !important; /* Padding bawah dikurangi 50% */
 }
 
 /* ==========================================================================
-   REVISI FINAL: MENGUNCI UKURAN KOTAK & ALIGNMENT CONTACT ME
+   REVISI FINAL: UKURAN KOTAK DINAMIS & ALIGNMENT CONTACT ME
    ========================================================================== */
 
-/* Mengunci tinggi kartu di Monitor/Laptop agar tidak berubah-ubah */
+/* Kartu di Monitor/Laptop: tinggi minimum seragam namun fleksibel jika teks membungkus */
 .preview-card {
-  height: 250px !important; /* Paksa tinggi statis */
+  min-height: 250px;
+  height: auto !important;
 }
 .preview-image-container {
-  height: 100% !important; /* Pastikan gambar mengikuti tinggi kotak */
+  min-height: 250px;
+  height: auto !important;
 }
 .preview-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 130px;
+  min-height: 110px;
 }
 
 /* Khusus untuk HP */
 @media (max-width: 850px) {
-  /* Mengunci tinggi kartu di HP (200px gambar + 220px area teks) */
   .preview-card {
-    height: 450px !important; /* Tambah 30px di tinggi total */
+    min-height: 430px;
+    height: auto !important;
   }
   .preview-image-container {
     height: 200px !important;
+    min-height: 200px !important;
   }
   .preview-content-wrapper {
-    height: 250px !important; /* Tambah 30px ruang di area teks/tombol */
-    justify-content: flex-start !important; /* Susun dari atas ke bawah */
-    padding-bottom: 30px !important; /* Dorong isi agar menyisakan ruang ekstra 250% di bawah tombol */
+    min-height: 230px;
+    height: auto !important;
+    justify-content: space-between !important;
+    padding: 22px 24px 26px !important;
+    gap: 16px !important;
   }
-  
+  .preview-content {
+    min-height: 0;
+  }
+
   /* Memastikan judul "CONTACT ME" rata kiri di HP */
   .contact-section .section-title {
     text-align: left !important;
@@ -943,26 +957,23 @@ body.locked-scroll {
 }
 
 /* ==========================================================================
-   REVISI TAMBAHAN: POPUP HP BERJARAK & TEKS KARTU NAIK
+   REVISI TAMBAHAN: POPUP HP BERJARAK & RESPONSIF
    ========================================================================== */
 
-/* 1. Menggeser posisi blok teks (Judul & Penjurusan) naik ke atas sebesar 15% */
-.preview-content {
-  transform: translateY() !important;
-}
-
-/* 2. Khusus HP: Mengembalikan jarak ujung layar Pop-up agar tidak Full Screen */
 @media (max-width: 850px) {
   .modal-overlay {
-    padding: 24px !important; /* Memberikan jarak dari ujung layar HP */
+    padding: 14px !important;
   }
   .modal-content {
     width: 100% !important;
-    max-width: 500px !important; /* Membatasi lebar agar proporsional */
-    height: auto !important; /* Tinggi menyesuaikan jumlah isi (tidak kaku 100%) */
-    max-height: 85dvh !important; /* Menyisakan jarak di bagian atas & bawah */
-    border-radius: 16px !important; /* Mengembalikan sudut membulat seperti di laptop */
+    max-width: 540px !important;
+    height: auto !important;
+    max-height: 88dvh !important;
+    border-radius: 16px !important;
     margin: auto !important;
+  }
+  .modal-body {
+    padding: 20px !important;
   }
 }
 
@@ -1179,5 +1190,245 @@ body.locked-scroll {
   .project-bundle-item {
     margin: 0;
     padding: var(--space-lg) 0 !important;
+  }
+}
+
+/* ==========================================================================
+   TABLET, SMALL PHONE & SHORT LANDSCAPE VIEWPORT ENHANCEMENTS
+   ========================================================================== */
+@media (max-width: 980px) {
+  .modal-body .service-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: var(--space-lg);
+  }
+  .modal-body .service-item > div:first-child {
+    width: 100% !important;
+  }
+  .modal-body .service-item > div:first-child img,
+  .modal-body .service-item > div:first-child .zoomable-thumb-img {
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+  .modal-body .service-item > div:nth-child(2),
+  .modal-body .service-item > div:nth-child(3) {
+    width: 100% !important;
+  }
+  .modal-body .service-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .content-wrapper {
+    padding: 0 20px 8vh 20px;
+  }
+  .preview-content-wrapper {
+    padding: 18px 20px 22px !important;
+  }
+  .modal-overlay {
+    padding: 10px !important;
+  }
+  .modal-body {
+    padding: 16px !important;
+  }
+  .social-links {
+    gap: 20px;
+  }
+  .social-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-height: 550px) and (max-width: 1100px) {
+  .mobile-nav-overlay {
+    gap: clamp(0.85rem, 3vh, 1.8rem);
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .mobile-nav-overlay a {
+    font-size: clamp(1.35rem, 4.2vh, 2.2rem);
+  }
+  .left-column {
+    min-height: 340px;
+  }
+  .hero-text-content {
+    padding-bottom: 24px !important;
+  }
+}
+
+/* ==========================================================================
+   ZOOMABLE THUMBNAILS & FOCUSED IMAGE LIGHTBOX
+   ========================================================================== */
+.zoomable-thumb-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.zoomable-thumb-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--clr-border);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.zoomable-thumb-btn:hover .zoomable-thumb-img,
+.zoomable-thumb-btn:focus-visible .zoomable-thumb-img {
+  border-color: var(--clr-copper-light);
+  transform: scale(1.03);
+}
+
+.zoomable-thumb-btn:focus-visible {
+  outline: 2px solid var(--clr-copper-light);
+  outline-offset: 2px;
+}
+
+.zoomable-thumb-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(20, 20, 18, 0.78);
+  border: 1px solid var(--clr-border-light);
+  color: var(--clr-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.zoomable-thumb-btn:hover .zoomable-thumb-hint,
+.preview-image-clickable:hover .preview-zoom-hint {
+  opacity: 1;
+  color: var(--clr-copper-light);
+  border-color: var(--clr-copper);
+  transform: scale(1.06);
+}
+
+.preview-image-clickable {
+  cursor: zoom-in;
+}
+
+.preview-image-clickable:focus-visible {
+  outline: 2px solid var(--clr-copper-light);
+  outline-offset: -2px;
+}
+
+.preview-zoom-hint {
+  top: 14px;
+  right: 14px;
+  bottom: auto;
+  left: auto;
+  z-index: 10;
+}
+
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(14, 14, 12, 0.92);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 40px);
+  opacity: 0;
+  animation: fadeIn 0.22s ease forwards;
+}
+
+.image-lightbox-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(92vw, 1100px);
+  max-height: 90dvh;
+  transform: scale(0.96);
+  opacity: 0;
+  animation: slideUp 0.26s ease forwards;
+}
+
+.image-lightbox-img {
+  max-width: 100%;
+  max-height: 78dvh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1.5px solid var(--clr-border-light);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+  background: var(--clr-dark);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: var(--clr-bg-alt);
+  border: 1.5px solid var(--clr-copper);
+  color: var(--clr-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.image-lightbox-close:hover,
+.image-lightbox-close:focus-visible {
+  background: var(--clr-dark);
+  color: var(--clr-copper-light);
+  border-color: var(--clr-copper-light);
+  transform: rotate(90deg) scale(1.06);
+  outline: none;
+}
+
+.image-lightbox-caption {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  color: var(--clr-text);
+  text-align: center;
+  letter-spacing: 0.06em;
+  max-width: 90vw;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 850px) {
+  .image-lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    background: rgba(20, 20, 18, 0.88);
+  }
+  .image-lightbox-img {
+    max-height: 72dvh;
+    border-radius: 10px;
   }
 }

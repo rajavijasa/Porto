@@ -39,6 +39,7 @@ import keyboardImg from './assets/keyboard.jpg';
 import mbdRovImg from './assets/mbdROV.png';
 import smartAlarmImg from './assets/smartalarm.png';
 import smartBinImg from './assets/smartbin.jpeg';
+import sbdImg from './assets/sbd.png';
 import moviedbImg from './assets/moviedb.jpg';
 import dataanalysisImg from './assets/analyst.jpg';
 import melodifyImg from './assets/melodify.jpeg';
@@ -68,6 +69,7 @@ const projectData = [
   { title: 'Remotely Operated Vehicle Simulation', subtitle: 'Microcontroller & Embedded Systems', image: mbdRovImg, isLatest: true },
   { title: 'Smart Discipline Alarm', subtitle: 'Digital Design', image: smartAlarmImg, isLatest: true },
   { title: 'Smart Bin', subtitle: 'Embedded Systems', image: smartBinImg, isLatest: false },
+  { title: 'BOS Monitor', subtitle: 'Database Systems', image: sbdImg, isLatest: false },
   { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: false },
   { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: false },
   { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: false },
@@ -105,10 +107,19 @@ export default function App() {
   const scrollContainerRef = useRef(null);
   const aboutRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileLayout, setIsMobileLayout] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 1100px)').matches : false
+  );
   const scrollLockRef = useRef({ locked: false, scrollY: 0, rightColumnScrollTop: 0 });
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 1100;
+    const mq = window.matchMedia('(max-width: 1100px)');
+    const handleChange = (e) => setIsMobileLayout(e.matches);
+    mq.addEventListener('change', handleChange);
+    return () => mq.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -116,15 +127,15 @@ export default function App() {
         }
       });
     }, { 
-      threshold: 0.25, 
+      threshold: 0.2, 
       rootMargin: "0px", 
-      root: isMobile ? null : scrollContainerRef.current 
+      root: isMobileLayout ? null : scrollContainerRef.current 
     });
 
     const hiddenElements = document.querySelectorAll('.reveal');
     hiddenElements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [isMobileLayout]);
 
   useEffect(() => {
     const shouldLock = Boolean(activeModal || isMobileMenuOpen);

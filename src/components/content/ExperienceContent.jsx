@@ -1,3 +1,4 @@
+import ZoomableImage from '../ZoomableImage';
 import digilabImg from '../../assets/digilab.jpg';
 import amvImg from '../../assets/amv.jpeg';
 import alinImg from '../../assets/alin.png';
@@ -91,17 +92,10 @@ const experiences = [
             }}
           >
             <div style={{ width: '240px', flexShrink: 0 }}>
-              <img
+              <ZoomableImage
                 src={exp.img}
                 alt={exp.inst}
-                style={{
-                  width: '100%',
-                  height: '180px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  border: '1px solid var(--clr-border)',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
-                }}
+                caption={`${exp.inst} — ${exp.major}`}
               />
             </div>
 

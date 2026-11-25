@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import ZoomableImage from '../ZoomableImage';
 import nemoImg from '../../assets/makara_nemo.jpg';
 import perseusImg from '../../assets/makara_perseus.jpeg';
 import keyboardImg from '../../assets/keyboard.jpg';
 import mbdRovImg from '../../assets/mbdROV.png';
 import smartAlarmImg from '../../assets/smartalarm.png';
 import smartBinImg from '../../assets/smartbin.jpeg';
+import sbdImg from '../../assets/sbd.png';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -127,6 +129,16 @@ export default function ProjectsContent() {
       skills: ["AVR Assembly", "Arduino Uno", "I2C / PWM", "External Interrupt", "Proteus"],
       img: smartBinImg,
       link: "https://github.com/malik-dk/FinPro-MBD-Kel17",
+      isLatest: false
+    },
+    {
+      year: "May 2026",
+      inst: "BOS Monitor",
+      major: "Database Systems",
+      desc: "Built a full-stack BOS fund transparency platform using React, Express, and PostgreSQL featuring charts, rankings, reviews, reports, and teacher portal.",
+      skills: ["PostgreSQL", "React", "Express", "Node.js", "Database Systems"],
+      img: sbdImg,
+      link: "https://github.com/Ementshh/Finpro-SBD-1",
       isLatest: false
     },
     {
@@ -308,17 +320,10 @@ export default function ProjectsContent() {
       }}
     >
       <div style={{ width: '240px', flexShrink: 0 }}>
-        <img
+        <ZoomableImage
           src={proj.img}
           alt={proj.inst}
-          style={{
-            width: '100%',
-            height: '180px',
-            objectFit: 'cover',
-            borderRadius: '12px',
-            border: '1px solid var(--clr-border)',
-            boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
-          }}
+          caption={`${proj.inst} — ${proj.major}`}
         />
       </div>
 

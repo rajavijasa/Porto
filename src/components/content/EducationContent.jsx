@@ -1,3 +1,4 @@
+import ZoomableImage from '../ZoomableImage';
 import univImg from '../../assets/universitas.jpg';
 import ccitImg from '../../assets/ccit.jpg';
 import schoolImg from '../../assets/school.png';
@@ -95,17 +96,10 @@ export default function EducationContent() {
             }}
           >
             <div style={{ width: '240px', flexShrink: 0 }}>
-              <img
+              <ZoomableImage
                 src={edu.img}
                 alt={edu.inst}
-                style={{
-                  width: '100%',
-                  height: '180px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  border: '1px solid var(--clr-border)',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
-                }}
+                caption={`${edu.inst} — ${edu.major}`}
               />
             </div>
 
@@ -188,17 +182,10 @@ export default function EducationContent() {
             }}
           >
             <div style={{ width: '240px', flexShrink: 0 }}>
-              <img
+              <ZoomableImage
                 src={h.img}
                 alt={h.inst}
-                style={{
-                  width: '100%',
-                  height: '180px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  border: '1px solid var(--clr-border)',
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.3)'
-                }}
+                caption={`${h.inst} — ${h.major}`}
               />
             </div>
 
@@ -256,7 +243,7 @@ export default function EducationContent() {
       </div>
 
       <div style={{ borderTop: '1px solid var(--clr-border)', paddingTop: 'var(--space-md)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
           {certifications.map((c, i) => (
             <div
               key={i}
