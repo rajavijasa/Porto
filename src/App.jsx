@@ -38,6 +38,7 @@ import digilabImg from './assets/digilab.jpg';
 import keyboardImg from './assets/keyboard.jpg';
 import mbdRovImg from './assets/mbdROV.png';
 import smartAlarmImg from './assets/smartalarm.png';
+import smartBinImg from './assets/smartbin.jpeg';
 import moviedbImg from './assets/moviedb.jpg';
 import dataanalysisImg from './assets/analyst.jpg';
 import melodifyImg from './assets/melodify.jpeg';
@@ -66,6 +67,7 @@ const projectData = [
   { title: 'Thock-Master Pro', subtitle: 'Digital System Design', image: keyboardImg, isLatest: true },
   { title: 'Remotely Operated Vehicle Simulation', subtitle: 'Microcontroller & Embedded Systems', image: mbdRovImg, isLatest: true },
   { title: 'Smart Discipline Alarm', subtitle: 'Digital Design', image: smartAlarmImg, isLatest: true },
+  { title: 'Smart Bin', subtitle: 'Embedded Systems', image: smartBinImg, isLatest: false },
   { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: false },
   { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: false },
   { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: false },

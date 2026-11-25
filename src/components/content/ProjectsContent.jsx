@@ -4,6 +4,7 @@ import perseusImg from '../../assets/makara_perseus.jpeg';
 import keyboardImg from '../../assets/keyboard.jpg';
 import mbdRovImg from '../../assets/mbdROV.png';
 import smartAlarmImg from '../../assets/smartalarm.png';
+import smartBinImg from '../../assets/smartbin.jpeg';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -117,6 +118,16 @@ export default function ProjectsContent() {
       img: smartAlarmImg,
       link: "https://drive.google.com/drive/folders/19yvwE46hLg5SaNTE0loBbZA_f7F8YqMR?usp=sharing",
       isLatest: true
+    },
+    {
+      year: "May 2026",
+      inst: "Smart Bin",
+      major: "Embedded Systems",
+      desc: "Built an AVR Assembly Arduino smart bin using dual ultrasonic sensors, servo PWM lid, I2C LCD fullness monitor, and interrupt override.",
+      skills: ["AVR Assembly", "Arduino Uno", "I2C / PWM", "External Interrupt", "Proteus"],
+      img: smartBinImg,
+      link: "https://github.com/malik-dk/FinPro-MBD-Kel17",
+      isLatest: false
     },
     {
       year: "Dec 2025",
