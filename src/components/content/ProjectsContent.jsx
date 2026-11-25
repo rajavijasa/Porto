@@ -92,27 +92,27 @@ export default function ProjectsContent() {
       year: "Jul 2026",
       inst: "Thock-Master Pro",
       major: "Digital System Design",
-      desc: "Designed an FPGA mechanical keyboard controller blueprint in VHDL targeting Intel Cyclone V, integrating Hall-Effect Rapid Trigger, 6x16 matrix scanning, Ring-Topology FSM menu navigation, PWM LED backlight, WPM/RTC engine, and microprogrammed Macro ROM.",
+      desc: "Designed an FPGA mechanical keyboard controller blueprint in VHDL featuring Hall-Effect Rapid Trigger, 6x16 scanning, FSM menu control, and Macro ROM.",
       skills: ["VHDL", "FPGA", "ModelSim", "Quartus Prime", "Digital System Design"],
       img: keyboardImg,
-      link: "https://drive.google.com/drive/folders/13C2DAo2Knv_TLKn_nEZsTZU79uDk9u2I?usp=sharing",
+      link: "https://drive.google.com/drive/folders/1_iTrRWUE3Hfg_EQt6_qke_asEFyfmNDF?usp=sharing",
       isLatest: true
     },
     {
       year: "Jul 2026",
       inst: "Remotely Operated Vehicle Simulation",
       major: "Microcontroller & Embedded Systems",
-      desc: "Simulated a bare-metal 6-thruster ROV controller in Wokwi prior to hardware manufacturing using pure AVR Assembly on ATmega328P, featuring dual-axis joystick ADC kinematics, 50 Hz Fast PWM gripper servo, edge-detected USART telemetry, and emergency failsafe.",
+      desc: "Simulated a 6-thruster ROV controller in Wokwi using AVR Assembly before manufacturing, featuring joystick kinematics, gripper PWM, serial telemetry, and failsafe.",
       skills: ["AVR Assembly", "ATmega328P", "Wokwi", "Embedded Systems", "PWM / ADC / USART"],
       img: mbdRovImg,
-      link: "https://drive.google.com/drive/folders/1_iTrRWUE3Hfg_EQt6_qke_asEFyfmNDF?usp=sharing",
+      link: "https://drive.google.com/drive/folders/13C2DAo2Knv_TLKn_nEZsTZU79uDk9u2I?usp=sharing",
       isLatest: true
     },
     {
       year: "Jun 2026",
       inst: "Smart Discipline Alarm",
       major: "Digital Design",
-      desc: "Designed a discrete 74xx TTL/CMOS digital alarm clock in Proteus to help students stay disciplined and manage time, featuring a 24-hour BCD RTC, 5 independent alarm slots with hardware input validation, true alarm latch, and a Top-1 fastest reaction stopwatch.",
+      desc: "Designed a discrete 74xx digital alarm in Proteus to boost student time management, featuring 5 alarm slots, hardware validation, and reaction stopwatch.",
       skills: ["Digital Logic Design", "Proteus", "IC 74xx", "Finite State Machine", "K-Map Optimization"],
       img: smartAlarmImg,
       link: "https://drive.google.com/drive/folders/19yvwE46hLg5SaNTE0loBbZA_f7F8YqMR?usp=sharing",
@@ -424,7 +424,7 @@ export default function ProjectsContent() {
 
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
-                  Curated engineering coursework and laboratory projects built during Computer Engineering studies, spanning an FPGA VHDL mechanical keyboard controller &amp; parallel bitonic sorter, bare-metal AVR Assembly ROV simulation, discrete 74xx smart alarm logic, LibGDX game design, Cisco multi-area networking, and embedded IoT systems.
+                  Curated Computer Engineering coursework and laboratory projects spanning FPGA VHDL design, AVR Assembly robotics, discrete digital circuits, OOP games, and Cisco networking.
                 </p>
                 <div className="service-tags">
                   <span className="service-tag">VHDL / FPGA</span>
@@ -494,7 +494,7 @@ export default function ProjectsContent() {
 
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
-                  Applied software engineering and system automation projects completed at CCIT-FTUI, featuring full-stack music streaming platform, Android Kotlin mobile applications, SQL Server database administration, Excel data analytics dashboards, and smart IoT automation.
+                  Applied software and automation projects at CCIT-FTUI, covering PHP web platforms, Kotlin Android apps, SQL databases, Excel analytics, and ESP32 IoT.
                 </p>
                 <div className="service-tags">
                   <span className="service-tag">PHP / MySQL</span>
