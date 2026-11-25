@@ -35,6 +35,9 @@ import reserveImg from './assets/reservation.jpg';
 import nemoImg from './assets/makara_nemo.jpg';
 import perseusImg from './assets/makara_perseus.jpeg';
 import digilabImg from './assets/digilab.jpg';
+import keyboardImg from './assets/keyboard.jpg';
+import mbdRovImg from './assets/mbdROV.png';
+import smartAlarmImg from './assets/smartalarm.png';
 import moviedbImg from './assets/moviedb.jpg';
 import dataanalysisImg from './assets/analyst.jpg';
 import melodifyImg from './assets/melodify.jpeg';
@@ -60,10 +63,13 @@ const projectData = [
   { title: 'MoLiTav', subtitle: 'IoT Engineer', image: molitavImg, isLatest: false },
 
   // 2. University's Projects
-  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: true },
-  { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: true },
-  { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: true },
-  { title: 'Life Style Analytic', subtitle: 'Statistics', image: statisImg, isLatest: true },
+  { title: 'Thock-Master Pro', subtitle: 'Digital System Design', image: keyboardImg, isLatest: true },
+  { title: 'Remotely Operated Vehicle Simulation', subtitle: 'Microcontroller & Embedded Systems', image: mbdRovImg, isLatest: true },
+  { title: 'Smart Discipline Alarm', subtitle: 'Digital Design', image: smartAlarmImg, isLatest: true },
+  { title: '16-Channel Parallel Bitonic Sorter', subtitle: 'Digital System Design', image: psdImg, isLatest: false },
+  { title: 'LabuBoom', subtitle: 'Object-Oriented Programming', image: labuboomImg, isLatest: false },
+  { title: 'Computer Network Project', subtitle: 'Computer Network', image: jarkomImg, isLatest: false },
+  { title: 'Life Style Analytic', subtitle: 'Statistics', image: statisImg, isLatest: false },
   { title: 'Housing Energy Monitor', subtitle: 'Programming Fundamental', image: progdasImg, isLatest: false },
   { title: 'Scheduled', subtitle: 'Engineering Design', image: pdtImg, isLatest: false },
   { title: 'Slam Dunk (Arcade Basketball)', subtitle: 'Digital Design', image: dsdImg, isLatest: false },

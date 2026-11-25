@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import nemoImg from '../../assets/makara_nemo.jpg';
 import perseusImg from '../../assets/makara_perseus.jpeg';
+import keyboardImg from '../../assets/keyboard.jpg';
+import mbdRovImg from '../../assets/mbdROV.png';
+import smartAlarmImg from '../../assets/smartalarm.png';
 import dsdImg from '../../assets/dsd.png';
 import progdasImg from '../../assets/progdas.png';
 import pdtImg from '../../assets/scheduled.png';
@@ -86,6 +89,36 @@ export default function ProjectsContent() {
 
   const universityProjects = [
     {
+      year: "Jul 2026",
+      inst: "Thock-Master Pro",
+      major: "Digital System Design",
+      desc: "Designed an FPGA mechanical keyboard controller blueprint in VHDL targeting Intel Cyclone V, integrating Hall-Effect Rapid Trigger, 6x16 matrix scanning, Ring-Topology FSM menu navigation, PWM LED backlight, WPM/RTC engine, and microprogrammed Macro ROM.",
+      skills: ["VHDL", "FPGA", "ModelSim", "Quartus Prime", "Digital System Design"],
+      img: keyboardImg,
+      link: "https://drive.google.com/drive/folders/13C2DAo2Knv_TLKn_nEZsTZU79uDk9u2I?usp=sharing",
+      isLatest: true
+    },
+    {
+      year: "Jul 2026",
+      inst: "Remotely Operated Vehicle Simulation",
+      major: "Microcontroller & Embedded Systems",
+      desc: "Simulated a bare-metal 6-thruster ROV controller in Wokwi prior to hardware manufacturing using pure AVR Assembly on ATmega328P, featuring dual-axis joystick ADC kinematics, 50 Hz Fast PWM gripper servo, edge-detected USART telemetry, and emergency failsafe.",
+      skills: ["AVR Assembly", "ATmega328P", "Wokwi", "Embedded Systems", "PWM / ADC / USART"],
+      img: mbdRovImg,
+      link: "https://drive.google.com/drive/folders/1_iTrRWUE3Hfg_EQt6_qke_asEFyfmNDF?usp=sharing",
+      isLatest: true
+    },
+    {
+      year: "Jun 2026",
+      inst: "Smart Discipline Alarm",
+      major: "Digital Design",
+      desc: "Designed a discrete 74xx TTL/CMOS digital alarm clock in Proteus to help students stay disciplined and manage time, featuring a 24-hour BCD RTC, 5 independent alarm slots with hardware input validation, true alarm latch, and a Top-1 fastest reaction stopwatch.",
+      skills: ["Digital Logic Design", "Proteus", "IC 74xx", "Finite State Machine", "K-Map Optimization"],
+      img: smartAlarmImg,
+      link: "https://drive.google.com/drive/folders/19yvwE46hLg5SaNTE0loBbZA_f7F8YqMR?usp=sharing",
+      isLatest: true
+    },
+    {
       year: "Dec 2025",
       inst: "16-Channel Parallel Bitonic Sorter",
       major: "Digital System Design",
@@ -93,7 +126,7 @@ export default function ProjectsContent() {
       skills: ["VHDL", "FPGA", "Quartus Prime"],
       img: psdImg,
       link: "https://github.com/Hadar15/Kelompok10_FINPRO_PSD.git",
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Dec 2025",
@@ -103,7 +136,7 @@ export default function ProjectsContent() {
       skills: ["LibGDX", "Spring Boot", "Java"],
       img: labuboomImg,
       link: "https://ement.itch.io/labuboom",
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Jun 2024 & Dec 2025",
@@ -113,7 +146,7 @@ export default function ProjectsContent() {
       skills: ["Cisco", "Network Integration", "IoT"],
       img: jarkomImg,
       link: "https://drive.google.com/drive/folders/1geIVr534sXtRFSDia04wgQNchVsA_3Er?usp=sharing",
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Dec 2025",
@@ -123,7 +156,7 @@ export default function ProjectsContent() {
       skills: ["Analytic", "Research & Survei"],
       img: statisImg,
       link: "https://drive.google.com/drive/folders/1lRKsrnVZIUvoLWQcAV6juUpy17uwX3jC?usp=sharing",
-      isLatest: true
+      isLatest: false
     },
     {
       year: "Jun 2025",
@@ -353,7 +386,7 @@ export default function ProjectsContent() {
             >
               <div style={{ width: '240px', flexShrink: 0, position: 'relative' }}>
                 <img
-                  src={psdImg}
+                  src={keyboardImg}
                   alt="University's Projects"
                   style={{
                     width: '100%',
@@ -391,13 +424,14 @@ export default function ProjectsContent() {
 
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontSize: '1.3rem', color: 'var(--clr-muted)', marginBottom: '12px', lineHeight: '1.6', overflowWrap: 'anywhere' }}>
-                  Curated engineering coursework and laboratory projects built during Computer Engineering studies, spanning FPGA VHDL parallel bitonic sorter, LibGDX game design, Cisco multi-area networking, statistical regression analysis, and embedded IoT systems.
+                  Curated engineering coursework and laboratory projects built during Computer Engineering studies, spanning an FPGA VHDL mechanical keyboard controller &amp; parallel bitonic sorter, bare-metal AVR Assembly ROV simulation, discrete 74xx smart alarm logic, LibGDX game design, Cisco multi-area networking, and embedded IoT systems.
                 </p>
                 <div className="service-tags">
                   <span className="service-tag">VHDL / FPGA</span>
+                  <span className="service-tag">AVR Assembly</span>
+                  <span className="service-tag">Proteus 74xx</span>
                   <span className="service-tag">Java &amp; LibGDX</span>
                   <span className="service-tag">Cisco Networking</span>
-                  <span className="service-tag">C Programming</span>
                   <span className="service-tag">ESP32 IoT</span>
                 </div>
               </div>
@@ -495,7 +529,7 @@ export default function ProjectsContent() {
               &larr; Back to Technical Projects
             </button>
             <div className="category-detail-meta" style={{ marginTop: '8px' }}>
-              <span className="category-detail-tag">Faculty of Engineering, Universitas Indonesia &bull; 8 Projects</span>
+              <span className="category-detail-tag">Faculty of Engineering, Universitas Indonesia &bull; {universityProjects.length} Projects</span>
               <h2 className="t-h2 category-detail-title">
                 University&apos;s <em style={{ fontStyle: 'italic', color: 'var(--clr-copper)' }}>Projects</em>
               </h2>
